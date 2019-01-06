@@ -7,11 +7,10 @@ from discord import Game
 import time
 client.run(os.environ['BOT_TOKEN'])
 
-client = discord.Client()
             
 Client  = discord.client
 client = commands.Bot(command_prefix = ".")
-
+client = discord.Client()
 @client.event
 async def on_message_edit(before, after):
     fmt = '**{0.author}** edited their message: :arrow_up: \n{1.content}'
