@@ -6,6 +6,7 @@ import random
 from discord import Game
 import time
 client.run(os.environ['BOT_TOKEN'])
+import os
 
             
 Client  = discord.client
