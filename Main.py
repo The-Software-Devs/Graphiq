@@ -105,7 +105,7 @@ async def unmute(ctx, user: discord.Member, *, arg):
 	author = ctx.message.author
 	role = discord.utils.get(ctx.message.server.roles, name="Muted")
 	await client.remove_roles(user, role)
-	embed = discord.Embed(title="Unmute", description=" ", color=0xFFA500)
+	embed = discord.Embed(title="Unmute", description=" ", color=0x00ff00)
 	embed.add_field(name="User: ", value="<@{}>".format(user.id), inline=False)
 	embed.add_field(name="Moderator: ", value="{}".format(author.mention), inline=False)
 	embed.add_field(name="Reason: ", value="{}\n".format(arg), inline=False)
