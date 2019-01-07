@@ -78,5 +78,37 @@ url="https://twitch.tv/celabrat", type=1))
     print(client.user.name)
     print(client.user.id)
     print('------')
+    
+@client.command(pass_context=True)
+@commands.has_permissions(kick_members=True, administrator=True)
+async def mute(ctx, user: discord.Member, *, arg):
+	if arg is None:
+		await client.say("please provide a reason to {}".format(user.name))
+		return False
+	reason = arg
+	author = ctx.message.author
+	role = discord.utils.get(ctx.message.server.roles, name="Muted")
+	await client.add_roles(user, role)
+	embed = discord.Embed(title="Mute", description=" ", color=0xFFA500)
+	embed.add_field(name="User: ", value="<@{}>".format(user.id), inline=False)
+	embed.add_field(name="Moderator: ", value="{}".format(author.mention), inline=False)
+	embed.add_field(name="Reason: ", value="{}\n".format(arg), inline=False)
+	await client.say(embed=embed)
+
+@client.command(pass_context=True)
+@commands.has_permissions(kick_members=True, administrator=True)
+async def unmute(ctx, user: discord.Member, *, arg):
+	if arg is None:
+		await client.say("please provide a reason to {}".format(user.name))
+		return False
+	reason = arg
+	author = ctx.message.author
+	role = discord.utils.get(ctx.message.server.roles, name="Muted")
+	await client.remove_roles(user, role)
+	embed = discord.Embed(title="Unmute", description=" ", color=0xFFA500)
+	embed.add_field(name="User: ", value="<@{}>".format(user.id), inline=False)
+	embed.add_field(name="Moderator: ", value="{}".format(author.mention), inline=False)
+	embed.add_field(name="Reason: ", value="{}\n".format(arg), inline=False)
+	await client.say(embed=embed)
 
 client.run(os.environ['BOT_TOKEN'])
