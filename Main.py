@@ -68,7 +68,7 @@ async def on_message(message):
         if "<Role ID>" in [role.id for role in message.author.roles]: #Replace <Role ID> with the ID of the role you want to be able to execute this command
             await client.send_message(message.channel, "You are an administrator!")
         else:
-            await client.send_message(message.channel, "You are not an administrator! Please ensure that i have the full permissions and above all of the higher ranks.")
+            await client.send_message(message.channel, "You are not an administrator!")
 
 @client.event
 async def on_ready():
