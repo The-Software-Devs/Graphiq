@@ -4,26 +4,23 @@ from discord.ext import commands
 import asyncio
 import random
 import os
-client.run(os.environ['BOT_TOKEN'])
 from discord import Game
 import time
 
-            
 Client  = discord.client
 client = commands.Bot(command_prefix = ".")
 client = discord.Client()
+
 @client.event
 async def on_message_edit(before, after):
     fmt = '**{0.author}** edited their message: :arrow_up: \n{1.content}'
     await client.send_message(after.channel, fmt.format(after, before))
-
 
 @client.event
 async def on_member_join(member):
     server = member.server
     fmt = 'Welcome {0.mention} to {1.name}!'
     await client.send_message(server, fmt.format(member, server))
-
 
 @client.event
 async def on_message(message):
@@ -56,8 +53,6 @@ async def on_message(message):
         msg = "https://discordapp.com/api/oauth2/authorize?client_id=529463184910712872&permissions=0&scope=bot {0.author.mention}".format((message))
         await client.send_message(message.channel, msg)
 
-        
-
 @client.event
 async def on_message(message):
     if message.content.upper().startswith('.ADMINME'):
@@ -75,9 +70,6 @@ async def on_message(message):
         else:
             await client.send_message(message.channel, "You are not an administrator! Please ensure that i have the full permissions and above all of the higher ranks.")
 
-        
-
-
 @client.event
 async def on_ready():
     await client.change_presence(game=discord.Game(name="102 servers | 456,769 users",
@@ -87,6 +79,4 @@ url="https://twitch.tv/celabrat", type=1))
     print(client.user.id)
     print('------')
 
-
 client.run(os.environ['BOT_TOKEN'])
-
