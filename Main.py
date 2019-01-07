@@ -3,10 +3,10 @@ from discord.ext.commands import Bot
 from discord.ext import commands
 import asyncio
 import random
+import os
 from discord import Game
 import time
 client.run(os.environ['BOT_TOKEN'])
-import os
 
             
 Client  = discord.client
