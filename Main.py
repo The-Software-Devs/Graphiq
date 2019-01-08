@@ -40,10 +40,11 @@ async def on_message(message):
 		userID = message.author.id
 		msg = "https://discordapp.com/api/oauth2/authorize?client_id=529463184910712872&permissions=0&scope=bot {0.author.mention}".format((message))
 		await bot.send_message(message.channel, msg)
+	
 	if message.content.startswith('.adminme'):
 		userID = message.author.id
 		await bot.send_message(message.channel, ":x: You do not have the permission to do that <@%s>" % (userID
-	await bot.process_commands(message)
+await bot.process_commands(message)
 
 @bot.command(pass_context=True)
 async def help(ctx):
