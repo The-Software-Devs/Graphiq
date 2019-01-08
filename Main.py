@@ -70,8 +70,8 @@ async def on_message(message):
             await client.send_message(message.channel, "You are an administrator!")
         else:
             await client.send_message(message.channel, "You are not an administrator!")
-
-@bot.command(pass_context=True)
+	
+@bot.command(pass_context=True, no_pm=True)
 async def help(ctx):
 	server = ctx.message.server
 	author = ctx.message.author
