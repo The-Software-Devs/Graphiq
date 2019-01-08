@@ -10,6 +10,7 @@ import time
 client = discord.Client()
 client = commands.Bot(command_prefix = ".")
 client.remove_command("help")
+Client = discord.client
 
 @client.event
 async def on_ready():
