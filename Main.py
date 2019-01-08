@@ -21,9 +21,6 @@ url="https://twitch.tv/celabrat", type=1))
 
 @bot.event
 async def on_message(message):
-	if message.author == bot.user:
-		return
-	
 	if message.content.startswith('hello'):
 		msg = 'Hello {0.author.mention}'.format(message)
 		await bot.send_message(message.channel, msg)
@@ -43,8 +40,8 @@ async def on_message(message):
 	
 	if message.content.startswith('.adminme'):
 		userID = message.author.id
-		await bot.send_message(message.channel, ":x: You do not have the permission to do that <@%s>" % (userID
-await bot.process_commands(message)
+		await bot.send_message(message.channel, ":x: You do not have the permission to do that <@%s>" % (userI
+		await bot.process_commands(message)
 
 @bot.command(pass_context=True)
 async def help(ctx):
