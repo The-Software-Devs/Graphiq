@@ -13,7 +13,7 @@ client = discord.Client()
 
 @client.event
 async def on_ready():
-    await client.change_presence(game=discord.Game(name="102 servers | 456,769 users",
+    await client.change_presence(game=discord.Game(name="163 servers | 591,925 users",
 url="https://twitch.tv/celabrat", type=1))
     print('Logged in as')
     print(client.user.name)
