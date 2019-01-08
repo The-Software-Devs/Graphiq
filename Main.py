@@ -58,6 +58,7 @@ async def on_message(message):
             await bot.send_message(message.channel, "You are an administrator!")
         else:
             await bot.send_message(message.channel, "You are not an administrator!")
+	await bot.process_commands(message)
 
 @bot.command(pass_context=True)
 async def help(ctx):
