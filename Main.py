@@ -45,37 +45,27 @@ async def on_message(message):
         msg = 'Thanks for having me in your server {0.author.mention}!'.format(message)
         await client.send_message(message.channel, msg)
 
-@client.event
-async def on_message(message):
-    # we do not want the bot to reply to itself
-    if message.author == client.user:
-        return
-
-@client.event
-async def on_message(message):
-    if message.content.upper().startswith('.PING'):
+    if message.content.startswith('.ping'):
         userID = message.author.id
         await client.send_message(message.channel, "<@%s> Pong!" % (userID))
 
-    if message.content.startswith("INVITEME"):
+    if message.content.startswith("inviteme"):
         userID = message.author.id
         msg = "https://discordapp.com/api/oauth2/authorize?client_id=529463184910712872&permissions=0&scope=bot {0.author.mention}".format((message))
         await client.send_message(message.channel, msg)
 
-@client.event
-async def on_message(message):
-    if message.content.upper().startswith('.ADMINME'):
+    if message.content.startswith('.adminme'):
         userID = message.author.id
         await client.send_message(message.channel, ":x: You do not have the permission to do that <@%s>" % (userID))
     
-    if message.content.upper().startswith('.LOGIN'):
+    if message.content.startswith('.login'):
         if message.author.id == "341933833136111617": #Replace <User ID> with the ID of the user you want to be able to execute this command!
             args = message.content.split(" ")
             await client.send_message(message.channel, "%s" % (" ".join(args[1:])))
         else:
             await client.send_message(message.channel, "You do not have permission to log into this service!")
     
-    if message.content.upper().startswith('.AMIADMIN'):
+    if message.content.startswith('.amiadmin'):
         if "<Role ID>" in [role.id for role in message.author.roles]: #Replace <Role ID> with the ID of the role you want to be able to execute this command
             await client.send_message(message.channel, "You are an administrator!")
         else:
