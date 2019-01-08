@@ -20,11 +20,6 @@ url="https://twitch.tv/celabrat", type=1))
     print('------')
 
 @bot.event
-async def on_message_edit(before, after):
-    fmt = '**{0.author}** edited their message: :arrow_up: \n{1.content}'
-    await bot.send_message(after.channel, fmt.format(after, before))
-
-@bot.event
 async def on_message(message):
     # we do not want the bot to reply to itself
     if message.author == bot.user:
