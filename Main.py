@@ -70,17 +70,7 @@ async def on_message(message):
             await client.send_message(message.channel, "You are an administrator!")
         else:
             await client.send_message(message.channel, "You are not an administrator!")
+	
 
-@bot.command(pass_context=True)
-async def help(ctx):
-	server = ctx.message.server
-	author = ctx.message.author
-	embed = discord.Embed(title="Help is here!", description=" ", color=0xFFFF)
-	embed.add_field(name="inviteme", value="gives you bot invite link")
-	embed.add_field(name=".ping", value="the bot ping you")
-	embed.add_field(name="hello", value="the bot will say hello to you")
-	embed.set_thumbnail(url=server.icon_url)
-	embed.set_footer(text="Requested by: " + author.name)
-	await bot.say(embed=embed)
     
 client.run(os.environ['BOT_TOKEN'])
