@@ -34,14 +34,14 @@ async def on_message(message):
 	if message.content.startswith('.adminme'):
 		userID = message.author.id
 		await bot.send_message(message.channel, ":x: You do not have the permission to do that <@%s>" % (userID))
-		await bot.process_commands(message)
+	await bot.process_commands(message)
 
 @bot.command()
 async def pings():
 	await bot.say("test {}".format(ctx.message.author.mention))
 	
 @bot.command(pass_context=True, no_pm=True)
-async def helps(ctx):
+async def help(ctx):
 	embed = discord.Embed(title="Help section", description=" ", color=0xFFFF)
 	embed.add_field(name=".hello", value="make the bot say hello to you")
 	embed.add_field(name=".welcome", value="welcome message")
