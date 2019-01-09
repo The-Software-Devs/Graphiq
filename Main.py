@@ -37,7 +37,7 @@ async def on_message(message):
 	await bot.process_commands(message)
 
 @bot.command()
-async def pings():
+async def test():
 	await bot.say("test {}".format(ctx.message.author.mention))
 	
 @bot.command(pass_context=True, no_pm=True)
