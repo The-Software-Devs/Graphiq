@@ -34,7 +34,11 @@ async def on_message(message):
 		await bot.send_message(message.channel, msg)
 	if message.content.startswith('.adminme'):
 		userID = message.author.id
-		await bot.send_message(message.channel, ":x: You do not have the permission to do that <@%s>" % (userI
+		await bot.send_message(message.channel, ":x: You do not have the permission to do that <@%s>" % (userID))
 	await bot.process_commands(message)
+	
+@bot.command()
+async def pings():
+	await bot.say("test {}".format(ctx.message.author.mention)
     
 bot.run(os.environ['BOT_TOKEN'])
