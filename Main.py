@@ -40,5 +40,5 @@ async def on_message(message):
 @bot.command()
 async def pings():
 	await bot.say("test {}".format(ctx.message.author.mention)
-    
+
 bot.run(os.environ['BOT_TOKEN'])
