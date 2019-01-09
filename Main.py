@@ -39,5 +39,14 @@ async def on_message(message):
 @bot.command()
 async def pings():
 	await bot.say("test {}".format(ctx.message.author.mention))
+	
+@bot.command(pass_context=True, no_pm=True)
+async def help(ctx):
+	embed = discord.Embed(title="Help section", description=" ", color=0xFFFF)
+	embed.add_field(name=".hello", value="make the bot say hello to you")
+	embed.add_field(name=".welcome", value="welcome message")
+	embed.add_field(name=".ping", value="make the bot ping you")
+	embed.add_field(name="inviteme", value="to get bot invite link")
+	await bot.say(embed=embed)
 		      
 bot.run(os.environ['BOT_TOKEN'])
