@@ -41,7 +41,7 @@ async def pings():
 	await bot.say("test {}".format(ctx.message.author.mention))
 	
 @bot.command(pass_context=True, no_pm=True)
-async def help(ctx):
+async def helps(ctx):
 	embed = discord.Embed(title="Help section", description=" ", color=0xFFFF)
 	embed.add_field(name=".hello", value="make the bot say hello to you")
 	embed.add_field(name=".welcome", value="welcome message")
