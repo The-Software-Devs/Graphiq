@@ -18,7 +18,7 @@ url="https://twitch.tv/celabrat", type=1))
 
 @bot.event
 async def on_message(message):
-	if message.content.startswith('hello'):
+	if message.content.startswith('.hello'):
 		msg = 'Hello {0.author.mention}'.format(message)
 		await bot.send_message(message.channel, msg)
 	if message.content.startswith('.welcome'):
@@ -38,6 +38,6 @@ async def on_message(message):
 
 @bot.command()
 async def pings():
-	await bot.say("test {}".format(ctx.message.author.mention)
+	await bot.say("test {}".format(ctx.message.author.mention))
 		      
 bot.run(os.environ['BOT_TOKEN'])
