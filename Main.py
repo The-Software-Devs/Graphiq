@@ -2,8 +2,8 @@ import discord
 from discord.ext import commands
 import asyncio
 import random
-import os
 import time
+import os
 
 bot = commands.Bot(command_prefix = ".")
 bot.remove_command('help')
@@ -36,17 +36,5 @@ async def on_message(message):
 		userID = message.author.id
 		await bot.send_message(message.channel, ":x: You do not have the permission to do that <@%s>" % (userI
 	await bot.process_commands(message)
-
-@bot.command(pass_context=True)
-async def help(ctx):
-        server = ctx.message.server
-	author = ctx.message.author
-	embed = discord.Embed(title="Help is here!", description=" ", color=0xFFFF)
-	embed.add_field(name="inviteme", value="gives you bot invite link")
-	embed.add_field(name=".ping", value="the bot ping you")
-	embed.add_field(name="hello", value="the bot will say hello to you")
-	embed.set_thumbnail(url=server.icon_url)
-	embed.set_footer(text="Requested by: " + author.name)
-	await bot.say(embed=embed)
     
 bot.run(os.environ['BOT_TOKEN'])
