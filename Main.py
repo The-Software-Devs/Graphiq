@@ -27,7 +27,7 @@ async def on_message(message):
 	if message.content.startswith('.ping'):
 		await bot.send_message(message.channel, "{0.author.mention} Pong!".format(message))
 	
-	if message.content.startswith("inviteme"):
+	if message.content.startswith(".inviteme"):
 		msg = "https://discordapp.com/api/oauth2/authorize?client_id=529463184910712872&permissions=0&scope=bot {0.author.mention}".format(message)
 		await bot.send_message(message.channel, msg)
 	
@@ -47,5 +47,23 @@ async def help(ctx):
 	embed.add_field(name=".ping", value="make the bot ping you")
 	embed.add_field(name="inviteme", value="to get bot invite link")
 	await bot.say(embed=embed)
+	
+@bot.command(pass_context=True)
+async def bug(ctx, *, reportmsg: str):
+    channel = bot.get_channel('503634621699850250')
+    msg = embed = discord.Embed(title=f"User: {ctx.message.author.name}", description=f"Bug reports: {reportmsg}", color=0xFFFF)
+    await bot.send_message(channel, embed=embed)
+    text = embed = discord.Embed(title="Your bot bug reports has been submitted", description=f"{ctx.message.author.name}'s message: {reportmsg} ", color=0xFFFF)
+    await bot.delete_message(ctx.message)
+    await bot.say(embed=embed)
+    
+@bot.command(pass_context=True)
+async def idea(ctx, *, reportmsg: str):
+    channel = bot.get_channel('503634621699850250')
+    msg = embed = discord.Embed(title=f"User: {ctx.message.author.name}", description=f"Idea: {reportmsg}", color=0xFFFF)
+    await bot.send_message(channel, embed=embed)
+    embed = discord.Embed(title="Your idea has been submitted", description=f"{ctx.message.author.name}'s message: {reportmsg} ", color=0xFFFF)
+    await bot.delete_message(ctx.message)
+    await bot.say(embed=embed)
 		      
 bot.run(os.environ['BOT_TOKEN'])
