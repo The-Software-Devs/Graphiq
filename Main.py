@@ -32,7 +32,7 @@ async def on_message(message):
 		await bot.send_message(message.channel, msg)
 	
 	if message.content.startswith('.adminme'):
-		await bot.send_message(message.channel, ":x: You do not have the permission to do that <@%s>".format(message)
+		await bot.send_message(message.channel, ":x: You do not have the permission to do that <@%s>".format(message))
 	await bot.process_commands(message)
 
 @bot.command()
