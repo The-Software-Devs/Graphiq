@@ -50,7 +50,7 @@ async def help(ctx):
 	
 @bot.command(pass_context=True)
 async def bug(ctx, *, reportmsg: str):
-    channel = bot.get_channel('503634621699850250')
+    channel = bot.get_channel('532949494036168706')
     msg = embed = discord.Embed(title=f"User: {ctx.message.author.name}", description=f"Bug reports: {reportmsg}", color=0xFFFF)
     await bot.send_message(channel, embed=embed)
     text = embed = discord.Embed(title="Your bot bug reports has been submitted", description=f"{ctx.message.author.name}'s message: {reportmsg} ", color=0xFFFF)
@@ -59,7 +59,7 @@ async def bug(ctx, *, reportmsg: str):
     
 @bot.command(pass_context=True)
 async def idea(ctx, *, reportmsg: str):
-    channel = bot.get_channel('503634621699850250')
+    channel = bot.get_channel('532949494036168706')
     msg = embed = discord.Embed(title=f"User: {ctx.message.author.name}", description=f"Idea: {reportmsg}", color=0xFFFF)
     await bot.send_message(channel, embed=embed)
     embed = discord.Embed(title="Your idea has been submitted", description=f"{ctx.message.author.name}'s message: {reportmsg} ", color=0xFFFF)
