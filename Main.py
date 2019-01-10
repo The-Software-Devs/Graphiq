@@ -35,8 +35,8 @@ async def on_message(message):
 		await bot.send_message(message.channel, ":x: You do not have the permission to do that <@%s>".format(message))
 	await bot.process_commands(message)
 
-@bot.command()
-async def test():
+@bot.command(pass_context=True)
+async def test(ctx):
 	await bot.say("test {}".format(ctx.message.author.mention))
 	
 @bot.command(pass_context=True, no_pm=True)
