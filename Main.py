@@ -45,7 +45,9 @@ async def help(ctx):
 	embed.add_field(name=".hello", value="make the bot say hello to you")
 	embed.add_field(name=".welcome", value="welcome message")
 	embed.add_field(name=".ping", value="make the bot ping you")
-	embed.add_field(name="inviteme", value="to get bot invite link")
+	embed.add_field(name=".inviteme", value="to get bot invite link")
+	embed.add_field(name=".bug", value="only use this command if the bot is acting weird on specific command.")
+	embed.add_field(name=".idea", value="send your idea about new commands the bot don't have")
 	await bot.say(embed=embed)
 	
 @bot.command(pass_context=True)
