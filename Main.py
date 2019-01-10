@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 import asyncio
 import time
+import inspect
 import os
 
 bot = commands.Bot(command_prefix = ".")
@@ -39,6 +40,9 @@ async def on_message(message):
 async def test(ctx):
 	await bot.say("test {}".format(ctx.message.author.mention))
 	
+def user_is_me(ctx):
+	return ctx.message.author.id == "277983178914922497", "341933833136111617"
+	
 @bot.command(pass_context=True, no_pm=True)
 async def help(ctx):
 	embed = discord.Embed(title="Help section", description=" ", color=0xFFFF)
@@ -68,5 +72,19 @@ async def idea(ctx, *, reportmsg: str):
     embed = discord.Embed(title="Your idea has been submitted", description=f"{ctx.message.author.name}'s message: {reportmsg} ", color=0xFFFF)
     await bot.delete_message(ctx.message)
     await bot.say(embed=embed)
+	
+@bot.command(name='eval', pass_context=True)
+@commands.check(user_is_me)
+async def _eval(ctx, *, command):
+    res = eval(command)
+    if inspect.isawaitable(res):
+        await bot.say(await res)
+    else:
+    	await bot.say(res)
+        
+@_eval.error
+async def eval_error(error, ctx):
+	if isinstance(error, discord.ext.commands.errors.CheckFailure)
+	await bot.send_message(ctx.message.channel, ("Sorry {}. You can't use this command.".format(ctx.message.author.name))
 		      
 bot.run(os.environ['BOT_TOKEN'])
