@@ -32,7 +32,7 @@ async def on_message(message):
 		await bot.send_message(message.channel, msg)
 	
 	if message.content.startswith('.bothelp'):
-		await bot.send_message(message.channel, "<@%s> Need help? Join our server for more info. Our friendly staff will always help you. https://discord.gg/a5X8v7D".format(message))
+		await bot.send_message(message.channel, "Need help? Join our server for more info. Our friendly staff will always help you. https://discord.gg/a5X8v7D".format(message))
 	await bot.process_commands(message)
 
 @bot.command(pass_context=True)
