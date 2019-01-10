@@ -31,8 +31,8 @@ async def on_message(message):
 		msg = "https://discordapp.com/api/oauth2/authorize?client_id=529463184910712872&permissions=0&scope=bot {0.author.mention}".format(message)
 		await bot.send_message(message.channel, msg)
 	
-	if message.content.startswith('.adminme'):
-		await bot.send_message(message.channel, ":x: You do not have the permission to do that <@%s>".format(message))
+	if message.content.startswith('.bothelp'):
+		await bot.send_message(message.channel, "<@%s> Need help? Join our server for more info. Our friendly staff will always help you. https://discord.gg/a5X8v7D".format(message))
 	await bot.process_commands(message)
 
 @bot.command(pass_context=True)
@@ -42,12 +42,13 @@ async def test(ctx):
 @bot.command(pass_context=True, no_pm=True)
 async def help(ctx):
 	embed = discord.Embed(title="Help section", description=" ", color=0xFFFF)
-	embed.add_field(name=".hello", value="make the bot say hello to you")
-	embed.add_field(name=".welcome", value="welcome message")
-	embed.add_field(name=".ping", value="make the bot ping you")
-	embed.add_field(name=".inviteme", value="to get bot invite link")
-	embed.add_field(name=".bug", value="only use this command if the bot is acting weird on specific command.")
-	embed.add_field(name=".idea", value="send your idea about new commands the bot don't have")
+	embed.add_field(name=".hello", value="Make the bot say hello to you.")
+	embed.add_field(name=".welcome", value="Welcome message.")
+	embed.add_field(name=".ping", value="Make the bot ping you.")
+	embed.add_field(name=".inviteme", value="To get bot invite link.")
+	embed.add_field(name=".bug", value="Only use this command if the bot is acting weird on specific command.")
+	embed.add_field(name=".idea", value="Send your idea about new commands the bot don't have.")
+	embed.add_field(name=".bothelp", value="Bot help within server.")
 	await bot.say(embed=embed)
 	
 @bot.command(pass_context=True)
