@@ -22,11 +22,11 @@ async def on_message(message):
 		await bot.send_message(message.channel, "Hello {0.author.mention}".format(message))
 	
 	if message.content.startswith('.welcome'):
-		msg = 'Thanks for having me in your server {0.author.mention}!'.format(message)
+		msg = 'Thanks for having me in your server {0.author.mention}!'.format(message))
 		await bot.send_message(message.channel, msg)
 	
 	if message.content.startswith('.ping'):
-		await bot.send_message(message.channel, "{0.author.mention} Pong!".format(message)
+		await bot.send_message(message.channel, "{0.author.mention} Pong!".format(message))
 	
 	if message.content.startswith("inviteme"):
 		msg = "https://discordapp.com/api/oauth2/authorize?client_id=529463184910712872&permissions=0&scope=bot {0.author.mention}".format((message))
