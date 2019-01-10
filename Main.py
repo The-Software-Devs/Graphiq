@@ -84,7 +84,7 @@ async def _eval(ctx, *, command):
         
 @_eval.error
 async def eval_error(error, ctx):
-	if isinstance(error, discord.ext.commands.errors.CheckFailure)
+	if isinstance(error, discord.ext.commands.errors.CheckFailure))
 	await bot.send_message(ctx.message.channel, ("Sorry {}. You can't use this command.".format(ctx.message.author.name))
 		      
 bot.run(os.environ['BOT_TOKEN'])
