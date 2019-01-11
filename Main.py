@@ -45,7 +45,7 @@ def user_is_me(ctx):
 	
 @bot.command(pass_context=True, no_pm=True)
 async def help(ctx):
-	embed = discord.Embed(title="Help section", description="Description here ", color=0xFFFF)
+	embed = discord.Embed(title="Help section", description="Help Is Here! ", color=0xFFFF)
 	embed.add_field(name=".hello", value="Make the bot say hello to you.")
 	embed.add_field(name=".welcome", value="Welcome message.")
 	embed.add_field(name=".ping", value="Make the bot ping you.")
