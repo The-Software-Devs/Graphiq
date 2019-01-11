@@ -84,6 +84,18 @@ async def idea(ctx, *, reportmsg: str):
     await bot.delete_message(ctx.message)
     await bot.say(embed=embed)
 	
+@bot.command(name="clean", pass_context=True, no_pm=True)
+@commands.has_permissions(administrator=True)
+async def _clean(ctx, amount=100):
+    channel = ctx.message.channel
+    messages = [ ]
+    async for message in bot.logs_from(channel, limit=int(amount) + 1):
+        messages.append(message)
+    await bot.delete_messages(messages)
+    msg = await bot.say(f"{amount} message has been deleted.")
+    await asyncio.sleep(5)
+    await bot.delete_message(msg)
+	
 @bot.command(pass_context=True)
 @commands.has_permissions(kick_members=True, administrator=True)
 async def mute(ctx, user: discord.Member, *, arg):
