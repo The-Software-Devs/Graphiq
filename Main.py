@@ -59,6 +59,7 @@ async def help(ctx):
 	embed.add_field(name=".ban", value=".ban @user <reason>")
 	embed.add_field(name=".unban", value=".unban <user id>")
 	embed.add_field(name=".bothelp", value="Bot help within server.")
+	embed.add_field(name=".warn", value=".warn @user <reason>")
 	embed.set_footer(text="Requested by: " + author.name)
 	await bot.say(embed=embed)
 	channel = bot.get_channel('532949494036168706')
