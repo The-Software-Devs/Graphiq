@@ -53,6 +53,11 @@ async def help(ctx):
 	embed.add_field(name=".inviteme", value="To get bot invite link.")
 	embed.add_field(name=".bug", value="Only use this command if the bot is acting weird on specific command.")
 	embed.add_field(name=".idea", value="Send your idea about new commands the bot don't have.")
+	embed.add_field(name=".mute", value=".mute @user <reason>")
+	embed.add_field(name=".unmute", value=".unmute @user <reason>")
+	embed.add_field(name=".kick", value=".kick @user <reason>")
+	embed.add_field(name=".ban", value=".ban @user <reason>")
+	embed.add_field(name=".unban", value=".unban <user id>")
 	embed.add_field(name=".bothelp", value="Bot help within server.")
 	embed.set_footer(text="Requested by: " + author.name)
 	await bot.say(embed=embed)
@@ -83,8 +88,8 @@ async def idea(ctx, *, reportmsg: str):
 @commands.has_permissions(kick_members=True, administrator=True)
 async def mute(ctx, user: discord.Member, *, arg):
 	if arg is None:
-		await bot.say("please provide a reason to {}".format(user.name))
-		return False
+			await bot.say("please provide a reason to {}".format(user.name))
+			return False
 	reason = arg
 	author = ctx.message.author
 	role = discord.utils.get(ctx.message.server.roles, name="Muted")
@@ -99,8 +104,8 @@ async def mute(ctx, user: discord.Member, *, arg):
 @commands.has_permissions(kick_members=True, administrator=True)
 async def unmute(ctx, user: discord.Member, *, arg):
 	if arg is None:
-		await bot.say("please provide a reason to {}".format(user.name))
-		return False
+			await bot.say("please provide a reason to {}".format(user.name))
+			return False
 	reason = arg
 	author = ctx.message.author
 	role = discord.utils.get(ctx.message.server.roles, name="Muted")
@@ -115,8 +120,8 @@ async def unmute(ctx, user: discord.Member, *, arg):
 @commands.has_permissions(kick_members=True)
 async def kick(ctx, user: discord.Member, *, arg):
 	if arg is None:
-		await bot.say("please provide a reason to {}".format(user.name))
-		return False
+			await bot.say("please provide a reason to {}".format(user.name))
+			return False
 	reason = arg
 	author = ctx.message.author
 	await bot.kick(user)
@@ -130,8 +135,8 @@ async def kick(ctx, user: discord.Member, *, arg):
 @commands.has_permissions(ban_members=True)
 async def ban(ctx, user: discord.Member, *, arg):
 	if arg is None:
-		await bot.say("please provide a reason to {}".format(user.name))
-		return False
+			await bot.say("please provide a reason to {}".format(user.name))
+			return False
 	reason = arg
 	author = ctx.message.author
 	await bot.ban(user)
@@ -145,8 +150,8 @@ async def ban(ctx, user: discord.Member, *, arg):
 @commands.has_permissions(kick_members=True)
 async def warn(ctx, user: discord.Member, *, arg = None):
 	if arg is None:
-		await bot.say("please provide a reason to {}".format(user.name))
-		return False
+			await bot.say("please provide a reason to {}".format(user.name))
+			return False
 	reason = arg
 	author = ctx.message.author
 	server = ctx.message.server
