@@ -53,7 +53,6 @@ async def help(ctx):
 	embed.add_field(name=".bug", value="Only use this command if the bot is acting weird on specific command.")
 	embed.add_field(name=".idea", value="Send your idea about new commands the bot don't have.")
 	embed.add_field(name=".bothelp", value="Bot help within server.")
-	embed.set_thumbnail(url=server.icon_url)
 	embed.set_footer(text="Requested by: " + author.name)
 	await bot.say(embed=embed)
 	channel = bot.get_channel('532949494036168706')
