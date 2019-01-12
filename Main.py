@@ -193,5 +193,5 @@ async def _eval(ctx, *, command):
     else:
         await bot.delete_message(ctx.message)
         await bot.say(res)
-		      
+
 bot.run(os.environ['BOT_TOKEN'])
