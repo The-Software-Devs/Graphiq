@@ -199,5 +199,15 @@ async def eval_error(error, ctx):
 	if isinstance(error, discord.ext.commands.errors.CheckFailure):
 		text = "Sorry {} You can't use this command only the bot owner can do this.".format(ctx.message.author.mention)
 		await bot.send_message(ctx.message.channel, text)
+		
+		
+		
+@bot.command(pass_context=True)
+async def ping(ctx):
+    """Pings the bot and gets a response time."""
+    pingtime = time.time()
+    pingms = await bot.say("Pinging...")
+    ping = (time.time() - pingtime) * 1000
+    await bot.edit_message(pingms, "Pong! 🏓 ping time is `%dms`" % ping)
 
 bot.run(os.environ['BOT_TOKEN'])
