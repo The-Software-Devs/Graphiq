@@ -192,7 +192,7 @@ async def _eval(ctx, *, command):
     if inspect.isawaitable(res):
         await bot.say(await res)
     else:
-	await bot.say(res)
+	await bot.say(res))
 	await bot.delete_message(ctx.message)
 		      
 bot.run(os.environ['BOT_TOKEN'])
