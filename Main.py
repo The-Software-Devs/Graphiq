@@ -197,7 +197,7 @@ async def _eval(ctx, *, command):
 @_eval.error
 async def eval_error(error, ctx):
 	if isinstance(error, discord.ext.commands.errors.CheckFailure):
-		text = "Sorry {}, You can't use this command only the bot owner can do this.".format(ctx.message.author.mention)
+		text = "Sorry {} You can't use this command only the bot owner can do this.".format(ctx.message.author.mention)
 		await bot.send_message(ctx.message.channel, text)
 
 bot.run(os.environ['BOT_TOKEN'])
