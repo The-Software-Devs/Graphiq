@@ -41,7 +41,7 @@ async def test(ctx):
 	await bot.say("test {}".format(ctx.message.author.mention))
 	
 def user_is_me(ctx):
-	return ctx.message.author.id == "277983178914922497", "341933833136111617"
+	return ctx.message.author.id == "341933833136111617"
 	
 @bot.command(pass_context=True, no_pm=True)
 async def help(ctx):
