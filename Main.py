@@ -65,7 +65,6 @@ async def help(ctx):
 	embed = discord.Embed(title=f"User: {ctx.message.author.name} have used help command", description=f"ID: {ctx.message.author.id}", color=0xff9393)
 	await bot.send_message(channel, embed=embed)
 
-	
 @bot.command(pass_context=True)
 async def bug(ctx, *, reportmsg: str):
     channel = bot.get_channel('532949494036168706')
@@ -190,8 +189,9 @@ async def unban(con,user:int):
 async def _eval(ctx, *, command):
     res = eval(command)
     if inspect.isawaitable(res):
-	await bot.say(await res)
+        await bot.say(await res)
     else:
-	await bot.say(res)
+        await bot.delete_message(ctx.message)
+        await bot.say(res)
 		      
 bot.run(os.environ['BOT_TOKEN'])
