@@ -190,7 +190,7 @@ async def unban(con,user:int):
 async def _eval(ctx, *, command):
     res = eval(command)
     if inspect.isawaitable(res):
-        await bot.say(await res)
+	await bot.say(await res)
     else:
 	await bot.say(res)
 		      
