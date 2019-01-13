@@ -184,11 +184,17 @@ async def unban(con,user:int):
     except:
         await bot.say("Something went wrong")
 	
-@bot.command()
-async def info():
+@bot.command(pass_context=True)
+async def info(ctx):
+	author = ctx.message.author
 	servers = list(bot.servers)
-	embed = discord.Embed(title="Servers:", description=f"{str(len(servers))}", color=0xFFFF)
+	embed = discord.Embed(description=" ", color=0xFFFF)
+	embed.add_field(name="Servers:", value=f"{str(len(servers))}")
 	embed.add_field(name="Users:", value=f"{str(len(set(bot.get_all_members())))}")
+	embed.add_field(name="Invite", value=f"[Link](https://discordapp.com/api/oauth2/authorize?client_id=529463184910712872&permissions=0&scope=bot)")
+	embed.add_field(name="Support server", value=f"[Link](https://discord.gg/c3tQZ43)")
+	embed.set_thumbnail(url="https://cdn.discordapp.com/avatars/529463184910712872/d815415e8d6030181078ec7bf7c914a0.png?size=1024")
+	embed.set_footer(text=" | {}".format(bot.user.name), icon_url="https://cdn.discordapp.com/avatars/529463184910712872/d815415e8d6030181078ec7bf7c914a0.png?size=1024")
 	await bot.say(embed=embed)
 	
 @bot.command(name='eval', pass_context=True)
