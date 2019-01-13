@@ -10,8 +10,6 @@ bot.remove_command('help')
 
 @bot.event
 async def on_ready():
-	await bot.change_presence(game=discord.Game(name="163 servers | 591,925 users",
-url="https://twitch.tv/celabrat", type=1))
 	print('Logged in as')
 	print(bot.user.name)
 	print(bot.user.id)
@@ -35,10 +33,6 @@ async def on_message(message):
 	if message.content.startswith('.bothelp'):
 		await bot.send_message(message.channel, "Need help? Join our server for more info. Our friendly staff will always help you. https://discord.gg/a5X8v7D".format(message))
 	await bot.process_commands(message)
-
-@bot.command(pass_context=True)
-async def test(ctx):
-	await bot.say("test {}".format(ctx.message.author.mention))
 	
 def user_is_me(ctx):
 	return ctx.message.author.id == "341933833136111617"
@@ -59,6 +53,7 @@ async def help(ctx):
 	embed.add_field(name=".ban", value=".ban @user <reason>")
 	embed.add_field(name=".unban", value=".unban <user id>")
 	embed.add_field(name=".bothelp", value="Bot help within server.")
+	embed.add_field(name=".info", value="botinvite and support server and more")
 	embed.set_footer(text="Requested by: " + author.name)
 	await bot.say(embed=embed)
 	channel = bot.get_channel('532949494036168706')
@@ -98,9 +93,12 @@ async def _clean(ctx, amount=100):
 @bot.command(pass_context=True)
 @commands.has_permissions(kick_members=True, administrator=True)
 async def mute(ctx, user: discord.Member, *, arg):
+	if user is None:
+		await bot.say("please provide a member")
+		return False
 	if arg is None:
-			await bot.say("please provide a reason to {}".format(user.name))
-			return False
+		await bot.say("please provide a reason to {}".format(user.name))
+		return False
 	reason = arg
 	author = ctx.message.author
 	role = discord.utils.get(ctx.message.server.roles, name="Muted")
@@ -114,9 +112,12 @@ async def mute(ctx, user: discord.Member, *, arg):
 @bot.command(pass_context=True)
 @commands.has_permissions(kick_members=True, administrator=True)
 async def unmute(ctx, user: discord.Member, *, arg):
+	if user is None:
+		await bot.say("please provide a member")
+		return False
 	if arg is None:
-			await bot.say("please provide a reason to {}".format(user.name))
-			return False
+		await bot.say("please provide a reason to {}".format(user.name))
+		return False
 	reason = arg
 	author = ctx.message.author
 	role = discord.utils.get(ctx.message.server.roles, name="Muted")
@@ -130,9 +131,12 @@ async def unmute(ctx, user: discord.Member, *, arg):
 @bot.command(pass_context=True)
 @commands.has_permissions(kick_members=True)
 async def kick(ctx, user: discord.Member, *, arg):
+	if user is None:
+		await bot.say("please provide a member")
+		return False
 	if arg is None:
-			await bot.say("please provide a reason to {}".format(user.name))
-			return False
+		await bot.say("please provide a reason to {}".format(user.name))
+		return False
 	reason = arg
 	author = ctx.message.author
 	await bot.kick(user)
@@ -145,9 +149,12 @@ async def kick(ctx, user: discord.Member, *, arg):
 @bot.command(pass_context=True)
 @commands.has_permissions(ban_members=True)
 async def ban(ctx, user: discord.Member, *, arg):
+	if user is None:
+		await bot.say("please provide a member")
+		return False
 	if arg is None:
-			await bot.say("please provide a reason to {}".format(user.name))
-			return False
+		await bot.say("please provide a reason to {}".format(user.name))
+		return False
 	reason = arg
 	author = ctx.message.author
 	await bot.ban(user)
@@ -160,9 +167,12 @@ async def ban(ctx, user: discord.Member, *, arg):
 @bot.command(pass_context=True)
 @commands.has_permissions(kick_members=True)
 async def warn(ctx, user: discord.Member, *, arg = None):
+	if user is None:
+		await bot.say("please provide a member")
+		return False
 	if arg is None:
-			await bot.say("please provide a reason to {}".format(user.name))
-			return False
+		await bot.say("please provide a reason to {}".format(user.name))
+		return False
 	reason = arg
 	author = ctx.message.author
 	server = ctx.message.server
