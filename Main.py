@@ -14,6 +14,12 @@ async def on_ready():
 	print(bot.user.name)
 	print(bot.user.id)
 	print('------')
+	
+	
+@bot.command(pass_context=True)
+@commands.check(user_is_me)
+async def restart(ctx):
+await bot.logout()
 
 @bot.event
 async def on_message(message):
