@@ -184,6 +184,12 @@ async def unban(con,user:int):
     except:
         await bot.say("Something went wrong")
 	
+@bot.command()
+async def info():
+	embed = discord.Embed(title="Servers:", description=f"{str(len(servers))}", color=0xFFFF)
+	embed.add_field(name="Users:", value=f"{str(len(set(bot.get_all_members())))}")
+	await bot.say(embed=embed)
+	
 @bot.command(name='eval', pass_context=True)
 @commands.check(user_is_me)
 async def _eval(ctx, *, command):
