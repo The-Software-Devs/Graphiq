@@ -186,6 +186,7 @@ async def unban(con,user:int):
 	
 @bot.command()
 async def info():
+	servers = list(bot.servers)
 	embed = discord.Embed(title="Servers:", description=f"{str(len(servers))}", color=0xFFFF)
 	embed.add_field(name="Users:", value=f"{str(len(set(bot.get_all_members())))}")
 	await bot.say(embed=embed)
