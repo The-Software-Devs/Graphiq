@@ -14,7 +14,7 @@ async def on_ready():
 	print(bot.user.name)
 	print(bot.user.id)
 	print('------')
-
+	
 @bot.event
 async def on_message(message):
 	if message.content.startswith('.hello'):
@@ -36,7 +36,8 @@ async def on_message(message):
 	
 def user_is_me(ctx):
 	return ctx.message.author.id == "341933833136111617"
-	
+
+	if message.content.startswith('.bothelp'):
 @bot.command(pass_context=True, no_pm=True)
 async def help(ctx):
 	author = ctx.message.author
