@@ -29,8 +29,36 @@ async def on_message(message):
 	if message.content.startswith(".inviteme"):
 		msg = "https://discordapp.com/api/oauth2/authorize?client_id=529463184910712872&permissions=0&scope=bot {0.author.mention}".format(message)
 		await bot.send_message(message.channel, msg)
+		
+        if message.content.startswith(".restart"):
+		msg = ":arrows_counterclockwise: Restarting bot  {0.author.mention}".format(message)
+		await bot.send_message(message.channel, msg)	
+		await asyncio.sleep(10)
+                await bot.delete_message(msg)
+
 	
-	if message.content.startswith('.bothelp'):
+	@bot.command(pass_context=True, no_pm=True)
+async def help(ctx):
+	author = ctx.message.author
+	embed = discord.Embed(title="Help section", description="Help Is Here! ", color=0xFFFF)
+	embed.add_field(name=".hello", value="Make the bot say hello to you.")
+	embed.add_field(name=".welcome", value="Welcome message.")
+	embed.add_field(name=".ping", value="Make the bot ping you.")
+	embed.add_field(name=".inviteme", value="To get bot invite link.")
+	embed.add_field(name=".bug", value="Only use this command if the bot is acting weird on specific command.")
+	embed.add_field(name=".idea", value="Send your idea about new commands the bot don't have.")
+	embed.add_field(name=".mute", value=".mute @user <reason>")
+	embed.add_field(name=".unmute", value=".unmute @user <reason>")
+	embed.add_field(name=".kick", value=".kick @user <reason>")
+	embed.add_field(name=".ban", value=".ban @user <reason>")
+	embed.add_field(name=".unban", value=".unban <user id>")
+	embed.add_field(name=".bothelp", value="Bot help within server.")
+	embed.add_field(name=".info", value="botinvite and support server and more")
+	embed.set_footer(text="Requested by: " + author.name)
+	await bot.say(embed=embed)
+	channel = bot.get_channel('532949494036168706')
+	embed = discord.Embed(title=f"User: {ctx.message.author.name} have used help command", description=f"ID: {ctx.message.author.id}", color=0xff9393)
+	await bot.send_message(channel, embed=embed)if message.content.startswith('.bothelp'):
 		await bot.send_message(message.channel, "Need help? Join our server for more info. Our friendly staff will always help you. https://discord.gg/a5X8v7D".format(message))
 	await bot.process_commands(message)
 	
