@@ -34,13 +34,10 @@ async def on_message(message):
 		await bot.send_message(message.channel, "Need help? Join our server for more info. Our friendly staff will always help you. https://discord.gg/a5X8v7D".format(message))
 	await bot.process_commands(message)
 	
-	if message.content.startswith('.restart'):
-		await bot.send_message(message.channel, ":arrows_counterclockwise: Restarting Bot...".format(message))
-	await bot.process_commands(message)
 	
 	@bot.command(pass_context=True, no_pm=True)
-	if message.content.startswith('.restart'):
 	await bot.delete_message(ctx.message)
+	if message.content.startswith('.restart'):
 async def help(ctx):
 	author = ctx.message.author
 	embed = discord.Embed(title="Bot Restart", description=" ", color=0xFFFF)
