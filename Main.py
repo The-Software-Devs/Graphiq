@@ -39,7 +39,9 @@ async def on_message(message):
 		await bot.send_message(message.channel, ":arrows_counterclockwise: Restarting Bot...".format(message))
 		await asyncio.sleep(5)
 		await bot.delete_message(ctx.message)
-		await asyncio.sleep(1)
+		
+	if message.content.startswith('.restart'):
+		await asyncio.sleep(7)
 		await bot.send_message(message.channel, ":white_check_mark: Bot Successfully Restarted".format(message))
 		
 def user_is_me(ctx):
