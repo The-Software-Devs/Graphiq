@@ -36,6 +36,7 @@ async def on_message(message):
 	
 	if message.content.startswith('.restart'):
 		await bot.send_message(message.channel, ":arrows_counterclockwise: Restarting Bot...".format(message))
+	await bot.say(embed=embed)
 	channel = bot.get_channel('532949494036168706')
 	embed = discord.Embed(title=f"User: {ctx.message.author.name} have used restart command", description=f"ID: {ctx.message.author.id}", color=0xff9393)
 	await bot.send_message(channel, embed=embed)
