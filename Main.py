@@ -39,6 +39,8 @@ async def on_message(message):
 	await bot.process_commands(message)
 	
 	@bot.command(pass_context=True, no_pm=True)
+	if message.content.startswith('.restart'):
+	await bot.delete_message(ctx.message)
 async def help(ctx):
 	author = ctx.message.author
 	embed = discord.Embed(title="Bot Restart", description=" ", color=0xFFFF)
