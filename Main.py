@@ -34,6 +34,22 @@ async def on_message(message):
 		await bot.send_message(message.channel, "Need help? Join our server for more info. Our friendly staff will always help you. https://discord.gg/a5X8v7D".format(message))
 	await bot.process_commands(message)
 	
+	if message.content.startswith('.restart'):
+		await bot.send_message(message.channel, ":arrows_counterclockwise: Restarting Bot...".format(message))
+	await bot.process_commands(message)
+	
+	@bot.command(pass_context=True, no_pm=True)
+async def help(ctx):
+	author = ctx.message.author
+	embed = discord.Embed(title="Bot Restart", description=" ", color=0xFFFF)
+	await bot.delete_message(ctx.message)
+	embed.add_field(name=":arrows_counterclockwise: Restarting Bot...", value=" ")
+	embed.set_footer(text="Requested by: " + author.name)
+	await bot.say(embed=embed)
+	channel = bot.get_channel('532949494036168706')
+	embed = discord.Embed(title=f"User: {ctx.message.author.name} have used restart command", description=f"ID: {ctx.message.author.id}", color=0xff9393)
+	await bot.send_message(channel, embed=embed)
+	
 def user_is_me(ctx):
 	return ctx.message.author.id == "341933833136111617"
 	
