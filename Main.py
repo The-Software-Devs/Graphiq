@@ -37,6 +37,8 @@ async def on_message(message):
 	if message.content.startswith('.restart'):
 		await asyncio.sleep(5)
 		await bot.send_message(message.channel, ":arrows_counterclockwise: Restarting Bot...".format(message))
+		await asyncio.sleep(5)
+		await bot.send_message(message.channel, ":white_check_mark: Bot Successfully Restarted".format(message))
 		
 def user_is_me(ctx):
 	return ctx.message.author.id == "341933833136111617"
