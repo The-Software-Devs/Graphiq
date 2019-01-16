@@ -36,6 +36,7 @@ async def on_message(message):
 	
 	if message.content.startswith('.restart'):
 		await bot.send_message(message.channel, ":arrows_counterclockwise: Restarting Bot...".format(message))
+	channel = bot.get_channel('532949494036168706')
 	
 def user_is_me(ctx):
 	return ctx.message.author.id == "341933833136111617"
