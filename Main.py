@@ -99,7 +99,7 @@ async def _clean(ctx, amount=100):
     async for message in bot.logs_from(channel, limit=int(amount) + 1):
         messages.append(message)
     await bot.delete_messages(messages)
-    msg = await bot.say(f"{amount} message has been deleted.")
+    msg = await bot.say(f"{amount} messages has been deleted.")
     await asyncio.sleep(5)
     await bot.delete_message(msg)
 	
@@ -107,10 +107,10 @@ async def _clean(ctx, amount=100):
 @commands.has_permissions(kick_members=True, administrator=True)
 async def mute(ctx, user: discord.Member = None, *, arg = None):
 	if user is None:
-		await bot.say("please provide a member")
+		await bot.say("Please provide a member to kick {0.author.mention}".format(message))
 		return False
 	if arg is None:
-		await bot.say("please provide a reason to {}".format(user.name))
+		await bot.say("please provide a reason to kick {}".format(user.name))
 		return False
 	reason = arg
 	author = ctx.message.author
@@ -126,10 +126,10 @@ async def mute(ctx, user: discord.Member = None, *, arg = None):
 @commands.has_permissions(kick_members=True, administrator=True)
 async def unmute(ctx, user: discord.Member = None, *, arg = None):
 	if user is None:
-		await bot.say("please provide a member")
+		await bot.say("Please provide a member to kick {0.author.mention}".format(message))
 		return False
 	if arg is None:
-		await bot.say("please provide a reason to {}".format(user.name))
+		await bot.say("Please provide a reason to kick {}".format(user.name))
 		return False
 	reason = arg
 	author = ctx.message.author
@@ -145,10 +145,10 @@ async def unmute(ctx, user: discord.Member = None, *, arg = None):
 @commands.has_permissions(kick_members=True)
 async def kick(ctx, user: discord.Member = None, *, arg = None):
 	if user is None:
-		await bot.say("please provide a member")
+		await bot.say("Please provide a member {0.author.mention}".format(message))
 		return False
 	if arg is None:
-		await bot.say("please provide a reason to {}".format(user.name))
+		await bot.say("please provide a reason to kick {}".format(user.name))
 		return False
 	reason = arg
 	author = ctx.message.author
