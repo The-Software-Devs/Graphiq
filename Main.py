@@ -110,7 +110,7 @@ async def mute(ctx, user: discord.Member = None, *, arg = None):
 		await bot.say("Please provide a member to kick")
 		return False
 	if arg is None:
-		await bot.say("please provide a reason to kick {}").format(user.name))
+		await bot.say("please provide a reason to kick {}".format(user.name))
 		return False
 	reason = arg
 	author = ctx.message.author
