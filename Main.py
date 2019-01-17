@@ -107,10 +107,10 @@ async def _clean(ctx, amount=100):
 @commands.has_permissions(kick_members=True, administrator=True)
 async def mute(ctx, user: discord.Member = None, *, arg = None):
 	if user is None:
-		await bot.say("Please provide a member to kick {0.author.mention}".format(message))
+		await bot.say("Please provide a member to kick")
 		return False
 	if arg is None:
-		await bot.say("please provide a reason to kick {}".format(user.name))
+		await bot.say("please provide a reason to kick {}").format(user.name))
 		return False
 	reason = arg
 	author = ctx.message.author
@@ -126,7 +126,7 @@ async def mute(ctx, user: discord.Member = None, *, arg = None):
 @commands.has_permissions(kick_members=True, administrator=True)
 async def unmute(ctx, user: discord.Member = None, *, arg = None):
 	if user is None:
-		await bot.say("Please provide a member to kick {0.author.mention}".format(message))
+		await bot.say("Please provide a member to kick")
 		return False
 	if arg is None:
 		await bot.say("Please provide a reason to kick {}".format(user.name))
@@ -145,7 +145,7 @@ async def unmute(ctx, user: discord.Member = None, *, arg = None):
 @commands.has_permissions(kick_members=True)
 async def kick(ctx, user: discord.Member = None, *, arg = None):
 	if user is None:
-		await bot.say("Please provide a member {0.author.mention}".format(message))
+		await bot.say("Please provide a member to kick")
 		return False
 	if arg is None:
 		await bot.say("please provide a reason to kick {}".format(user.name))
