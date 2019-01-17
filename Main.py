@@ -126,7 +126,7 @@ async def mute(ctx, user: discord.Member = None, *, arg = None):
 @commands.has_permissions(kick_members=True, administrator=True)
 async def unmute(ctx, user: discord.Member = None, *, arg = None):
 	if user is None:
-		await bot.say("Please provide a member to kick {0.author.mention}".format(message))
+		await bot.say("Please provide a member to kick")
 		return False
 	if arg is None:
 		await bot.say("Please provide a reason to kick {}".format(user.name))
@@ -145,7 +145,7 @@ async def unmute(ctx, user: discord.Member = None, *, arg = None):
 @commands.has_permissions(kick_members=True)
 async def kick(ctx, user: discord.Member = None, *, arg = None):
 	if user is None:
-		await bot.say("Please provide a member to kick {0.author.mention}".format(message))
+		await bot.say("Please provide a member to kick")
 		return False
 	if arg is None:
 		await bot.say("Please provide a reason to kick {}".format(user.name))
@@ -163,7 +163,7 @@ async def kick(ctx, user: discord.Member = None, *, arg = None):
 @commands.has_permissions(ban_members=True)
 async def ban(ctx, user: discord.Member = None, *, arg = None):
 	if user is None:
-		await bot.say("Please provide a member to ban! {0.author.mention}".format(message))
+		await bot.say("Please provide a member to ban!")
 		return False
 	if arg is None:
 		await bot.say("Please provide a reason to ban {}".format(user.name))
@@ -181,7 +181,7 @@ async def ban(ctx, user: discord.Member = None, *, arg = None):
 @commands.has_permissions(kick_members=True)
 async def warn(ctx, user: discord.Member, *, arg = None):
 	if user is None:
-		await bot.say("please provide a member")
+		await bot.say("Please provide a member to kick")
 		return False
 	if arg is None:
 		await bot.say("please provide a reason to {}".format(user.name))
