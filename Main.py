@@ -122,7 +122,6 @@ async def _mute(ctx, user: discord.Member = None, *, arg = None):
 	embed.add_field(name="Reason: ", value="{}\n".format(arg), inline=False)
 	await bot.say(embed=embed)
 	
-
 @_mute.error
 async def mute_error(error, ctx):
 	if isinstance(error, discord.ext.commands.errors.CheckFailure):
@@ -220,8 +219,8 @@ async def warn(ctx, user: discord.Member, *, arg = None):
 	embed.add_field(name="Reason: ", value="{}\n".format(arg), inline=False)
 	await bot.say(embed=embed)
 	em = discord.Embed(description=" ", color=0x00ff00)
-	em.add_field(name="you have been warned for: ", value=reason)
-	em.add_field(name="from:", value=server)
+	em.add_field(name="you have been warned for: ", value="{reason}")
+	em.add_field(name="from:", value="{server}")
 	await bot.send_messsage(user, embed=em)
 
 @bot.command(pass_context=True)
