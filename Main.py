@@ -219,8 +219,8 @@ async def _warn(ctx, user: discord.Member = None, *, arg = None):
 	embed.add_field(name="Reason: ", value="{}\n".format(arg), inline=False)
 	await bot.say(embed=embed)
 	em = discord.Embed(description=" ", color=0x00ff00)
-	em.add_field(name="you have been warned for: ", value="{reason}")
-	em.add_field(name="from:", value="{server}")
+	em.add_field(name="you have been warned for: ", value=reason)
+	em.add_field(name="from:", value=server)
 	await bot.send_message(user, embed=em)
 	
 @_warn.error
