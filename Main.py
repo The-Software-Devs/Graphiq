@@ -91,6 +91,14 @@ async def idea(ctx, *, reportmsg: str):
     await bot.delete_message(ctx.message)
     await bot.say(embed=embed)
 	
+@bot.command(pass_context = True)
+@commands.has_permissions(administrator=True) 
+async def bans(ctx):
+    x = await bot.get_bans(ctx.message.server)
+    x = '\n'.join([y.name for y in x])
+    embed = discord.Embed(title = "Ban list", description = x, color = 0xFFFFF)
+    return await bot.say(embed = embed)
+	
 @bot.command(name="clean", pass_context=True, no_pm=True)
 @commands.has_permissions(administrator=True)
 async def _clean(ctx, amount=100):
