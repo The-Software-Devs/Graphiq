@@ -32,8 +32,6 @@ async def on_message(message):
 	
 	if message.content.startswith('.bothelp'):
 		await bot.send_message(message.channel, "Need help? Join our server for more info. Our friendly staff will always help you. https://discord.gg/a5X8v7D".format(message))
-	await bot.process_commands(message)
-	
 	if message.content.startswith('.restart'):
 		await asyncio.sleep(5)
 		await bot.send_message(message.channel, ":arrows_counterclockwise: Restarting Bot...".format(message))
@@ -47,6 +45,8 @@ async def on_message(message):
 		await bot.send_message(message.channel, ":arrows_counterclockwise: Confirming System...".format(message))
 		await asyncio.sleep(7)
 		await bot.send_message(message.channel, ":white_check_mark: Bot Successfully Restarted".format(message))
+	await bot.process_commands(message)
+		
 def user_is_me(ctx):
 	return ctx.message.author.id == "341933833136111617"
 	
@@ -107,10 +107,10 @@ async def _clean(ctx, amount=100):
 @commands.has_permissions(kick_members=True, administrator=True)
 async def _mute(ctx, user: discord.Member = None, *, arg = None):
 	if user is None:
-		await bot.say("Please provide a member to kick")
+		await bot.say("Please provide a member to mute")
 		return False
 	if arg is None:
-		await bot.say("Please provide a reason to kick {}".format(user.name))
+		await bot.say("Please provide a reason to mute {}".format(user.name))
 		return False
 	reason = arg
 	author = ctx.message.author
@@ -132,10 +132,10 @@ async def mute_error(error, ctx):
 @commands.has_permissions(kick_members=True, administrator=True)
 async def _unmute(ctx, user: discord.Member = None, *, arg = None):
 	if user is None:
-		await bot.say("Please provide a member to kick {0.author.mention}".format(message))
+		await bot.say("Please provide a member to unmute")
 		return False
 	if arg is None:
-		await bot.say("Please provide a reason to kick {}".format(user.name))
+		await bot.say("Please provide a reason to unmute {}".format(user.name))
 		return False
 	reason = arg
 	author = ctx.message.author
@@ -157,7 +157,7 @@ async def unmute_error(error, ctx):
 @commands.has_permissions(kick_members=True)
 async def _kick(ctx, user: discord.Member = None, *, arg = None):
 	if user is None:
-		await bot.say("Please provide a member to kick {0.author.mention}".format(message))
+		await bot.say("Please provide a member to kick")
 		return False
 	if arg is None:
 		await bot.say("Please provide a reason to kick {}".format(user.name))
@@ -181,7 +181,7 @@ async def kick_error(error, ctx):
 @commands.has_permissions(ban_members=True)
 async def _ban(ctx, user: discord.Member = None, *, arg = None):
 	if user is None:
-		await bot.say("Please provide a member to ban! {0.author.mention}".format(message))
+		await bot.say("Please provide a member to ban")
 		return False
 	if arg is None:
 		await bot.say("Please provide a reason to ban {}".format(user.name))
@@ -221,7 +221,7 @@ async def _warn(ctx, user: discord.Member = None, *, arg = None):
 	em = discord.Embed(description=" ", color=0x00ff00)
 	em.add_field(name="you have been warned for: ", value="{reason}")
 	em.add_field(name="from:", value="{server}")
-	await bot.send_messsage(user, embed=em)
+	await bot.send_message(user, embed=em)
 	
 @_warn.error
 async def warn_error(error, ctx):
