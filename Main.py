@@ -70,7 +70,7 @@ async def help(ctx):
 	embed.set_footer(text="Requested by: " + author.name)
 	await bot.send_message(author, embed=embed)
 	embed = discord.Embed(description=" ", color=0xFFFF)
-	embed.add_field(name="✅ Success! I've sent you a list of my commands in your", value="**Direct Messages**")
+	embed.add_field(name="✅ Success!", value="I've sent you a list of my commands in your **Direct Messages**")
 	await bot.say(embed=embed)
 	channel = bot.get_channel('532949494036168706')
 	embed = discord.Embed(title=f"User: {ctx.message.author.name} have used help command", description=f"ID: {ctx.message.author.id}", color=0xff9393)
