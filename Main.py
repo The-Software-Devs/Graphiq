@@ -251,7 +251,7 @@ async def unban(con,user:int):
         await bot.say("Something went wrong")
 	
 @bot.command(pass_context=True)
-async def info(ctx):
+async def stats(ctx):
 	author = ctx.message.author
 	servers = list(bot.servers)
 	embed = discord.Embed(description=" ", color=0xFFFF)
@@ -262,6 +262,28 @@ async def info(ctx):
 	embed.set_thumbnail(url="https://cdn.discordapp.com/avatars/529463184910712872/d815415e8d6030181078ec7bf7c914a0.png?size=1024")
 	embed.set_footer(text=" | {}".format(bot.user.name), icon_url="https://cdn.discordapp.com/avatars/529463184910712872/d815415e8d6030181078ec7bf7c914a0.png?size=1024")
 	await bot.say(embed=embed)
+	
+@bot.command(pass_context=True)
+async def info(ctx):
+    '''Displays Info About The Server!'''
+
+    server = ctx.message.server
+    roles = [x.name for x in server.role_hierarchy]
+    role_length = len(roles)
+
+    roles = ', '.join(roles);
+    channelz = len(server.channels);
+    time = str(server.created_at); time = time.split(' '); time= time[0];
+    join = discord.Embed(description= '%s '%(str(server)),title = 'Server Name', color=0x00D5FF)
+    join.set_thumbnail(url = server.icon_url);
+    join.add_field(name = 'Owner', value = str(server.owner) + '\n' + server.owner.id);
+    join.add_field(name = 'ID', value = str(server.id))
+    join.add_field(name = 'Member Count', value = str(server.member_count));
+    join.add_field(name = 'Text/Voice Channels', value = str(channelz));
+    join.add_field(name = '__Roles (%s)__'%str(role_length), value = roles);
+    join.set_footer(text ='Created: %s'%time);
+
+    return await bot.say(embed = join);
 	
 @bot.command(name='eval', pass_context=True)
 @commands.check(user_is_me)
