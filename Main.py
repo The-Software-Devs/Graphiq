@@ -138,7 +138,7 @@ async def _mute(ctx, user: discord.Member = None, *, arg = None):
 	embed.add_field(name="Moderator:", value="{}".format(author.name), inline=False)
 	embed.add_field(name="Reason:", value="{}".format(arg), inline=False)
 	embed.add_field(name="Server Name:", value="{}".format(server), inline=False)
-	await client.send_message(user, embed=embed)
+	await client.send_message(author, embed=embed)
 	
 @_mute.error
 async def mute_error(error, ctx):
