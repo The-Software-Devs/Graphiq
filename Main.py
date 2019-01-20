@@ -157,6 +157,7 @@ async def _unmute(ctx, user: discord.Member = None, *, arg = None):
 		return False
 	reason = arg
 	author = ctx.message.author
+	server = ctx.message.server
 	role = discord.utils.get(ctx.message.server.roles, name="Muted")
 	await bot.remove_roles(user, role)
 	embed = discord.Embed(title="Unmute", description=" ", color=0x00ff00)
@@ -188,6 +189,7 @@ async def _kick(ctx, user: discord.Member = None, *, arg = None):
 		return False
 	reason = arg
 	author = ctx.message.author
+	server = ctx.message.server
 	await bot.kick(user)
 	embed = discord.Embed(title="Kick", description=" ", color=0x00ff00)
 	embed.add_field(name="User: ", value="<@{}>".format(user.id), inline=False)
@@ -218,6 +220,7 @@ async def _ban(ctx, user: discord.Member = None, *, arg = None):
 		return False
 	reason = arg
 	author = ctx.message.author
+	server = ctx.message.server
 	await bot.ban(user)
 	embed = discord.Embed(title="Ban", description=" ", color=0xFF0000)
 	embed.add_field(name="User: ", value="<@{}>".format(user.id), inline=False)
