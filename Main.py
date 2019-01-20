@@ -164,6 +164,12 @@ async def _unmute(ctx, user: discord.Member = None, *, arg = None):
 	embed.add_field(name="Moderator: ", value="{}".format(author.mention), inline=False)
 	embed.add_field(name="Reason: ", value="{}\n".format(arg), inline=False)
 	await bot.say(embed=embed)
+	embed = discord.Embed(title="Unmuted", description=" ", color=0xFFA500)
+	embed.add_field(name="User:", value="{}".format(user.name), inline=False)
+	embed.add_field(name="Moderator:", value="{}".format(author.name), inline=False)
+	embed.add_field(name="Reason:", value="{}".format(arg), inline=False)
+	embed.add_field(name="Server Name:", value="{}".format(server), inline=False)
+	await bot.send_message(author, embed=embed)
 	
 @_unmute.error
 async def unmute_error(error, ctx):
@@ -188,6 +194,12 @@ async def _kick(ctx, user: discord.Member = None, *, arg = None):
 	embed.add_field(name="Moderator: ", value="{}".format(author.mention), inline=False)
 	embed.add_field(name="Reason: ", value="{}\n".format(arg), inline=False)
 	await bot.say(embed=embed)
+	embed = discord.Embed(title="Kick", description=" ", color=0xFFA500)
+	embed.add_field(name="User:", value="{}".format(user.name), inline=False)
+	embed.add_field(name="Moderator:", value="{}".format(author.name), inline=False)
+	embed.add_field(name="Reason:", value="{}".format(arg), inline=False)
+	embed.add_field(name="Server Name:", value="{}".format(server), inline=False)
+	await bot.send_message(author, embed=embed)
 	
 @_kick.error
 async def kick_error(error, ctx):
