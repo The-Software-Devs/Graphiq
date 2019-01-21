@@ -76,7 +76,7 @@ async def help(ctx):
 	embed.add_field(name=".ban", value=".ban @user <reason>")
 	embed.add_field(name=".unban", value=".unban <user id>")
 	embed.add_field(name=".bothelp", value="Bot help within server.")
-	embed.add_field(name=".info", value="")
+	embed.add_field(name=".info", value="get info about server")
 	embed.add_field(name=".removewarns me", value="Removes your warn.")
 	embed.set_footer(text="Requested by: " + author.name)
 	await bot.send_message(author, embed=embed)
