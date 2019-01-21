@@ -73,7 +73,6 @@ async def help(ctx):
 	embed.add_field(name=".info", value="")
 	embed.add_field(name=".removewarns me", value="Removes your warn.")
 	embed.set_footer(text="Requested by: " + author.name)
-	embed.set_footer(text="Thanks to RJ_RBLX05#5219 for supporting me with this!")
 	await bot.send_message(author, embed=embed)
 	embed = discord.Embed(description=" ", color=0xFFFF)
 	embed.add_field(name="✅ Success!", value="I've sent you a list of my commands in your **Direct Messages**")
