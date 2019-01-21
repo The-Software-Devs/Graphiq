@@ -49,7 +49,7 @@ async def on_message(message):
 	await bot.process_commands(message)
 	
 	if message.content.startswith('.removewarns me'):
-		await bot.send_message(message.channel, ":white_check_mark: Success!{0.author.mention} You have removed your warnings from", value=server.format(message))
+		await bot.send_message(message.channel, ":white_check_mark: Success!{0.author.mention} You have removed your warnings.").format(message))
 		
 def user_is_me(ctx):
 	return ctx.message.author.id == "341933833136111617"
