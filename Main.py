@@ -32,6 +32,7 @@ async def on_message(message):
 	
 	if message.content.startswith('.bothelp'):
 		await bot.send_message(message.channel, "Need help? Join our server for more info. Our friendly staff will always help you. https://discord.gg/a5X8v7D".format(message))
+	
 	if message.content.startswith('.restart'):
 		await asyncio.sleep(5)
 		await bot.send_message(message.channel, ":arrows_counterclockwise: Restarting Bot...".format(message))
@@ -46,6 +47,9 @@ async def on_message(message):
 		await asyncio.sleep(7)
 		await bot.send_message(message.channel, ":white_check_mark: Bot Successfully Restarted".format(message))
 	await bot.process_commands(message)
+	
+	if message.content.startswith('.removewarns me'):
+		await bot.send_message(message.channel, ":white_check_mark: Success!{0.author.mention} You have removed your warnings from", value=server.format(message))
 		
 def user_is_me(ctx):
 	return ctx.message.author.id == "341933833136111617"
@@ -125,7 +129,6 @@ async def _mute(ctx, user: discord.Member = None, *, arg = None):
 		return False
 	reason = arg
 	author = ctx.message.author
-	server = ctx.message.server
 	role = discord.utils.get(ctx.message.server.roles, name="Muted")
 	await bot.add_roles(user, role)
 	embed = discord.Embed(title="Mute", description=" ", color=0xFFA500)
@@ -133,12 +136,6 @@ async def _mute(ctx, user: discord.Member = None, *, arg = None):
 	embed.add_field(name="Moderator: ", value="{}".format(author.mention), inline=False)
 	embed.add_field(name="Reason: ", value="{}\n".format(arg), inline=False)
 	await bot.say(embed=embed)
-	embed = discord.Embed(title="Muted", description=" ", color=0xFFA500)
-	embed.add_field(name="User:", value="{}".format(user.name), inline=False)
-	embed.add_field(name="Moderator:", value="{}".format(author.name), inline=False)
-	embed.add_field(name="Reason:", value="{}".format(arg), inline=False)
-	embed.add_field(name="Server Name:", value="{}".format(server), inline=False)
-	await bot.send_message(author, embed=embed)
 	
 @_mute.error
 async def mute_error(error, ctx):
@@ -157,7 +154,6 @@ async def _unmute(ctx, user: discord.Member = None, *, arg = None):
 		return False
 	reason = arg
 	author = ctx.message.author
-	server = ctx.message.server
 	role = discord.utils.get(ctx.message.server.roles, name="Muted")
 	await bot.remove_roles(user, role)
 	embed = discord.Embed(title="Unmute", description=" ", color=0x00ff00)
@@ -165,12 +161,6 @@ async def _unmute(ctx, user: discord.Member = None, *, arg = None):
 	embed.add_field(name="Moderator: ", value="{}".format(author.mention), inline=False)
 	embed.add_field(name="Reason: ", value="{}\n".format(arg), inline=False)
 	await bot.say(embed=embed)
-	embed = discord.Embed(title="Unmuted", description=" ", color=0xFFA500)
-	embed.add_field(name="User:", value="{}".format(user.name), inline=False)
-	embed.add_field(name="Moderator:", value="{}".format(author.name), inline=False)
-	embed.add_field(name="Reason:", value="{}".format(arg), inline=False)
-	embed.add_field(name="Server Name:", value="{}".format(server), inline=False)
-	await bot.send_message(author, embed=embed)
 	
 @_unmute.error
 async def unmute_error(error, ctx):
@@ -189,19 +179,12 @@ async def _kick(ctx, user: discord.Member = None, *, arg = None):
 		return False
 	reason = arg
 	author = ctx.message.author
-	server = ctx.message.server
 	await bot.kick(user)
 	embed = discord.Embed(title="Kick", description=" ", color=0x00ff00)
 	embed.add_field(name="User: ", value="<@{}>".format(user.id), inline=False)
 	embed.add_field(name="Moderator: ", value="{}".format(author.mention), inline=False)
 	embed.add_field(name="Reason: ", value="{}\n".format(arg), inline=False)
 	await bot.say(embed=embed)
-	embed = discord.Embed(title="Kick", description=" ", color=0xFFA500)
-	embed.add_field(name="User:", value="{}".format(user.name), inline=False)
-	embed.add_field(name="Moderator:", value="{}".format(author.name), inline=False)
-	embed.add_field(name="Reason:", value="{}".format(arg), inline=False)
-	embed.add_field(name="Server Name:", value="{}".format(server), inline=False)
-	await bot.send_message(author, embed=embed)
 	
 @_kick.error
 async def kick_error(error, ctx):
@@ -220,7 +203,6 @@ async def _ban(ctx, user: discord.Member = None, *, arg = None):
 		return False
 	reason = arg
 	author = ctx.message.author
-	server = ctx.message.server
 	await bot.ban(user)
 	embed = discord.Embed(title="Ban", description=" ", color=0xFF0000)
 	embed.add_field(name="User: ", value="<@{}>".format(user.id), inline=False)
