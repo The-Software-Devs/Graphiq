@@ -52,7 +52,10 @@ async def on_message(message):
 		await bot.send_message(message.channel, ":white_check_mark: Success! {0.author.mention} You have removed your warnings.".format(message))
 		
 	if message.content.startswith('.anti-raid on'):
-		await bot.send_message(message.channel, "Success!{0.author.mention} Anti-Raid command has been enabled!".format(message))
+		await bot.send_message(message.channel, "Success! {0.author.mention} Anti-Raid command has been enabled!".format(message))#
+	
+	if message.content.startswith('.anti-raid off'):
+		await bot.send_message(message.channel, "Success! {0.author.mention} Anti-Raid command has been disabled!".format(message))
 def user_is_me(ctx):
 	return ctx.message.author.id == "341933833136111617"
 	
