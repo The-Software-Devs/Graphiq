@@ -311,5 +311,12 @@ async def eval_error(error, ctx):
 	if isinstance(error, discord.ext.commands.errors.CheckFailure):
 		text = "Sorry {} You can't use this command only the bot owner can do this.".format(ctx.message.author.mention)
 		await bot.send_message(ctx.message.channel, text)
+		
+@bot.command()
+@commands.check(user_is_me)
+async def servers():
+	servers = list(bot.servers)
+	await bot.say("Connected on " + str(len(bot.servers)) + " servers:")
+	await bot.say('\n'.join(server.name for server in servers))
 
 bot.run(os.environ['BOT_TOKEN'])
