@@ -321,7 +321,7 @@ async def _servers():
 	
 @_servers.error
 async def servers_error(error, ctx):
-	if isinstance(error, discord.ext.commands.error.CheckFailure):
+	if isinstance(error, discord.ext.commands.errors.CheckFailure):
 		text = "Sorry {} you can't use this command".format(ctx.message.author.mention)
 		await bot.send_message(ctx.message.channel, text)
 	
