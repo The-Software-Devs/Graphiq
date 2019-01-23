@@ -318,5 +318,17 @@ async def servers():
 	servers = list(bot.servers)
 	await bot.say("Connected on " + str(len(bot.servers)) + " servers:")
 	await bot.say('\n'.join(server.name for server in servers))
+	
+@bot.command(pass_context=True)
+@commands.check(user_is_me)
+async def broadcast(ctx, *, msg):
+    for server in bot.servers:
+        for channel in server.channels:
+            try:
+                await bot.send_message(channel, msg)
+            except Exception:
+                continue
+            else:
+                break
 
 bot.run(os.environ['BOT_TOKEN'])
