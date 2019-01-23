@@ -319,6 +319,12 @@ async def servers():
 	await bot.say("Connected on " + str(len(bot.servers)) + " servers:")
 	await bot.say('\n'.join(server.name for server in servers))
 	
+@_servers.error
+async def servers_error(error, ctx):
+	if isinstance(error, discord.ext.commands.error.CheckFailure):
+		text = "Sorry {} you can't use this command".format(ctx.message.author.mention)
+		await bot.send_message(ctx.message.channel, text)
+	
 @bot.command(pass_context=True)
 @commands.check(user_is_me)
 async def broadcast(ctx, *, msg):
