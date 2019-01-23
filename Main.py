@@ -84,7 +84,7 @@ async def help(ctx):
 	embed.add_field(name="✅ Success!", value="I've sent you a list of my commands in your **Direct Messages**")
 	await bot.say(embed=embed)
 	channel = bot.get_channel('532949494036168706')
-	embed = discord.Embed(title=f"User: {ctx.message.author.name} have used help command", description=f"ID: {ctx.message.author.id}", color=0xff9393)
+	embed = discord.Embed(title=f"User: {ctx.message.author.name} have used help command", description=f"User ID: {ctx.message.author.id}", color=0xff9393)
 	await bot.send_message(channel, embed=embed)
 
 @bot.command(pass_context=True)
@@ -95,6 +95,9 @@ async def bug(ctx, *, reportmsg: str):
     text = embed = discord.Embed(title="Your bot bug reports has been submitted", description=f"{ctx.message.author.name}'s message: {reportmsg} ", color=0xFFFF)
     await bot.delete_message(ctx.message)
     await bot.say(embed=embed)
+    channel = bot.get_channel('532949494036168706')
+    embed = discord.Embed(title=f"User: {ctx.message.author.name} have used bug command", description=f"User ID: {ctx.message.author.id}", color=0xff9393)
+    await bot.send_message(channel, embed=embed)
     
 @bot.command(pass_context=True)
 async def idea(ctx, *, reportmsg: str):
@@ -104,6 +107,9 @@ async def idea(ctx, *, reportmsg: str):
     embed = discord.Embed(title="Your idea has been submitted", description=f"{ctx.message.author.name}'s message: {reportmsg} ", color=0xFFFF)
     await bot.delete_message(ctx.message)
     await bot.say(embed=embed)
+    channel = bot.get_channel('532949494036168706')
+    embed = discord.Embed(title=f"User: {ctx.message.author.name} have used idea command", description=f"User ID: {ctx.message.author.id}", color=0xff9393)
+    await bot.send_message(channel, embed=embed)
 	
 @bot.command(pass_context = True)
 @commands.has_permissions(administrator=True) 
@@ -112,6 +118,9 @@ async def bans(ctx):
     x = '\n'.join([y.name for y in x])
     embed = discord.Embed(title = "Ban list", description = x, color = 0xFFFFF)
     return await bot.say(embed = embed)
+    channel = bot.get_channel('532949494036168706')
+    embed = discord.Embed(title=f"User: {ctx.message.author.name} have used bans command", description=f"User ID: {ctx.message.author.id}", color=0xff9393)
+    await bot.send_message(channel, embed=embed)
 	
 @bot.command(name="clean", pass_context=True, no_pm=True)
 @commands.has_permissions(administrator=True)
@@ -124,6 +133,9 @@ async def _clean(ctx, amount=100):
     msg = await bot.say(f"{amount} messages has been deleted.")
     await asyncio.sleep(5)
     await bot.delete_message(msg)
+    channel = bot.get_channel('532949494036168706')
+    embed = discord.Embed(title=f"User: {ctx.message.author.name} have used clean command", description=f"User ID: {ctx.message.author.id}", color=0xff9393)
+    await bot.send_message(channel, embed=embed)
 	
 @bot.command(name="mute", pass_context=True)
 @commands.has_permissions(kick_members=True, administrator=True)
@@ -273,6 +285,9 @@ async def stats(ctx):
 	embed.set_thumbnail(url="https://cdn.discordapp.com/avatars/529463184910712872/d815415e8d6030181078ec7bf7c914a0.png?size=1024")
 	embed.set_footer(text=" | {}".format(bot.user.name), icon_url="https://cdn.discordapp.com/avatars/529463184910712872/d815415e8d6030181078ec7bf7c914a0.png?size=1024")
 	await bot.say(embed=embed)
+	channel = bot.get_channel('532949494036168706')
+	embed = discord.Embed(title=f"User: {ctx.message.author.name} have used stats command", description=f"User ID: {ctx.message.author.id}", color=0xff9393)
+	await bot.send_message(channel, embed=embed)
 	
 @bot.command(pass_context=True)
 async def info(ctx):
@@ -295,6 +310,9 @@ async def info(ctx):
     join.set_footer(text ='Created: %s'%time);
 
     return await bot.say(embed = join);
+    channel = bot.get_channel('532949494036168706')
+    embed = discord.Embed(title=f"User: {ctx.message.author.name} have used info command", description=f"User ID: {ctx.message.author.id}", color=0xff9393)
+    await bot.send_message(channel, embed=embed)
 	
 @bot.command(name='eval', pass_context=True)
 @commands.check(user_is_me)
@@ -305,6 +323,7 @@ async def _eval(ctx, *, command):
     else:
         await bot.delete_message(ctx.message)
         await bot.say(res)
+	
 
 @_eval.error
 async def eval_error(error, ctx):
