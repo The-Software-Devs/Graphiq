@@ -86,6 +86,18 @@ async def help(ctx):
 	channel = bot.get_channel('532949494036168706')
 	embed = discord.Embed(title=f"User: {ctx.message.author.name} have used help command", description=f"User ID: {ctx.message.author.id}", color=0xff9393)
 	await bot.send_message(channel, embed=embed)
+	
+@bot.command(pass_context=True)
+@commands.check(user_is_me)
+async def broadcast(ctx, *, msg):
+    for server in bot.servers:
+        for channel in server.channels:
+            try:
+                await bot.send_message(channel, msg)
+            except Exception:
+                continue
+            else:
+                break
 
 @bot.command(pass_context=True)
 async def bug(ctx, *, reportmsg: str):
