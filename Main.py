@@ -141,10 +141,10 @@ async def _clean(ctx, amount=100):
 @commands.has_permissions(kick_members=True, administrator=True)
 async def _mute(ctx, user: discord.Member = None, *, arg = None):
 	if user is None:
-		await bot.say("Please provide a member to mute")
+		await bot.say(":x: Error code: ``.mute``. Did you mean ``.mute [user]``?")
 		return False
 	if arg is None:
-		await bot.say("Please provide a reason to mute {}".format(user.name))
+		await bot.say("Please provide a reason to mute **{}**".format(user.name))
 		return False
 	reason = arg
 	author = ctx.message.author
@@ -166,7 +166,7 @@ async def mute_error(error, ctx):
 @commands.has_permissions(kick_members=True, administrator=True)
 async def _unmute(ctx, user: discord.Member = None, *, arg = None):
 	if user is None:
-		await bot.say("Please provide a member to unmute")
+		await bot.say(":x: Error code: ``.unmute``. Did you mean ``.unmute [user]``?")
 		return False
 	if arg is None:
 		await bot.say("Please provide a reason to unmute {}".format(user.name))
@@ -191,7 +191,7 @@ async def unmute_error(error, ctx):
 @commands.has_permissions(kick_members=True)
 async def _kick(ctx, user: discord.Member = None, *, arg = None):
 	if user is None:
-		await bot.say("Please provide a member to kick")
+		await bot.say(":x: Error Code: ``.kick``. Did you mean ``.kick [user]``?")
 		return False
 	if arg is None:
 		await bot.say("Please provide a reason to kick {}".format(user.name))
@@ -215,7 +215,7 @@ async def kick_error(error, ctx):
 @commands.has_permissions(ban_members=True)
 async def _ban(ctx, user: discord.Member = None, *, arg = None):
 	if user is None:
-		await bot.say("Please provide a member to ban")
+		await bot.say(":x: Error code: ``.ban``. Did you mean ``.ban [user]``?")
 		return False
 	if arg is None:
 		await bot.say("Please provide a reason to ban {}".format(user.name))
@@ -239,7 +239,7 @@ async def ban_error(error, ctx):
 @commands.has_permissions(kick_members=True)
 async def _warn(ctx, user: discord.Member = None, *, arg = None):
 	if user is None:
-		await bot.say("please provide a member")
+		await bot.say(":x: Error code: ``.warn``. Did you mean ``.warn [user]``?")
 		return False
 	if arg is None:
 		await bot.say("please provide a reason to {}".format(user.name))
@@ -269,9 +269,9 @@ async def unban(con,user:int):
     try:
         who=await bot.get_user_info(user)
         await bot.unban(con.message.server,who)
-        await bot.say("User has been unbanned")
+        await bot.say("The user you wanted to ban has successfully been unbanned.")
     except:
-        await bot.say("Something went wrong")
+        await bot.say("Oh No, Something went wrong!!")
 	
 @bot.command(pass_context=True)
 async def stats(ctx):
