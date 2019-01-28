@@ -191,7 +191,7 @@ async def unmute_error(error, ctx):
 @commands.has_permissions(kick_members=True)
 async def _kick(ctx, user: discord.Member = None, *, arg = None):
 	if user is None:
-		await bot.say("Please provide a member to kick")
+		await bot.say(":x: Error code ``.kick``. Did you mean ``.kick (user)``? ")
 		return False
 	if arg is None:
 		await bot.say("Please provide a reason to kick {}".format(user.name))
@@ -199,7 +199,7 @@ async def _kick(ctx, user: discord.Member = None, *, arg = None):
 	reason = arg
 	author = ctx.message.author
 	await bot.kick(user)
-	embed = discord.Embed(title="Kick", description=" ", color=0x00ff00)
+	embed = discord.Embed(title=":white_check_mark: Success! You have kicked:", description=" ", color=0x00ff00)
 	embed.add_field(name="User: ", value="<@{}>".format(user.id), inline=False)
 	embed.add_field(name="Moderator: ", value="{}".format(author.mention), inline=False)
 	embed.add_field(name="Reason: ", value="{}\n".format(arg), inline=False)
@@ -215,7 +215,7 @@ async def kick_error(error, ctx):
 @commands.has_permissions(ban_members=True)
 async def _ban(ctx, user: discord.Member = None, *, arg = None):
 	if user is None:
-		await bot.say("Please provide a member to ban")
+		await bot.say(":x: Error Code: ``.ban``. Did you mean ``.ban (user)``?")
 		return False
 	if arg is None:
 		await bot.say("Please provide a reason to ban {}".format(user.name))
@@ -223,7 +223,7 @@ async def _ban(ctx, user: discord.Member = None, *, arg = None):
 	reason = arg
 	author = ctx.message.author
 	await bot.ban(user)
-	embed = discord.Embed(title="Ban", description=" ", color=0xFF0000)
+	embed = discord.Embed(title=":white_check_mark: Success! You have banned:", description=" ", color=0xFF0000)
 	embed.add_field(name="User: ", value="<@{}>".format(user.id), inline=False)
 	embed.add_field(name="Moderator: ", value="{}".format(author.mention), inline=False)
 	embed.add_field(name="Reason: ", value="{}\n".format(arg), inline=False)
@@ -239,7 +239,7 @@ async def ban_error(error, ctx):
 @commands.has_permissions(kick_members=True)
 async def _warn(ctx, user: discord.Member = None, *, arg = None):
 	if user is None:
-		await bot.say("please provide a member")
+		await bot.say(":x: Error Code: ``.warn``. Did you mean ``.warn (user) ``?")
 		return False
 	if arg is None:
 		await bot.say("please provide a reason to {}".format(user.name))
@@ -247,14 +247,14 @@ async def _warn(ctx, user: discord.Member = None, *, arg = None):
 	reason = arg
 	author = ctx.message.author
 	server = ctx.message.server
-	embed = discord.Embed(title="Warn", description=" ", color=0x00ff00)
+	embed = discord.Embed(title=":white_check_mark: You have warned:", description=" ", color=0x00ff00)
 	embed.add_field(name="User: ", value="<@{}>".format(user.id), inline=False)
 	embed.add_field(name="Moderator: ", value="{}".format(author.mention), inline=False)
 	embed.add_field(name="Reason: ", value="{}\n".format(arg), inline=False)
 	await bot.say(embed=embed)
 	em = discord.Embed(description=" ", color=0x00ff00)
-	em.add_field(name="you have been warned for: ", value=reason)
-	em.add_field(name="from:", value=server)
+	em.add_field(name="You have been warned for: ", value=reason)
+	em.add_field(name="From the server:", value=server)
 	await bot.send_message(user, embed=em)
 	
 @_warn.error
