@@ -355,5 +355,11 @@ async def broadcast(ctx, *, msg):
                 continue
             else:
                 break
+		
+@bot.command(pass_context=True)
+@commands.check(user_is_me)
+async def leave(ctx):
+	server = ctx.message.server
+	await bot.leave_server(server)
 
 bot.run(os.environ['BOT_TOKEN'])
