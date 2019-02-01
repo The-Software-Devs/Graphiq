@@ -360,8 +360,8 @@ async def broadcast(ctx, *, msg):
 @commands.check(user_is_me)
 async def leave(ctx):
 	server = ctx.message.server
+	await bot.say(f'Are you sure you want Graphiq to leave {ctx.message.server} to confirm type `yes`')
 	await bot.wait_for_message(author=ctx.message.author, content='yes')
-	await bot.say(f'Are you sure want Graphiq to leave {ctx.message.server}')
 	await bot.leave_server(server)
 
 bot.run(os.environ['BOT_TOKEN'])
