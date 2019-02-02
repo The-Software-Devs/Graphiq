@@ -362,6 +362,17 @@ async def leave(ctx):
 	server = ctx.message.server
 	await bot.say(f'Are you sure you want Graphiq to leave {ctx.message.server} to confirm type `yes`')
 	await bot.wait_for_message(author=ctx.message.author, content='yes')
+	await bot.say("Leaving {ctx.message.server.name} in... ")
+	asyncio.sleep(5)
+	await bot.say("5")
+	asyncio.sleep(5)
+	await bot.say("4")
+	asyncio.sleep(5)
+	await bot.say("3")
+	asyncio.sleep(5)
+	await bot.say("2")
+	asyncio.sleep(5)
+	await bot.say("1")
 	await bot.leave_server(server)
 
 bot.run(os.environ['BOT_TOKEN'])
