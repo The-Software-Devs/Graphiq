@@ -308,7 +308,7 @@ async def info(ctx):
     join.add_field(name = 'Text/Voice Channels', value = str(channelz));
     join.add_field(name = '__Roles (%s)__'%str(role_length), value = roles);
     join.set_footer(text ='Created: %s'%time);
-    join.set_image(url="https://imgur.com/a/od0ropa")
+    join.set_image(url="https://cdn.discordapp.com/attachments/524655977832775710/541446963887996939/Fade_image.png")
 
     return await bot.say(embed = join);
     channel = bot.get_channel('532949494036168706')
