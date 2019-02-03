@@ -22,8 +22,7 @@ async def on_message(message):
         embed.set_image(url="https://cdn.discordapp.com/attachments/524655977832775710/541446963887996939/Fade_image.png")    
         await bot.send_message(message.channel, embed=embed)
 	
-	
-		
+
 def user_is_me(ctx):
 	return ctx.message.author.id == "341933833136111617"
 	
