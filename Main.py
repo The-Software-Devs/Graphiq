@@ -22,9 +22,8 @@ async def on_message(message):
         embed=discord.Embed(description=f"Hello, {message.author.mention}")
         embed.set_image(url="https://cdn.discordapp.com/attachments/524655977832775710/541446963887996939/Fade_image.png")    
         await bot.send_message(message.channel, embed=embed)
-	
+    await bot.process_commands(message)
 
-	
 @bot.command(pass_context=True, no_pm=True)
 async def help(ctx):
 	author = ctx.message.author
@@ -53,7 +52,7 @@ async def help(ctx):
 	await bot.send_message(channel, embed=embed)
 
 @bot.command(pass_context=True)
-async def bug(ctx, *, reportmsg: str):
+async def bug(ctx, *, reportmsg):
     channel = bot.get_channel('532949494036168706')
     msg = embed = discord.Embed(title=f"User: {ctx.message.author.name}", description=f"Bug reports: {reportmsg}", color=0xFFFF)
     await bot.send_message(channel, embed=embed)
@@ -65,7 +64,7 @@ async def bug(ctx, *, reportmsg: str):
     await bot.send_message(channel, embed=embed)
     
 @bot.command(pass_context=True)
-async def idea(ctx, *, reportmsg: str):
+async def idea(ctx, *, reportmsg):
     channel = bot.get_channel('532949494036168706')
     msg = embed = discord.Embed(title=f"User: {ctx.message.author.name}", description=f"Idea: {reportmsg}", color=0xFFFF)
     await bot.send_message(channel, embed=embed)
@@ -89,7 +88,7 @@ async def bans(ctx):
     else:
     	await bot.send_message(ctx.message.channel, "Sorry {}, You don't have requirement permission to use this command `ban members`.".format(ctx.message.author.mention))
 	
-@bot.command(name="clean", pass_context=True, no_pm=True)
+@bot.command(name="clean", pass_context=True)
 async def _clean(ctx, amount=100):
     if ctx.message.author.server_permissions.manage_messages == True:
         channel = ctx.message.channel
