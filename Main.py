@@ -22,18 +22,7 @@ async def on_message(message):
         embed.set_image(url="https://cdn.discordapp.com/attachments/524655977832775710/541446963887996939/Fade_image.png")    
         await bot.send_message(message.channel, embed=embed)
 	
-	if message.content.startswith('.welcome'):
-		await bot.send_message(message.channel, 'Thanks for having me in your server {0.author.mention}!'.format(message))
-	
-	if message.content.startswith('.ping'):
-		await bot.send_message(message.channel, "{0.author.mention} Pong!".format(message))
-	
-	if message.content.startswith(".inviteme"):
-		msg = "https://discordapp.com/api/oauth2/authorize?client_id=529463184910712872&permissions=0&scope=bot {0.author.mention}".format(message)
-		await bot.send_message(message.channel, msg)
-	
-	if message.content.startswith('.bothelp'):
-		await bot.send_message(message.channel, "Need help? Join our server for more info. Our friendly staff will always help you. https://discord.gg/a5X8v7D".format(message))
+@bot.command
 	
 	if message.content.startswith('.restart'):
 		await asyncio.sleep(5)
