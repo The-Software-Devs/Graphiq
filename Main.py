@@ -109,7 +109,7 @@ async def _clean(ctx, amount=100):
 async def _mute(ctx, user: discord.Member = None, *, arg = None):
     if ctx.message.author.server_permissions.manage_messages == True:
         if user is None:
-            await bot.say(":x: Error code: ``.mute``. Did you mean ``.mute [user]``?")
+            await bot.say(":x: Error 302. ``.mute``.")
             return False
         if arg is None:
             await bot.say("Please provide a reason to mute **{}**".format(user.name))
@@ -131,7 +131,7 @@ async def _mute(ctx, user: discord.Member = None, *, arg = None):
 async def _unmute(ctx, user: discord.Member = None, *, arg = None):
     if ctx.message.author.server_permissions.manage_messages == True:
         if user is None:
-            await bot.say(":x: Error code: ``.unmute``. Did you mean ``.unmute [user]``?")
+            await bot.say(":x: Error 302.")
             return False
         if arg is None:
             await bot.say("Please provide a reason to unmute {}".format(user.name))
@@ -153,7 +153,7 @@ async def _unmute(ctx, user: discord.Member = None, *, arg = None):
 async def _kick(ctx, user: discord.Member = None, *, arg = None):
     if ctx.message.author.server_permissions.kick_members == True:
         if user is None:
-            await bot.say(":x: Error Code: ``.kick``. Did you mean ``.kick [user]``?")
+            await bot.say(":x: Error 302.")
             return False
         if arg is None:
             await bot.say("Please provide a reason to kick {}".format(user.name))
@@ -174,7 +174,7 @@ async def _kick(ctx, user: discord.Member = None, *, arg = None):
 async def _ban(ctx, user: discord.Member = None, *, arg = None):
     if ctx.message.author.server_permissions.ban_members == True:
         if user is None:
-            await bot.say(":x: Error code: ``.ban``. Did you mean ``.ban [user]``?")
+            await bot.say(":x: Error 302.")
             return False
         if arg is None:
             await bot.say("Please provide a reason to ban {}".format(user.name))
@@ -195,7 +195,7 @@ async def _ban(ctx, user: discord.Member = None, *, arg = None):
 async def _warn(ctx, user: discord.Member = None, *, arg = None):
     if ctx.message.author.server_permissions.manage_messages == True:
         if user is None:
-            await bot.say(":x: Error code: ``.warn``. Did you mean ``.warn [user]``?")
+            await bot.say(":x: Error 302.")
             return False
         if arg is None:
             await bot.say("please provide a reason to {}".format(user.name))
