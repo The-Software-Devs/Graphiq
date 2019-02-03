@@ -22,12 +22,19 @@ async def on_message(message):
         embed.set_image(url="https://cdn.discordapp.com/attachments/524655977832775710/541446963887996939/Fade_image.png")    
         await bot.send_message(message.channel, embed=embed)
 	
+@bot.event
+async def on_message(message):
+    if message.content.startswith('.bye' or '.bye'):
+        embed=discord.Embed(description=f"Bye, {message.author.mention}")
+        embed.set_image(url="https://cdn.discordapp.com/attachments/524655977832775710/541446963887996939/Fade_image.png")    
+        await bot.send_message(message.channel, embed=embed)
+	
 		
 def user_is_me(ctx):
 	return ctx.message.author.id == "341933833136111617"
 	
 @bot.command(pass_context=True, no_pm=True)
-async def help(ctx):
+async def help(ctx)
 	author = ctx.message.author
 	embed = discord.Embed(description="Help Section", color=0xFFFF)
 	embed.add_field(name=".hello", value="Make the bot say hello to you.")
