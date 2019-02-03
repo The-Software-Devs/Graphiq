@@ -308,6 +308,7 @@ async def info(ctx):
     join.add_field(name = 'Text/Voice Channels', value = str(channelz));
     join.add_field(name = '__Roles (%s)__'%str(role_length), value = roles);
     join.set_footer(text ='Created: %s'%time);
+    join.set_image(url="https://imgur.com/a/od0ropa")
 
     return await bot.say(embed = join);
     channel = bot.get_channel('532949494036168706')
