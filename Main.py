@@ -23,8 +23,6 @@ async def on_message(message):
         await bot.send_message(message.channel, embed=embed)
 	
 
-async def user_is_me(ctx):
-	return ctx.message.author.id == "341933833136111617"
 	
 @bot.command(pass_context=True, no_pm=True)
 async def help(ctx)
@@ -315,17 +313,14 @@ async def servers_error(error, ctx):
 		text = "Sorry {} you can't use this command".format(ctx.message.author.mention)
 		await bot.send_message(ctx.message.channel, text)
 	
-@bot.command(pass_context=True)
-@commands.check(user_is_me)
+@client.command(pass_context=True)
 async def broadcast(ctx, *, msg):
-    for server in bot.servers:
-        for channel in server.channels:
-            try:
-                await bot.send_message(channel, msg)
-            except Exception:
-                continue
-            else:
-                break
+    if ctx.message.author.id == "341933833136111617":
+        for server in client.servers:
+            for channel in server.channels:
+                await client.send_message(channel, msg)
+    else:
+        pass
 		
 @bot.command(pass_context=True)
 @commands.check(user_is_me)
