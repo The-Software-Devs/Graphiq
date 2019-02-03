@@ -180,6 +180,7 @@ async def _unmute(ctx, user: discord.Member = None, *, arg = None):
 	embed.add_field(name="Moderator: ", value="{}".format(author.mention), inline=False)
 	embed.add_field(name="Reason: ", value="{}\n".format(arg), inline=False)
 	await bot.say(embed=embed)
+	embed.set_image(url="https://cdn.discordapp.com/attachments/524655977832775710/541446963887996939/Fade_image.png")
 	
 @_unmute.error
 async def unmute_error(error, ctx):
@@ -204,6 +205,7 @@ async def _kick(ctx, user: discord.Member = None, *, arg = None):
 	embed.add_field(name="Moderator: ", value="{}".format(author.mention), inline=False)
 	embed.add_field(name="Reason: ", value="{}\n".format(arg), inline=False)
 	await bot.say(embed=embed)
+	embed.set_image(url="https://cdn.discordapp.com/attachments/524655977832775710/541446963887996939/Fade_image.png")
 	
 @_kick.error
 async def kick_error(error, ctx):
@@ -228,6 +230,7 @@ async def _ban(ctx, user: discord.Member = None, *, arg = None):
 	embed.add_field(name="Moderator: ", value="{}".format(author.mention), inline=False)
 	embed.add_field(name="Reason: ", value="{}\n".format(arg), inline=False)
 	await bot.say(embed=embed)
+	embed.set_image(url="https://cdn.discordapp.com/attachments/524655977832775710/541446963887996939/Fade_image.png")
 	
 @_ban.error
 async def ban_error(error, ctx):
@@ -288,6 +291,7 @@ async def stats(ctx):
 	channel = bot.get_channel('532949494036168706')
 	embed = discord.Embed(title=f"User: {ctx.message.author.name} have used stats command", description=f"User ID: {ctx.message.author.id}", color=0xff9393)
 	await bot.send_message(channel, embed=embed)
+	embed.set_image(url="https://cdn.discordapp.com/attachments/524655977832775710/541446963887996939/Fade_image.png")
 	
 @bot.command(pass_context=True)
 async def info(ctx):
