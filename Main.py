@@ -23,7 +23,7 @@ async def on_message(message):
         await bot.send_message(message.channel, embed=embed)
 	
 
-def user_is_me(ctx):
+async def user_is_me(ctx):
 	return ctx.message.author.id == "341933833136111617"
 	
 @bot.command(pass_context=True, no_pm=True)
