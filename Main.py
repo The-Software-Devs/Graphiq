@@ -17,8 +17,10 @@ async def on_ready():
 
 @bot.event
 async def on_message(message):
-	if message.content.startswith('.hello'):
-		await bot.send_message(message.channel, "Hello {0.author.mention}".format(message))
+    if message.content.startswith('.hello' or '.Hello'):
+        embed=discord.Embed(description=f"Hello, {author.mention}")
+        embed.set_image(url="https://cdn.discordapp.com/attachments/524655977832775710/541446963887996939/Fade_image.png")    
+        await bot.send_message(message.channel, embed=embed)
 	
 	if message.content.startswith('.welcome'):
 		await bot.send_message(message.channel, 'Thanks for having me in your server {0.author.mention}!'.format(message))
