@@ -20,6 +20,14 @@ async def on_message(message):
 		embed.set_image(url="https://cdn.discordapp.com/attachments/524655977832775710/541446963887996939/Fade_image.png")    
 		await bot.send_message(message.channel, embed=embed)
 	await bot.process_commands(message)
+	
+@bot.event
+async def on_message(message):
+	if message.content.startswith('.credits'):
+		embed=discord.Embed(description=f"Bot Owner & Founder: Mxchael || Bot Developers: NoobPerson, Tunyo-Tex., {message.author.mention}")
+		embed.set_image(url="https://cdn.discordapp.com/attachments/524655977832775710/541446963887996939/Fade_image.png")    
+		await bot.send_message(message.channel, embed=embed)
+	await bot.process_commands(message)
 
 @bot.command(pass_context=True, no_pm=True)
 async def help(ctx):
