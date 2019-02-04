@@ -29,6 +29,7 @@ async def on_message(message):
 		await bot.send_message(message.channel, embed=embed)
 	await bot.process_commands(message)
 
+	
 @bot.command(pass_context=True, no_pm=True)
 async def help(ctx):
 	author = ctx.message.author
