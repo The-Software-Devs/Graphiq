@@ -11,18 +11,15 @@ bot.remove_command('help')
 
 @bot.event
 async def on_ready():
-		     await client.change_presence(game=Game(name="{} servers | .help".format(len(client.servers)),type = 3))
+	await bot.change_presence(game=discord.Game(name="{} servers | .help".format(len(bot.servers)), type = 3))
 
-
-	
-	
 @bot.event
 async def on_message(message):
-    if message.content.startswith('.hello'):
-        embed=discord.Embed(description=f"Hello, {message.author.mention}")
-        embed.set_image(url="https://cdn.discordapp.com/attachments/524655977832775710/541446963887996939/Fade_image.png")    
-        await bot.send_message(message.channel, embed=embed)
-    await bot.process_commands(message)
+	if message.content.startswith('.hello'):
+		embed=discord.Embed(description=f"Hello, {message.author.mention}")
+		embed.set_image(url="https://cdn.discordapp.com/attachments/524655977832775710/541446963887996939/Fade_image.png")    
+		await bot.send_message(message.channel, embed=embed)
+	await bot.process_commands(message)
 
 @bot.command(pass_context=True, no_pm=True)
 async def help(ctx):
