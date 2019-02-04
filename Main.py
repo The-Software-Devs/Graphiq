@@ -35,15 +35,15 @@ async def help(ctx):
 	author = ctx.message.author
 	embed = discord.Embed(description="Help Section", color=0xFFFF)
 	embed.add_field(name=".hello", value="Make the bot say hello to you."
-	embed.add_field(name=".bug", value="Only use this command if the bot is acting weird on specific command.")
-	embed.add_field(name=".idea", value="Send your idea about new commands the bot don't have.")
-	embed.add_field(name=".mute", value=".mute @user <reason>")
-	embed.add_field(name=".unmute", value=".unmute @user <reason>")
-	embed.add_field(name=".kick", value=".kick @user <reason>")
-	embed.add_field(name=".ban", value=".ban @user <reason>")
-	embed.add_field(name=".unban", value=".unban <user id>")
-	embed.add_field(name=".info", value="get info about server")
-	embed.add_field(name=".removewarns me", value="Removes your warn.")
+	embed.add_field(name=".bug", value="Only use this command if the bot is acting weird on specific command."
+	embed.add_field(name=".idea", value="Send your idea about new commands the bot don't have."
+	embed.add_field(name=".mute", value=".mute @user <reason>"
+	embed.add_field(name=".unmute", value=".unmute @user <reason>"
+	embed.add_field(name=".kick", value=".kick @user <reason>"
+	embed.add_field(name=".ban", value=".ban @user <reason>"
+	embed.add_field(name=".unban", value=".unban <user id>"
+	embed.add_field(name=".info", value="get info about server"
+	embed.add_field(name=".removewarns me", value="Removes your warn."
 	embed.set_footer(text="Requested by: " + author.name)
 	await bot.send_message(author, embed=embed)
 	embed = discord.Embed(description=" ", color=0xFFFF)
