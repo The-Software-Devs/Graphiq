@@ -24,7 +24,7 @@ async def on_message(message):
 @bot.event
 async def on_message(message):
 	if message.content.startswith('.credits'):
-		embed=discord.Embed(description=f"Bot Owner & Founder: Mxchael || Bot Developers: NoobPerson, Tunyo-Tex., {message.author.mention}")
+		embed=discord.Embed(description=f"Bot Owner & Founder: Mxchael 		|| Bot Developers: NoobPerson, Tunyo-Tex., {message.author.mention}")
 		embed.set_image(url="https://cdn.discordapp.com/attachments/524655977832775710/541446963887996939/Fade_image.png")    
 		await bot.send_message(message.channel, embed=embed)
 	await bot.process_commands(message)
@@ -33,10 +33,8 @@ async def on_message(message):
 async def help(ctx):
 	author = ctx.message.author
 	embed = discord.Embed(description="Help Section", color=0xFFFF)
-	embed.add_field(name=".hello", value="Make the bot say hello to you.")
-	embed.add_field(name=".welcome", value="Welcome message.")
-	embed.add_field(name=".ping", value="Make the bot ping you.")
-	embed.add_field(name=".inviteme", value="To get bot invite link.")
+	embed.add_field(name=".hello", value="Make the bot say hello to you."
+	embed.add_field(name=".report", value="Report's a user.")
 	embed.add_field(name=".bug", value="Only use this command if the bot is acting weird on specific command.")
 	embed.add_field(name=".idea", value="Send your idea about new commands the bot don't have.")
 	embed.add_field(name=".mute", value=".mute @user <reason>")
@@ -44,13 +42,12 @@ async def help(ctx):
 	embed.add_field(name=".kick", value=".kick @user <reason>")
 	embed.add_field(name=".ban", value=".ban @user <reason>")
 	embed.add_field(name=".unban", value=".unban <user id>")
-	embed.add_field(name=".bothelp", value="Bot help within server.")
 	embed.add_field(name=".info", value="get info about server")
 	embed.add_field(name=".removewarns me", value="Removes your warn.")
 	embed.set_footer(text="Requested by: " + author.name)
 	await bot.send_message(author, embed=embed)
 	embed = discord.Embed(description=" ", color=0xFFFF)
-	embed.add_field(name="? Success!", value="I've sent you a list of my commands in your **Direct Messages**")
+	embed.add_field(name=":white_check_mark: Success!", value="I've sent you a list of my commands in your **Direct Messages**")
 	await bot.say(embed=embed)
 	channel = bot.get_channel('532949494036168706')
 	embed = discord.Embed(title=f"User: {ctx.message.author.name} have used help command", description=f"User ID: {ctx.message.author.id}", color=0xff9393)
