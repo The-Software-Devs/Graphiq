@@ -271,6 +271,21 @@ async def info(ctx):
     embed.set_image(url="https://cdn.discordapp.com/attachments/524655977832775710/541446963887996939/Fade_image.png")	
     await bot.send_message(channel, embed=embed)
 	
+	
+@bot.command(name="warn", pass_context=True)
+async def _warn(ctx, user: discord.Member = None, *, arg = None):
+        if arg is None:
+            await bot.say("Please Provide a member to report {}".format(user.name))
+            return False
+        reason = arg
+        author = ctx.message.author
+        server = ctx.message.server
+        embed = discord.Embed(title="Report", description=" ", color=0x00ff00)
+        embed.add_field(name="User: ", value="<@{}>".format(user.id), inline=False)
+        embed.add_field(name="Reporter: ", value="{}".format(author.mention), inline=False)
+        embed.add_field(name="Reason: ", value="{}\n".format(arg), inline=False)
+        await bot.say(embed=embed)
+	
 @bot.command(name='eval', pass_context=True)
 async def _eval(ctx, *, command):
     if ctx.message.author.id == "493075860975386646" or "341933833136111617":
