@@ -19,12 +19,12 @@ async def on_ready():
 saki_chans=[]
 async def get_saki_chans():
 	"""
-	This gets the ids of channels that are called kurusaki_text_channel and it can be named anything else you'd like just make sure to change it in other areas of your code as well if it requires it
+	This gets the ids of channels that are called graphiq_text_channel and it can be named anything else you'd like just make sure to change it in other areas of your code as well if it requires it
 	The ids are stored in the variable `saki_chans`
 	"""
     for i in bot.servers:
         for x in i.channels:
-            if x.type == discord.ChannelType.text and x.name == 'Graphiq_text_channel' and x.id not in saki_chans:
+            if x.type == discord.ChannelType.text and x.name == 'graphiq_text_channel' and x.id not in saki_chans:
                 saki_chans.append(x.id)
     print(saki_chans)
 
