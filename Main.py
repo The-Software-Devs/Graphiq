@@ -11,11 +11,7 @@ bot.remove_command('help')
 
 @bot.event
 async def on_ready():
-	print('Logged in as')
-	print(bot.user.name)
-	print(bot.user.id)
-	print('------')
-	await client.change_presence(game=Game(name="{} servers | .help".format(len(client.servers)),type = 3))
+await client.change_presence(game=Game(name="{} servers | .help".format(len(client.servers)),type = 3))
 
 
 	
