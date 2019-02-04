@@ -329,7 +329,6 @@ async def broadcast(ctx, *, msg):
         pass
 		
 @bot.command(pass_context=True)
-if ctx.message.author.server_permissions.administrator == True:
 async def leave(ctx):
         server = ctx.message.server
         await bot.say(f'Are you sure you want Graphiq to leave {ctx.message.server} to confirm type `yes`')
