@@ -11,7 +11,7 @@ bot.remove_command('help')
 
 @bot.event
 async def on_ready():
-	await bot.change_presence(game=discord.Game(name="{} servers | .help".format(len(bot.servers)), type = 3))
+    await bot.change_presence(game=discord.Game(name="{} servers | .help".format(len(bot.servers)), type = 3))
 
 @bot.event
 async def on_message(message):
