@@ -329,8 +329,8 @@ async def broadcast(ctx, *, msg):
         pass
 		
 @bot.command(pass_context=True)
-if ctx.message.author.id == "341933833136111617":
 async def leave(ctx):
+if ctx.message.author.id == "341933833136111617":
         server = ctx.message.server
         await bot.say(f'Are you sure you want Graphiq to leave {ctx.message.server} to confirm type `yes`')
         await bot.wait_for_message(author=ctx.message.author, content=['yes','y','Yes','YES','Y'])
