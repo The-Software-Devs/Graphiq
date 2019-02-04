@@ -22,7 +22,7 @@ async def on_message(message):
         embed=discord.Embed(description=f"Hello, {message.author.mention}")
         embed.set_image(url="https://cdn.discordapp.com/attachments/524655977832775710/541446963887996939/Fade_image.png")    
         await bot.send_message(message.channel, embed=embed)
-    	await bot.process_commands(message)
+    await bot.process_commands(message)
 
 @bot.command(pass_context=True, no_pm=True)
 async def help(ctx):
@@ -277,7 +277,7 @@ async def info(ctx):
 async def _warn(ctx, user: discord.Member = None, *, arg = None):
     if ctx.message.author.server_permissions.send_messages == True:
         if user is None:
-            await bot.say(":x: Error 302.")
+            await bot.say(":x: Error 302. Please provide a user.")
             return False
         if arg is None:
             await bot.say("Please provide a user to report {}".format(user.name))
