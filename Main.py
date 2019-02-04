@@ -22,7 +22,7 @@ async def on_message(message):
         embed=discord.Embed(description=f"Hello, {message.author.mention}")
         embed.set_image(url="https://cdn.discordapp.com/attachments/524655977832775710/541446963887996939/Fade_image.png")    
         await bot.send_message(message.channel, embed=embed)
-    await bot.process_commands(message)
+    	await bot.process_commands(message)
 
 @bot.command(pass_context=True, no_pm=True)
 async def help(ctx):
@@ -285,14 +285,13 @@ async def _warn(ctx, user: discord.Member = None, *, arg = None):
         reason = arg
         author = ctx.message.author
         server = ctx.message.server
-        embed = discord.Embed(title="**Report**", description=" ", color=0x00ff00)
+        embed = discord.Embed(title="Report Card Submitted!", description=" ", color=0x00ff00)
         embed.add_field(name="User: ", value="<@{}>".format(user.id), inline=False)
         embed.add_field(name="Moderator: ", value="{}".format(author.mention), inline=False)
         embed.add_field(name="Reason: ", value="{}\n".format(arg), inline=False)
         await bot.say(embed=embed)
         em = discord.Embed(description=" ", color=0x00ff00)
         em.add_field(name="You have been reported for: ", value=reason)
-	em.add_field(name="By the user: ", value=User)
         await bot.send_message(user, embed=em)
     else:
     	await bot.send_message(ctx.message.channel, "Sorry {}, You don't have requirement permission to use this command `manage messages`.".format(ctx.message.author.mention))
