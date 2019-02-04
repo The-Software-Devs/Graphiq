@@ -15,6 +15,7 @@ async def on_ready():
 	print(bot.user.name)
 	print(bot.user.id)
 	print('------')
+	await client.change_presence(game=Game(name="{} servers | .help".format(len(client.servers)),type = 3))
 
 
 	
