@@ -275,7 +275,7 @@ async def info(ctx):
 
 @bot.command(name="report", pass_context=True)
 async def _warn(ctx, user: discord.Member = None, *, arg = None):
-    if ctx.message.author.server_permissions.send_messages == False:
+    if ctx.message.author.server_permissions.send_messages == True:
         if user is None:
             await bot.say(":x: Error 302.")
             return False
