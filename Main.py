@@ -34,7 +34,6 @@ async def help(ctx):
 	author = ctx.message.author
 	embed = discord.Embed(description="Help Section", color=0xFFFF)
 	embed.add_field(name=".hello", value="Make the bot say hello to you."
-	embed.add_field(name=".report", value="Report's a user."
 	embed.add_field(name=".bug", value="Only use this command if the bot is acting weird on specific command.")
 	embed.add_field(name=".idea", value="Send your idea about new commands the bot don't have.")
 	embed.add_field(name=".mute", value=".mute @user <reason>")
