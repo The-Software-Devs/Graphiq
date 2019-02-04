@@ -292,7 +292,7 @@ async def _warn(ctx, user: discord.Member = None, *, arg = None):
         await bot.say(embed=embed)
         em = discord.Embed(description=" ", color=0x00ff00)
         em.add_field(name="You have been reported for: ", value=reason)
-        em.add_field(name="From the server:", value=server)
+	em.add_field(name="By the user: ", value=author)
         await bot.send_message(user, embed=em)
     else:
     	await bot.send_message(ctx.message.channel, "Sorry {}, You don't have requirement permission to use this command `manage messages`.".format(ctx.message.author.mention))
