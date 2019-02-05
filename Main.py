@@ -291,7 +291,6 @@ async def _warn(ctx, user: discord.Member = None, *, arg = None):
         embed.add_field(name="User: ", value="<@{}>".format(user.id), inline=False)
         embed.add_field(name="Reporter: ", value="{}".format(author.mention), inline=False)
         embed.add_field(name="Reason: ", value="{}\n".format(arg), inline=False)
-	channel = bot.get_channel('532949494036168706')
         await bot.say(embed=embed)
         em = discord.Embed(description=" ", color=0x00ff00)
         em.add_field(name="You have been reported for: ", value=reason)
