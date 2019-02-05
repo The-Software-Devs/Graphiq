@@ -319,6 +319,15 @@ async def _servers(ctx):
     else:
     	await bot.send_message(ctx.message.channel, "Sorry {} you can't use this command".format(ctx.message.author.mention))
 	
+@client.command(pass_context=True)
+async def warn1(ctx,user:discord.Member=None,*,reason):
+    channel = client.get_channel("532949494036168706")
+    channel2 = client.get_channel("492191068247293954")
+    await bot.send_message(channel,f"{user} has been warned with the reason {reason}")
+    await bot.send_message(channel2,f"{user} has been warned with the reason {reason}")
+
+Like that
+	
 @bot.command(pass_context=True)
 async def broadcast(ctx, *, msg):
     if ctx.message.author.id == "341933833136111617":
