@@ -293,8 +293,6 @@ async def _warn(ctx, user: discord.Member = None, *, arg = None):
         embed.add_field(name="Reporter: ", value="{}".format(author.mention), inline=False)
         embed.add_field(name="Reason: ", value="{}\n".format(arg), inline=False)
 	channel = bot.get_channel('532949494036168706')
-        embed = discord.Embed(title=f"User: {ctx.message.author.name} have used bans command", description=f"User ID: {ctx.message.author.id}", color=0xff9393)
-        await bot.send_message(channel, embed=embed)
         await bot.say(embed=embed)
         em = discord.Embed(description=" ", color=0x00ff00)
         em.add_field(name="You have been reported for: ", value=reason)
