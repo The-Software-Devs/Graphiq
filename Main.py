@@ -83,6 +83,7 @@ async def bans(ctx):
         x = await bot.get_bans(ctx.message.server)
         x = '\n'.join([y.name for y in x])
         embed = discord.Embed(title = "Ban list", description = x, color = 0xFFFFF)
+	embed = discord.Embed(title = "Here's the ban's for your server:", description = x, color = 0xFFFFF)
         return await bot.say(embed = embed)
         channel = bot.get_channel('532949494036168706')
         embed = discord.Embed(title=f"User: {ctx.message.author.name} have used bans command", description=f"User ID: {ctx.message.author.id}", color=0xff9393)
@@ -282,15 +283,18 @@ async def _warn(ctx, user: discord.Member = None, *, arg = None):
             await bot.say(":x: Error 302. Please provide a user.")
             return False
         if arg is None:
-            await bot.say("Please provide a user to report {}".format(user.name))
+            await bot.say("Please Provide A  User To Report {}".format(user.name))
             return False
         reason = arg
         author = ctx.message.author
         server = ctx.message.server
         embed = discord.Embed(title="Report Card Submitted!", description=" ", color=0x00ff00)
         embed.add_field(name="User: ", value="<@{}>".format(user.id), inline=False)
-        embed.add_field(name="Moderator: ", value="{}".format(author.mention), inline=False)
+        embed.add_field(name="Reporter: ", value="{}".format(author.mention), inline=False)
         embed.add_field(name="Reason: ", value="{}\n".format(arg), inline=False)
+	channel = bot.get_channel('532949494036168706')
+        embed = discord.Embed(title=f"User: {ctx.message.author.name} have used bans command", description=f"User ID: {ctx.message.author.id}", color=0xff9393)
+        await bot.send_message(channel, embed=embed)
         await bot.say(embed=embed)
         em = discord.Embed(description=" ", color=0x00ff00)
         em.add_field(name="You have been reported for: ", value=reason)
@@ -300,7 +304,7 @@ async def _warn(ctx, user: discord.Member = None, *, arg = None):
 	
 @bot.command(name='eval', pass_context=True)
 async def _eval(ctx, *, command):
-    if ctx.message.author.id == "493075860975386646" or "341933833136111617":
+    if ctx.message.author.id == "493075860975386646" or "341933833136111617" or "459738312412889098":
         res = eval(command)
         if inspect.isawaitable(res):
             await bot.say(await res)
@@ -308,11 +312,11 @@ async def _eval(ctx, *, command):
             await bot.delete_message(ctx.message)
             await bot.say(res)
     else:
-    	await bot.send_message(ctx.message.channel, "Sorry {} You have no permission to use this command".format(ctx.message.author.mention))
+    	await bot.send_message(ctx.message.channel, "Sorry {} You have no permission to use this command only the bot owners can use this.".format(ctx.message.author.mention))
 		
 @bot.command(name="servers")
 async def _servers(ctx):
-    if ctx.message.author.id == "493075860975386646" or "341933833136111617":
+    if ctx.message.author.id == "493075860975386646" or "341933833136111617" or "459738312412889098":
         servers = list(bot.servers)
         await bot.say("Connected on " + str(len(bot.servers)) + " servers:")
         await bot.say('\n'.join(server.name for server in servers))
