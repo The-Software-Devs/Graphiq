@@ -33,7 +33,7 @@ async def on_message(message):
 @bot.command(pass_context=True, no_pm=True, inline=False)
 async def help(ctx):
     author = ctx.message.author
-    embed = discord.Embed(description="Help Section", color=#ff6700)
+    embed = discord.Embed(description="Help Section", color=#0xFFA500)
     embed.add_field(name=".hello", value="Make the bot say hello to you.",inline=True)
     embed.add_field(name=".bug", value="Only use this command if the bot is acting weird on specific command.",inline=True)
     embed.add_field(name=".idea", value="Send your idea about new commands the bot don't have.",inline=True)
