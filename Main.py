@@ -83,7 +83,6 @@ async def bans(ctx):
         x = await bot.get_bans(ctx.message.server)
         x = '\n'.join([y.name for y in x])
         embed = discord.Embed(title = "Ban list", description = x, color = 0xFFFFF)
-	embed = discord.Embed(title = "Here's the ban's for your server:", description = x, color = 0xFFFFF)
         return await bot.say(embed = embed)
         channel = bot.get_channel('532949494036168706')
         embed = discord.Embed(title=f"User: {ctx.message.author.name} have used bans command", description=f"User ID: {ctx.message.author.id}", color=0xff9393)
