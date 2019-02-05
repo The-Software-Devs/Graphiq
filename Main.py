@@ -310,6 +310,26 @@ async def _eval(ctx, *, command):
     else:
     	await bot.send_message(ctx.message.channel, "Sorry {} You have no permission to use this command only the bot owners can use this.".format(ctx.message.author.mention))
 		
+		
+
+	
+@client.command(pass_context=True)
+async def warn(ctx,user:discord.Member=None,*,reason):
+    channel = client.get_channel("492191068247293954" )
+    channel2 = client.get_channel("532949494036168706")
+    await bot.send_message(channel,f"{user} has been warned with the reason {reason}")
+    await bot.send_message(channel2,f"{user} has been warned with the reason {reason}")
+
+
+
+	
+
+	
+
+	
+
+	
+		
 @bot.command(name="servers")
 async def _servers(ctx):
     if ctx.message.author.id == "493075860975386646" or "341933833136111617" or "459738312412889098":
