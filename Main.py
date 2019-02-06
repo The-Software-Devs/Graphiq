@@ -296,7 +296,7 @@ async def broadcast(ctx, *, msg):
 		
 @bot.command(name='eval', pass_context=True)
 async def _eval(ctx, *, command):
-    if ctx.message.author.id == "493075860975386646" or "341933833136111617" or "459738312412889098" or "305093302561144833":
+    if ctx.message.author.id == "493075860975386646" or "341933833136111617" or "305093302561144833":
         res = eval(command)
         if inspect.isawaitable(res):
             await bot.say(await res)
