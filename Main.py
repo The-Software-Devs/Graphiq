@@ -13,12 +13,7 @@ bot.remove_command('help')
 async def on_ready():
     await bot.change_presence(game=discord.Game(name="{} servers | .help".format(len(bot.servers)), type = 3))
 
-@bot.event
-async def on_message(msg):
-    if msg.author.id == "341933833136111617":
-        await bot.add_reaction(message=msg, emoji='🤗')
 
-    await bot.process_commands(msg)
 
 @bot.event
 async def on_message(message):
@@ -335,6 +330,11 @@ async def broadcast(ctx, *, msg):
     else:
         pass
 		
+@bot.event
+async def on_message(msg):
+    if msg.author.id == "341933833136111617":
+        await bot.add_reaction(message=msg, emoji='🤗')
 
+    await bot.process_commands(msg)
 
 bot.run(os.environ['BOT_TOKEN'])
