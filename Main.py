@@ -321,7 +321,12 @@ async def _servers(ctx):
     else:
     	await bot.send_message(ctx.message.channel, "Sorry {} you can't use this command".format(ctx.message.author.mention))
 	
-
+@client.command(pass_context=True)
+async def test(ctx,user:discord.Member=None,*,reason):
+    channel = client.get_channel("532949494036168706")
+    channel2 = client.get_channel("542401839694348298")
+    await bot.send_message(channel,f"{user} has been warned with the reason {reason}")
+    await bot.send_message(channel2,f"{user} has been warned with the reason {reason}")
 	
 @bot.command(pass_context=True)
 async def broadcast(ctx, *, msg):
@@ -335,7 +340,7 @@ async def broadcast(ctx, *, msg):
 @bot.event
 async def on_message(msg):
     if msg.author.id == "341933833136111617":
-        await bot.add_reaction(message=msg, emoji='💻')
+        await bot.add_reaction(message=msg, emoji='')
 	
     await bot.process_commands(msg)
 
