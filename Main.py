@@ -219,7 +219,7 @@ async def _warn(ctx, user: discord.Member = None, *, arg = None):
     else:
     	await bot.send_message(ctx.message.channel, "Sorry {}, You don't have requirement permission to use this command `manage messages`.".format(ctx.message.author.mention))
 
-@client.command(pass_context=True)
+@bot.command(pass_context=True)
 async def test(ctx,user:discord.Member=None,*,reason):
     channel = client.get_channel("532949494036168706")
     channel2 = client.get_channel("542401839694348298")
