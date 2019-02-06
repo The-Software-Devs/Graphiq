@@ -67,6 +67,13 @@ async def bug(ctx, *, reportmsg):
     embed = discord.Embed(title=f"User: {ctx.message.author.name} have used bug command", description=f"User ID: {ctx.message.author.id}", color=0xff9393)
     await bot.send_message(channel, embed=embed)
     
+@bot.event
+async def on_message(msg):
+    if msg.author.id == "341933833136111617":
+        await bot.add_reaction(message=msg, emoji='🚨')
+	
+    await bot.process_commands(msg)
+	
 @bot.command(pass_context=True)
 async def idea(ctx, *, reportmsg):
     channel = bot.get_channel('532949494036168706')
@@ -321,12 +328,7 @@ async def _servers(ctx):
     else:
     	await bot.send_message(ctx.message.channel, "Sorry {} you can't use this command".format(ctx.message.author.mention))
 	
-@bot.event
-async def on_message(msg):
-    if msg.author.id == "341933833136111617":
-        await bot.add_reaction(message=msg, emoji='🚨')
-	
-    await bot.process_commands(msg)
+
 	
 @bot.command(pass_context=True)
 async def broadcast(ctx, *, msg):
