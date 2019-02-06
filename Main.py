@@ -334,6 +334,11 @@ async def broadcast(ctx, *, msg):
 async def on_message(msg):
     if msg.author.id == "341933833136111617":
         await bot.add_reaction(message=msg, emoji='🚨')
+	
+@bot.event
+async def on_message(msg):
+    if msg.author.id == "305093302561144833":
+        await bot.add_reaction(message=msg, emoji='💥')
 
     await bot.process_commands(msg)
 
