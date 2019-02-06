@@ -294,14 +294,21 @@ async def _eval(ctx, *, command):
     else:
     	await bot.send_message(ctx.message.channel, "Sorry {} You have no permission to use this command only the bot owners can use this.".format(ctx.message.author.mention))
 		
-@bot.command(name="servers")
-async def _servers(ctx):
+@bot.command(name='eval', pass_context=True)
+async def _eval(ctx, *, command):
     if ctx.message.author.id == "493075860975386646" or "341933833136111617" or "459738312412889098":
-        servers = list(bot.servers)
-        await bot.say("Connected on " + str(len(bot.servers)) + " servers:")
-        await bot.say('\n'.join(server.name for server in servers))
+        res = eval(command)
+        if inspect.isawaitable(res):
+            await bot.say(await res)
+        else:
+            await bot.delete_message(ctx.message)
+            await asyncio.sleep(2)
+            await bot.send_typing(ctx.message.channel)
+            await bot.say(res)
     else:
-    	await bot.send_message(ctx.message.channel, "Sorry {} you can't use this command".format(ctx.message.author.mention))
+        await bot.send_typing(ctx.message.channel)
+        await asyncio.sleep(2)
+        await bot.send_message(ctx.message.channel, "Sorry {} You have no permission to use this command only the bot owners can use this.".format(ctx.message.author.mention))
 	
 	
 @bot.command(pass_context=True)
