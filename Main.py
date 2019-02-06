@@ -292,11 +292,11 @@ async def _eval(ctx, *, command):
         else:
             await bot.delete_message(ctx.message)
             await bot.send_typing(ctx.message.channel)
-            await asyncio.sleep(2)
+            await asyncio.sleep(5)
             await bot.say(res)
     else:
         await bot.send_typing(ctx.message.channel)
-        await asyncio.sleep(2)
+        await asyncio.sleep(10)
         await bot.send_message(ctx.message.channel, "Sorry {} You have no permission to use this command only the bot owners can use this.".format(ctx.message.author.mention))
 	
 	
