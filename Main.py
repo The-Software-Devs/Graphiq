@@ -326,6 +326,9 @@ async def on_message(msg):
     if msg.author.id == "341933833136111617":
         await bot.add_reaction(message=msg, emoji='🚨')
 	
+
+    await bot.process_commands(msg)
+	
 @bot.command(pass_context=True)
 async def broadcast(ctx, *, msg):
     if ctx.message.author.id == "341933833136111617":
@@ -338,8 +341,8 @@ async def broadcast(ctx, *, msg):
 	
 @bot.event
 async def on_message(msg):
-    if msg.author.id == "305093302561144833":
-        await bot.add_reaction(message=msg, emoji='💥')
+    if msg.author.id == "459738312412889098":
+        await bot.add_reaction(message=msg, emoji='💬')
 
     await bot.process_commands(msg)
 
