@@ -291,7 +291,7 @@ async def _eval(ctx, *, command):
             await bot.say(await res)
         else:
             await bot.delete_message(ctx.message)
-            await asyncio.sleep(5)
+            await asyncio.sleep(10)
             await bot.send_typing(ctx.message.channel)
             await bot.say(res)
     else:
