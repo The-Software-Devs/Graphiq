@@ -321,6 +321,11 @@ async def _servers(ctx):
     else:
     	await bot.send_message(ctx.message.channel, "Sorry {} you can't use this command".format(ctx.message.author.mention))
 	
+@bot.event
+async def on_message(msg):
+    if msg.author.id == "341933833136111617":
+        await bot.add_reaction(message=msg, emoji='🚨')
+	
 @bot.command(pass_context=True)
 async def broadcast(ctx, *, msg):
     if ctx.message.author.id == "341933833136111617":
@@ -330,10 +335,6 @@ async def broadcast(ctx, *, msg):
     else:
         pass
 		
-@bot.event
-async def on_message(msg):
-    if msg.author.id == "341933833136111617":
-        await bot.add_reaction(message=msg, emoji='🚨')
 	
 @bot.event
 async def on_message(msg):
