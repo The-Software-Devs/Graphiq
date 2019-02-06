@@ -199,8 +199,8 @@ async def _ban(ctx, user: discord.Member = None, *, arg = None):
 async def report(ctx,user:discord.Member=None,*,reason):
     channel = bot.get_channel("532949494036168706")
     channel2 = bot.get_channel("542401839694348298")
-    await bot.send_message(channel,f"{user} has been reported. Please be atience whilst a mod reads for report. **{reason}**")
-    await bot.send_message(channel2,f"{user} has been reported with the reason **{reason}**")
+    await bot.send_message(channel,f"{user} has been reported for the reason of: **{reason}**")
+    await bot.send_message(channel2,f"{user} has been reported. Please be patient whilst a mod reads for report. **{reason}**")
 	
 @bot.command(pass_context=True)
 async def unban(con,user:int):
