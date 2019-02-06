@@ -199,8 +199,8 @@ async def _ban(ctx, user: discord.Member = None, *, arg = None):
 async def report(ctx,user:discord.Member=None,*,reason):
     channel = bot.get_channel("532949494036168706")
     channel2 = bot.get_channel("542401839694348298")
-    await bot.send_message(channel,f"{user} has been reported. Please be atience whilst a mod reads for report. {reason}")
-    await bot.send_message(channel2,f"{user} has been reported with the reason {reason}")
+    await bot.send_message(channel,f"{user} has been reported. Please be atience whilst a mod reads for report. **{reason}**")
+    await bot.send_message(channel2,f"{user} has been reported with the reason **{reason}**")
 	
 @bot.command(pass_context=True)
 async def unban(con,user:int):
@@ -258,7 +258,29 @@ async def info(ctx):
     embed.set_image(url="https://cdn.discordapp.com/attachments/524655977832775710/541446963887996939/Fade_image.png")	
     await bot.send_message(channel, embed=embed)
 	
-
+@bot.command(name="warn", pass_context=True)
+async def _warn(ctx, user: discord.Member = None, *, arg = None):
+    if ctx.message.author.server_permissions.manage_messages == True:
+        if user is None:
+            await bot.say(":x: Error 302.")
+            return False
+        if arg is None:
+            await bot.say("please provide a reason to {}".format(user.name))
+            return False
+        reason = arg
+        author = ctx.message.author
+        server = ctx.message.server
+        embed = discord.Embed(title="Warn", description=" ", color=0x00ff00)
+        embed.add_field(name="User: ", value="<@{}>".format(user.id), inline=False)
+        embed.add_field(name="Moderator: ", value="{}".format(author.mention), inline=False)
+        embed.add_field(name="Reason: ", value="{}\n".format(arg), inline=False)
+        await bot.say(embed=embed)
+        em = discord.Embed(description=" ", color=0x00ff00)
+        em.add_field(name="you have been warned for: ", value=reason)
+        em.add_field(name="from:", value=server)
+        await bot.send_message(user, embed=em)
+    else:
+    	await bot.send_message(ctx.message.channel, "Sorry {}, You don't have requirement permission to use this command `manage messages`.".format(ctx.message.author.mention))
 	
 @bot.command(name='eval', pass_context=True)
 async def _eval(ctx, *, command):
