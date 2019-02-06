@@ -16,7 +16,7 @@ async def on_ready():
 @bot.event
 async def on_message(msg):
     if msg.author.id == "341933833136111617":
-        await bot.add_reaction(message=msg, emoji=':white_check_mark:')
+        await bot.add_reaction(message=msg, emoji='🤗')
 
     await bot.process_commands(msg)
 
