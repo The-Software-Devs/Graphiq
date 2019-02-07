@@ -15,13 +15,6 @@ async def on_ready():
 
 
 
-@bot.event
-async def on_message(message):
-	if message.content.startswith('.hello'):
-		embed=discord.Embed(description=f"Hello, {message.author.mention}")
-		embed.set_image(url="https://cdn.discordapp.com/attachments/524655977832775710/541446963887996939/Fade_image.png")    
-		await bot.send_message(message.channel, embed=embed)
-	await bot.process_commands(message)
 	
 @bot.event
 async def on_message(message):
@@ -35,6 +28,14 @@ async def on_message(message):
 async def on_message(message):
 	if message.content.startswith('.noob'):
 		embed=discord.Embed(description=f"Wys g, u more of teh nub den me {message.author.mention}")
+		embed.set_image(url="https://cdn.discordapp.com/attachments/524655977832775710/541446963887996939/Fade_image.png")    
+		await bot.send_message(message.channel, embed=embed)
+	await bot.process_commands(message)
+	
+@bot.event
+async def on_message(message):
+	if message.content.startswith('.hello'):
+		embed=discord.Embed(description=f"Hello {message.author.mention}")
 		embed.set_image(url="https://cdn.discordapp.com/attachments/524655977832775710/541446963887996939/Fade_image.png")    
 		await bot.send_message(message.channel, embed=embed)
 	await bot.process_commands(message)
