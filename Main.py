@@ -60,7 +60,6 @@ async def help(ctx):
 async def help_moderation(ctx):
     author = ctx.message.author
     embed = discord.Embed(description=":lock: Moderation Help Section :lock: ", color=0xFFFF)
-    embed = discord.Embed(description=":tools: This bot is currently in beta. More commands will be added soon. :tools: ", color=0xFFFF)
     embed.add_field(name=".warn", value="Warns a user",inline=True)
     embed.add_field(name=".mute", value="Mutes a user",inline=True)
     embed.add_field(name=".kick", value="Kicks a user from the server.",inline=True)
