@@ -45,8 +45,11 @@ async def on_message(message):
 async def help(ctx):
     author = ctx.message.author
     embed = discord.Embed(description="Help Section", color=0xFFFF)
+    embed.add_field(name=" ", value=" ",inline=True)
     embed.add_field(name=".help_moderation", value="Lists moderation commands.",inline=True)
+    embed.add_field(name=" ", value=" ",inline=True)
     embed.add_field(name="help_fun", value="Lists fun commands.",inline=True)
+    embed.add_field(name=" ", value=" ",inline=True)
     embed.set_footer(text="Requested by: " + author.name)
     await bot.send_message(author, embed=embed)
     embed = discord.Embed(description=" ", color=0xFFFF)
@@ -60,11 +63,16 @@ async def help(ctx):
 async def help_moderation(ctx):
     author = ctx.message.author
     embed = discord.Embed(description=":lock: Moderation Help Section :lock: ", color=0xFFFF)
+    embed = discord.Embed(description=" ", color=0xFFFF)
     embed = discord.Embed(description=":tools: This bot is currently in beta. More commands will be added soon. :tools: ", color=0xFFFF)
     embed.add_field(name=".warn", value="Warns a user",inline=True)
+    embed.add_field(name=" ", value=" ",inline=True)
     embed.add_field(name=".mute", value="Mutes a user",inline=True)
+    embed.add_field(name=" ", value=" ",inline=True)
     embed.add_field(name=".kick", value="Kicks a user from the server.",inline=True)
+    embed.add_field(name=" ", value=" ",inline=True)
     embed.add_field(name="ban", value="Bans a userom the server.",inline=True)
+    embed.add_field(name=" ", value=" ",inline=True)
     embed.set_footer(text="Requested by: " + author.name)
     await bot.send_message(author, embed=embed)
     embed = discord.Embed(description=" ", color=0xFFFF)
