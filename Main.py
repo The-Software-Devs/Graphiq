@@ -116,6 +116,7 @@ async def help_moderation(ctx):
     embed.add_field(name=".mute", value="Mutes a user",inline=True)
     embed.add_field(name=".kick", value="Kicks a user from the server.",inline=True)
     embed.add_field(name=".ban", value="Bans a user from the server.",inline=True)
+    embed.add_field(name=".help_setup", value="Set-up bot.",inline=True)
     embed.set_footer(text="Requested by: " + author.name)
     await bot.send_message(author, embed=embed)
     embed = discord.Embed(description=" ", color=0xFFFF)
@@ -179,8 +180,31 @@ async def help_fun(ctx):
     embed = discord.Embed(title=f"User: {ctx.message.author.name} have used **Fun** help command", description=f"User ID: {ctx.message.author.id}", color=0xff9393)
     await bot.send_message(channel, embed=embed)
 	
+@bot.command(pass_context=True, no_pm=True)
+async def help_setup(ctx):
+    author = ctx.message.author
+    embed = discord.Embed(description=":robot Setup Bot's Permissions", color=0xFFFF)
+    embed.add_field(name="- Add a rank for the bot", value="Make sure it has all of the permissions.",inline=True)
+    embed.add_field(name="- Make sure it is above all of the user ranks.", value="To make sure if a admin is abusing the higher rank can kick.",inline=True)
+    embed.add_field(name="- Make sure you join the **Support Server** for more info.", value="Command = .stats --> Support Server --> Link.",inline=True)
+    embed.add_field(name="``Thank you for your contibrution.``", value="**Remember**, Put ``.setup_done`` for the verification.",inline=True)
+    embed.set_footer(text="Requested by: " + author.name)
+    await bot.send_message(author, embed=embed)
+    embed = discord.Embed(description=" ", color=0xFFFF)
+    embed.add_field(name=":white_check_mark: Success!", value="I've sent you a list of my ``Fun`` commands in your **Direct Messages**",inline=True)
+    await bot.say(embed=embed)
+    channel = bot.get_channel('543488075809030145')
+    embed = discord.Embed(title=f"User: {ctx.message.author.name} have used **Fun** help command", description=f"User ID: {ctx.message.author.id}", color=0xff9393)
+    await bot.send_message(channel, embed=embed)
 
-
+@bot.event
+async def on_message(message):
+	if message.content.startswith('.setup_done'):
+		embed=discord.Embed(description=f"Looks like your ready to go {message.author.mention} Enjoy the bot!")
+		embed.set_image(url="https://cdn.discordapp.com/attachments/524655977832775710/541446963887996939/Fade_image.png")    
+		await bot.send_message(message.channel, embed=embed)
+	await bot.process_commands(message)
+	
 @bot.command(pass_context=True)
 async def bug(ctx, *, reportmsg):
     channel = bot.get_channel('543488075809030145')
@@ -463,7 +487,6 @@ async def on_message(message):
 		embed.set_image(url="https://cdn.discordapp.com/attachments/524655977832775710/541446963887996939/Fade_image.png")    
 		await bot.send_message(message.channel, embed=embed)
 	await bot.process_commands(message)
-	
 	
 	
 	
