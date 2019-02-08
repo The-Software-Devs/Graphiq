@@ -85,7 +85,6 @@ async def help_admin(ctx):
     embed.add_field(name=".report", value="Report user/commmand.",inline=True)
     embed.add_field(name=".bans", value="Lists banned users in server.",inline=True)
     embed.add_field(name=".clean", value="Cleans a message less than 98.",inline=True)
-    embed.add_field(name=".help_rules", value="Bot's rules.",inline=True)
     embed.set_footer(text="Requested by: " + author.name)
     await bot.send_message(author, embed=embed)
     embed = discord.Embed(description=" ", color=0xFFFF)
@@ -121,6 +120,8 @@ async def help_fun(ctx):
     author = ctx.message.author
     embed = discord.Embed(description=":rofl: Fun Help Section :rofl: ", color=0xFFFF)
     embed.add_field(name=".hello", value="Says hello to you.",inline=True)
+    embed.add_field(name="hug", value="Hugs a user.",inline=True)
+    embed.add_field(name=".kill", value="Kills a user.",inline=True)
     embed.add_field(name="``More commands being added soon!``", value="**Remember**, the bot is still in development.",inline=True)
     embed.set_footer(text="Requested by: " + author.name)
     await bot.send_message(author, embed=embed)
@@ -131,26 +132,7 @@ async def help_fun(ctx):
     embed = discord.Embed(title=f"User: {ctx.message.author.name} have used **Fun** help command", description=f"User ID: {ctx.message.author.id}", color=0xff9393)
     await bot.send_message(channel, embed=embed)
 	
-@bot.command(pass_context=True, no_pm=True)
-async def help_rules(ctx):
-    author = ctx.message.author
-    embed = discord.Embed(description=":closed_lock_with_key: Bot Rules :closed_lock_with_key:  ", color=0xFFFF)
-    embed.add_field(name=":black_small_square: No Copying of scripts via Discord or GitHub" ,inline=True)
-    embed.add_field(name=":black_small_square: No illigal material should be added." ,inline=True)
-    embed.add_field(name=":black_small_square: No spamming of the bot." ,inline=True)
-    embed.add_field(name=":black_small_square: No raiding of the bot." ,inline=True)
-    embed.add_field(name="**Bot Server Rules**", value=" :link: " ,inline=True)
-    embed.add_field(name=":black_small_square: We do not responsiability for the damage within the server by the bot itself." ,inline=True)
-    embed.add_field(name=":black_small_square: We get reports of the user entering a command. We do not stalk people's chats." ,inline=True)
-    embed.add_field(name=":black_small_square: We have a High Security Script which means the users and servers are always secured." ,inline=True)
-    embed.set_footer(text="Requested by: " + author.name)
-    await bot.send_message(author, embed=embed)
-    embed = discord.Embed(description=" ", color=0xFFFF)
-    embed.add_field(name=":white_check_mark: Success!", value="I've sent you a list of my ``Rules`` commands in your **Direct Messages**",inline=True)
-    await bot.say(embed=embed)
-    channel = bot.get_channel('543488075809030145')
-    embed = discord.Embed(title=f"User: {ctx.message.author.name} have used **Fun** help command", description=f"User ID: {ctx.message.author.id}", color=0xff9393)
-    await bot.send_message(channel, embed=embed)
+
 
 @bot.command(pass_context=True)
 async def bug(ctx, *, reportmsg):
