@@ -27,6 +27,21 @@ async def hug(ctx, *, member: discord.Member = None):
 
     except:
         await bot.say("There is an error, either with the bot or a problem with the command")
+	
+@bot.command(pass_context=True)
+async def kill(ctx, *, member: discord.Member = None):
+  #  Kill someone on the server <3
+    try:
+        if member is None:
+            await bot.say(ctx.message.author.mention + " has been killed!")
+        else:
+            if member.id == ctx.message.author.id:
+                await bot.say(ctx.message.author.mention + "  Commited Suicide. R.I.P")
+            else:
+                await bot.say(member.mention + " has been killed by " + ctx.message.author.mention + "!")
+
+    except:
+        await bot.say("There is an error, either with the bot or a problem with the command")
 
 	
 @bot.command(pass_context=True, no_pm=True)
