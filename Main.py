@@ -17,31 +17,6 @@ async def on_ready():
 
 
 	
-@bot.event
-async def on_message(message):
-	if message.content.startswith('.noob'):
-		embed=discord.Embed(description=f"Wys g, u more of teh nub den me {message.author.mention}")
-		embed.set_image(url="https://cdn.discordapp.com/attachments/524655977832775710/541446963887996939/Fade_image.png")    
-		await bot.send_message(message.channel, embed=embed)
-	await bot.process_commands(message)
-	
-
-@bot.event
-async def on_message(message):
-	if message.content.startswith('.credits'):
-		embed=discord.Embed(description=f"Bot Owner & Founder: Mxchael & RJ_RBLX05		| Vice Chairman: JayHaggs		 | Bot Developers: NoobPerson, Tunyo-Tex. Thank you for using my bot {message.author.mention}")
-		embed.set_image(url="https://cdn.discordapp.com/attachments/524655977832775710/541446963887996939/Fade_image.png")    
-		await bot.send_message(message.channel, embed=embed)
-	await bot.process_commands(message)
-	
-
-@bot.event
-async def on_message(message):
-	if message.content.startswith('.hello'):
-		embed=discord.Embed(description=f"Hello {message.author.mention}")
-		embed.set_image(url="https://cdn.discordapp.com/attachments/524655977832775710/541446963887996939/Fade_image.png")    
-		await bot.send_message(message.channel, embed=embed)
-	await bot.process_commands(message)
 
 	
 @bot.command(pass_context=True, no_pm=True)
@@ -81,10 +56,9 @@ async def help_moderation(ctx):
 async def help_admin(ctx):
     author = ctx.message.author
     embed = discord.Embed(description=":lock: Moderation Help Section :lock: ", color=0xFFFF)
-    embed.add_field(name=".warn", value="Warns a user",inline=True)
-    embed.add_field(name=".mute", value="Mutes a user",inline=True)
-    embed.add_field(name=".kick", value="Kicks a user from the server.",inline=True)
-    embed.add_field(name=".ban", value="Bans a user from the server.",inline=True)
+    embed.add_field(name=".report", value="Report user/commmand.",inline=True)
+    embed.add_field(name=".bans", value="Lists banned users in server.",inline=True)
+    embed.add_field(name=".clean", value="Cleans a message less than 98.",inline=True)
     embed.set_footer(text="Requested by: " + author.name)
     await bot.send_message(author, embed=embed)
     embed = discord.Embed(description=" ", color=0xFFFF)
@@ -350,4 +324,35 @@ async def _eval(ctx, *, command):
         await asyncio.sleep(10)
         await bot.send_message(ctx.message.channel, "Sorry {} You have no permission to use this command only the bot owners can use this.".format(ctx.message.author.mention))
 
+	
+	
+@bot.event
+async def on_message(message):
+	if message.content.startswith('.noob'):
+		embed=discord.Embed(description=f"Wys g, u more of teh nub den me {message.author.mention}")
+		embed.set_image(url="https://cdn.discordapp.com/attachments/524655977832775710/541446963887996939/Fade_image.png")    
+		await bot.send_message(message.channel, embed=embed)
+	await bot.process_commands(message)
+	
+
+@bot.event
+async def on_message(message):
+	if message.content.startswith('.credits'):
+		embed=discord.Embed(description=f"Bot Owner & Founder: Mxchael & RJ_RBLX05		| Vice Chairman: JayHaggs		 | Bot Developers: NoobPerson, Tunyo-Tex. Thank you for using my bot {message.author.mention}")
+		embed.set_image(url="https://cdn.discordapp.com/attachments/524655977832775710/541446963887996939/Fade_image.png")    
+		await bot.send_message(message.channel, embed=embed)
+	await bot.process_commands(message)
+	
+
+@bot.event
+async def on_message(message):
+	if message.content.startswith('.hello'):
+		embed=discord.Embed(description=f"Hello {message.author.mention}")
+		embed.set_image(url="https://cdn.discordapp.com/attachments/524655977832775710/541446963887996939/Fade_image.png")    
+		await bot.send_message(message.channel, embed=embed)
+	await bot.process_commands(message)
+	
+	
+	
+	
 bot.run(os.environ['BOT_TOKEN'])
