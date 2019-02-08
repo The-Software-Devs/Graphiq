@@ -9,9 +9,30 @@ import os
 bot = commands.Bot(command_prefix = ".")
 bot.remove_command('help')
 
-@bot.event
-async def on_ready():
-    await bot.change_presence(game=discord.Game(name="{} servers | .help".format(len(bot.servers)), type = 3))
+async def status():
+    while True:
+        r=random.choice([1,2,3])
+        if r == 1:
+            await bot.change_presence(game=discord.Game(name=random.choice(['Name of game','League of Legends',"Blade and soul",'Overwatch','No no no!'])),type=1) # type 1 is gaming 2 and 3 is listening or watching
+        if r ==2 :
+            await bot.change_presence(game=discord.Game(name=random.choice(['Name of game','League of Legends',"Blade and soul",'Overwatch','No no no!'])),type=2)
+        if r == 3:
+            await bot.change_presence(game=discord.Game(name=random.choice(['Name of game','League of Legends',"Blade and soul",'Overwatch','No no no!'])),type=3)
+        
+        await asyncio.sleep(random.choice([1234,442,123])) #the sleep time is in seconds
+
+
+
+#these methods can be used to run the function outside of a function
+asyncio.get_event_loop.create_task(status()) #for python version > 3.6 < 3.7
+asyncio.run(status()) #for python 3.7 and above
+
+#running async function inside function
+async def run():
+    await status() #method one 
+    bot.loop.create_task(status()) #method 2, this only works when using discord API  since they have a build in way of running it
+
+#the same methods can be used to run the run() fuction as others outside function
 
 @bot.command(pass_context=True)
 async def hug(ctx, *, member: discord.Member = None):
