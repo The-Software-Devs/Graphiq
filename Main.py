@@ -42,6 +42,21 @@ async def kill(ctx, *, member: discord.Member = None):
 
     except:
         await bot.say("There is an error, either with the bot or a problem with the command")
+	
+@bot.command(pass_context=True)
+async def fuck(ctx, *, member: discord.Member = None):
+  #  Fuck someone on the server <3
+    try:
+        if member is None:
+            await bot.say(ctx.message.author.mention + " has been fucked!")
+        else:
+            if member.id == ctx.message.author.id:
+                await bot.say(ctx.message.author.mention + "  has cummed on himself/herself.")
+            else:
+                await bot.say(member.mention + " has been fucked by " + ctx.message.author.mention + ":eggplant: :sweat_drops: ")
+
+    except:
+        await bot.say("There is an error, either with the bot or a problem with the command")
 
 	
 @bot.command(pass_context=True, no_pm=True)
