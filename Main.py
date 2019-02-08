@@ -15,7 +15,7 @@ async def on_ready():
 
 @bot.command(pass_context=True)
 async def hug(ctx, *, member: discord.Member = None):
-    Hug someone on the server <3
+  #  Hug someone on the server <3
     try:
         if member is None:
             await bot.say(ctx.message.author.mention + " has been hugged!")
