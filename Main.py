@@ -120,7 +120,7 @@ async def help_fun(ctx):
     author = ctx.message.author
     embed = discord.Embed(description=":rofl: Fun Help Section :rofl: ", color=0xFFFF)
     embed.add_field(name=".hello", value="Says hello to you.",inline=True)
-    embed.add_field(name="hug", value="Hugs a user.",inline=True)
+    embed.add_field(name=".hug", value="Hugs a user.",inline=True)
     embed.add_field(name=".kill", value="Kills a user.",inline=True)
     embed.add_field(name="``More commands being added soon!``", value="**Remember**, the bot is still in development.",inline=True)
     embed.set_footer(text="Requested by: " + author.name)
