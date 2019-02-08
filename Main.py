@@ -24,7 +24,7 @@ async def status():
 
 
 #these methods can be used to run the function outside of a function
-asyncio.get_event_loop.create_task(status()) #for python version > 3.6 < 3.7
+asyncio.get_event_loop().create_task(status()) #for python version > 3.6 < 3.7
 asyncio.run(status()) #for python 3.7 and above
 
 #running async function inside function
