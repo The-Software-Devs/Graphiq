@@ -45,7 +45,7 @@ async def on_message(message):
 async def help(ctx):
     author = ctx.message.author
     embed = discord.Embed(description="Help Section", color=0xFFFF)
-    embed.add_field(name=".help_moderation 	", value="Lists moderation commands.",inline=True)
+    embed.add_field(name=".help_moderation       ", value="Lists moderation commands.",inline=True)
     embed.add_field(name="help_fun", value="Lists fun commands.",inline=True)
     embed.set_footer(text="Requested by: " + author.name)
     await bot.send_message(author, embed=embed)
