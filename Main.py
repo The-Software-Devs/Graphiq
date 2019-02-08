@@ -76,6 +76,7 @@ async def help_credits(ctx):
     embed.add_field(name="DankCoder | 程序员#9983", value="Trainee Founder.",inline=True)
     embed.add_field(name="Ƭunyo-Ƭєx#2015", value="Chairman and Developer.",inline=True)
     embed.add_field(name="lolbitr43#8135", value="Chairman.",inline=True)
+    embed.add_field(name="JayHaggs#5655", value="Vice Chairman.",inline=True)
     embed.add_field(name="``Thank you to all of the staff for heping me on this bot.``", value=" - Mxchael#7748, Founder.",inline=True)
     embed.set_footer(text="Requested by: " + author.name)
     await bot.send_message(author, embed=embed)
@@ -357,7 +358,6 @@ async def _eval(ctx, *, command):
         await asyncio.sleep(10)
         await bot.send_message(ctx.message.channel, "Sorry {} You have no permission to use this command only the bot owners can use this.".format(ctx.message.author.mention))
 
-	
 	
 @bot.event
 async def on_message(message):
