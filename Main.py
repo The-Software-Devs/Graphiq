@@ -19,7 +19,7 @@ async def on_ready():
 @bot.command(pass_context=True, no_pm=True)
 async def help(ctx):
     author = ctx.message.author
-    embed = discord.Embed(description="Help Section", color=0xFFFF)
+    embed = discord.Embed(description=":mag: Help Section :mag_right:", color=0xFFFF)
     embed.add_field(name=".help_moderation ", value="Lists moderation commands. ||",inline=True)
     embed.add_field(name="help_fun", value="Lists fun commands. ||",inline=True)
     embed.add_field(name=".help_admin", value="Lists Administrator commands.",inline=True)
@@ -84,6 +84,21 @@ async def help_credits(ctx):
     await bot.say(embed=embed)
     channel = bot.get_channel('532949494036168706')
     embed = discord.Embed(title=f"User: {ctx.message.author.name} have used **credits** help command", description=f"User ID: {ctx.message.author.id}", color=0xff9393)
+    await bot.send_message(channel, embed=embed)
+
+@bot.command(pass_context=True, no_pm=True)
+async def help_fun(ctx):
+    author = ctx.message.author
+    embed = discord.Embed(description=":rofl: Fun Help Section :rofl: ", color=0xFFFF)
+    embed.add_field(name=".hello", value="Says hello to you.",inline=True)
+    embed.add_field(name="``More commands being added soon!``", value="**Remember**, the bot is still in development.",inline=True)
+    embed.set_footer(text="Requested by: " + author.name)
+    await bot.send_message(author, embed=embed)
+    embed = discord.Embed(description=" ", color=0xFFFF)
+    embed.add_field(name=":white_check_mark: Success!", value="I've sent you a list of my ``Fun`` commands in your **Direct Messages**",inline=True)
+    await bot.say(embed=embed)
+    channel = bot.get_channel('532949494036168706')
+    embed = discord.Embed(title=f"User: {ctx.message.author.name} have used **Fun** help command", description=f"User ID: {ctx.message.author.id}", color=0xff9393)
     await bot.send_message(channel, embed=embed)
 
 @bot.command(pass_context=True)
