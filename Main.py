@@ -50,7 +50,7 @@ async def help(ctx):
     embed = discord.Embed(description="Help Section", color=0xFFFF)
     embed.add_field(name=".help_moderation ", value="Lists moderation commands. ||",inline=True)
     embed.add_field(name="help_fun", value="Lists fun commands. ||",inline=True)
-    embed.add_field(name=".help_Admin", value="Lists Administrator commands.",inline=True)
+    embed.add_field(name=".help_admin", value="Lists Administrator commands.",inline=True)
     embed.set_footer(text="Requested by: " + author.name)
     await bot.send_message(author, embed=embed)
     embed = discord.Embed(description=" ", color=0xFFFF)
@@ -78,7 +78,7 @@ async def help_moderation(ctx):
     await bot.send_message(channel, embed=embed)
 	
 @bot.command(pass_context=True, no_pm=True)
-async def help_moderation(ctx):
+async def help_admin(ctx):
     author = ctx.message.author
     embed = discord.Embed(description=":lock: Moderation Help Section :lock: ", color=0xFFFF)
     embed.add_field(name=".warn", value="Warns a user",inline=True)
