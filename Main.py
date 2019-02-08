@@ -13,7 +13,20 @@ bot.remove_command('help')
 async def on_ready():
     await bot.change_presence(game=discord.Game(name="{} servers | .help".format(len(bot.servers)), type = 3))
 
+@bot.command(pass_context=True)
+async def hug(ctx, *, member: discord.Member = None):
+    Hug someone on the server <3
+    try:
+        if member is None:
+            await bot.say(ctx.message.author.mention + " has been hugged!")
+        else:
+            if member.id == ctx.message.author.id:
+                await bot.say(ctx.message.author.mention + " hugged his self! LOL")
+            else:
+                await bot.say(member.mention + " has been hugged by " + ctx.message.author.mention + "!")
 
+    except:
+        await bot.say("There is an error, either with the bot or a problem with the command")
 
 	
 @bot.command(pass_context=True, no_pm=True)
