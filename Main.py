@@ -14,11 +14,11 @@ async def status():
     while True:
         r=random.choice([1,2,3])
         if r == 1:
-            await bot.change_presence(game=discord.Game(name=random.choice(['Name of game','League of Legends',"Blade and soul",'Overwatch','No no no!'])),type=1) # type 1 is gaming 2 and 3 is listening or watching
+await bot.change_presence(game=discord.Game(name=random.choice(['Name of game','League of Legends',"Blade and soul",'Overwatch','No no no!']),type=1)) # type 1 is gaming 2 and 3 is listening or watching
         if r ==2 :
-            await bot.change_presence(game=discord.Game(name=random.choice(['Name of game','League of Legends',"Blade and soul",'Overwatch','No no no!'])),type=2)
+await bot.change_presence(game=discord.Game(name=random.choice(['Name of game','League of Legends',"Blade and soul",'Overwatch','No no no!']),type=1))
         if r == 3:
-            await bot.change_presence(game=discord.Game(name=random.choice(['Name of game','League of Legends',"Blade and soul",'Overwatch','No no no!'])),type=3)
+await bot.change_presence(game=discord.Game(name=random.choice(['Name of game','League of Legends',"Blade and soul",'Overwatch','No no no!']),type=1))
         
         await asyncio.sleep(random.choice([1234,442,123])) #the sleep time is in seconds
 
@@ -48,6 +48,31 @@ async def hug(ctx, *, member: discord.Member = None):
 
     except:
         await bot.say("There is an error, either with the bot or a problem with the command")
+	
+@bot.command(pass_context=True) #pass the context of user
+@commands.has_permissions(manage_roles=True) #mkes it so that only people with this permission can use this command
+async def addRole(con,user:discord.Member,*roles:discord.Role):
+    roleNames=[] # the list to store the role obj
+    addedRoles=[]
+    errorRole=[]
+    for i in roles: #for something in the roles parameter
+        roleNames.append(i) #add the obj into roleNames
+    for i in con.message.server.roles: #check to see if the ids of the roles are == to the ids of the server roles
+        for x in roleNames:
+            if i.name == x.name: #if match add the role
+                try:
+                    await bot.add_roles(user,i)
+                    addedRoles.append("**{}**".format(i.name))
+                except:
+                    errorRole.append(i.name)
+
+
+    #making the output message pretty, this can be added into embed to make look better if you want
+    addedRoles=str(addedRoles)
+    addedRoles=addedRoles.replace('[','')
+    addedRoles=addedRoles.replace(']','')
+    await bot.say("Roles {} added to {}".format(addedRoles,user.name))
+	
 	
 @bot.command(pass_context=True)
 async def kill(ctx, *, member: discord.Member = None):
