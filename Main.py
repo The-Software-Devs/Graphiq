@@ -15,9 +15,6 @@ async def on_ready():
 
 
 
-
-	
-
 	
 @bot.command(pass_context=True, no_pm=True)
 async def help(ctx):
@@ -26,6 +23,7 @@ async def help(ctx):
     embed.add_field(name=".help_moderation ", value="Lists moderation commands. ||",inline=True)
     embed.add_field(name="help_fun", value="Lists fun commands. ||",inline=True)
     embed.add_field(name=".help_admin", value="Lists Administrator commands.",inline=True)
+    embed.add_field(name=".help_credits", value="Lists all the help from Developers to staff.",inline=True)
     embed.set_footer(text="Requested by: " + author.name)
     await bot.send_message(author, embed=embed)
     embed = discord.Embed(description=" ", color=0xFFFF)
@@ -65,7 +63,27 @@ async def help_admin(ctx):
     embed.add_field(name=":white_check_mark: Success!", value="I've sent you a list of my ``Moderation`` commands in your **Direct Messages**",inline=True)
     await bot.say(embed=embed)
     channel = bot.get_channel('532949494036168706')
-    embed = discord.Embed(title=f"User: {ctx.message.author.name} have used **moderation** help command", description=f"User ID: {ctx.message.author.id}", color=0xff9393)
+    embed = discord.Embed(title=f"User: {ctx.message.author.name} have used **admin** help command", description=f"User ID: {ctx.message.author.id}", color=0xff9393)
+    await bot.send_message(channel, embed=embed)
+
+@bot.command(pass_context=True, no_pm=True)
+async def help_credits(ctx):
+    author = ctx.message.author
+    embed = discord.Embed(description=":clap: Credits to Developers and Staff :clap:  ", color=0xFFFF)
+    embed.add_field(name="Mxchael#7748", value="Bot Founder.",inline=True)
+    embed.add_field(name="noobperson#2436", value="Bot Owner and Developer.",inline=True)
+    embed.add_field(name="Ryan_Stanford#5219", value="Trainee Founder.",inline=True)
+    embed.add_field(name="DankCoder | 程序员#9983", value="Trainee Founder.",inline=True)
+    embed.add_field(name="Ƭunyo-Ƭєx#2015", value="Chairman and Developer.",inline=True)
+    embed.add_field(name="lolbitr43#8135", value="Chairman.",inline=True)
+    embed.add_field(name="``Thank you to all of the staff for heping me on this bot.", value=" - Mxchael#7748, Founder.",inline=True)
+    embed.set_footer(text="Requested by: " + author.name)
+    await bot.send_message(author, embed=embed)
+    embed = discord.Embed(description=" ", color=0xFFFF)
+    embed.add_field(name=":white_check_mark: Success!", value="I've sent you a list of my ``Moderation`` commands in your **Direct Messages**",inline=True)
+    await bot.say(embed=embed)
+    channel = bot.get_channel('532949494036168706')
+    embed = discord.Embed(title=f"User: {ctx.message.author.name} have used **admin** help command", description=f"User ID: {ctx.message.author.id}", color=0xff9393)
     await bot.send_message(channel, embed=embed)
 
 @bot.command(pass_context=True)
