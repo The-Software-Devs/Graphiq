@@ -223,7 +223,7 @@ async def help_setup(ctx):
     await bot.send_message(channel, embed=embed)
 
 @bot.command(pass_context=True, no_pm=True)
-async def help_done(ctx):
+async def setup_done(ctx):
     author = ctx.message.author
     embed = discord.Embed(description=":white_check_mark: Setup Complete!", color=0xFFFF)
     embed.add_field(name="Setup Complete. The bot should be running normally now.", value="*:bulb: Make sure it has all of the permissions for the role otherwise the bot will not function correctly.*",inline=True)
