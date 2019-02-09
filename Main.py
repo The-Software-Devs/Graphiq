@@ -10,29 +10,31 @@ import random
 bot = commands.Bot(command_prefix = ".")
 bot.remove_command('help')
 
-async def status():
+async def picker():
+    watching_list = ['Death Notes', 'You', 'One Piece','Code Geass', 'Anime', "Man vs Wild: Grylls",'PewDiePie','The World God Only Knows','Mushishi']
+    games = ['Overwatch','s.help | help commands',"League of Legends",'Mission Against Terror','Jump Rope Kitten: Nyawatobi', 'Potion Maker','Alphabear', 'OSU!', 'Tales of Sword', 's.help | help commands', 'Sword and Lovers', 'Giant Turnip Game', 'MEOW MEOW STAR ACRES','Tiny Sheep']
+    listening_list = ['Alan Walker Force', 'Alan Walker Alone', 'Alan Walker Faded', 'Women Flower','I\'m Nothing But A 2D Girl','Let it go -Meiko','River Flow In You','Legends Never Die','Scary Stories', 'Initial D Deja Vu','You Can Be King Again']
+    
+    
     while True:
-        r=random.choice([1,2,3])
-        if r == 1:
-await bot.change_presence(game=discord.Game(name=random.choice(['Name of game','League of Legends',"Blade and soul",'Overwatch','No no no!']),type=1)) # type 1 is gaming 2 and 3 is listening or watching
-        if r ==2 :
-await bot.change_presence(game=discord.Game(name=random.choice(['Name of game','League of Legends',"Blade and soul",'Overwatch','No no no!']),type=1))
-        if r == 3:
-await bot.change_presence(game=discord.Game(name=random.choice(['Name of game','League of Legends',"Blade and soul",'Overwatch','No no no!']),type=1))
-        
-        await asyncio.sleep(random.choice([1234,442,123])) #the sleep time is in seconds
+        random_watching = random.choice(watching_list)
+        random_game = random.choice(games)
+        random_listening = random.choice(listening_list)
+        num = random.choice([1, 2, 3])
+        sleepTime = random.choice([3000, 2000, 1000, 1500, 2500, 500, 1234, 400, 200, 580, 800])
+        if num == 1:
+            await bot.change_presence(game=discord.Game(name=random_game, type=1))
+        if num == 2:
+            await bot.change_presence(game=discord.Game(name=random_listening, type=2))
+        if num == 3:
+            await bot.change_presence(game=discord.Game(name=random_watching, type=3))
+        await asyncio.sleep(sleepTime)
 
 
-
-#these methods can be used to run the function outside of a function
-asyncio.get_event_loop().create_task(status()) #for python version > 3.6 < 3.7
-
-#running async function inside function
-async def run():
-    await status() #method one 
-    bot.loop.create_task(status()) #method 2, this only works when using discord API  since they have a build in way of running it
-
-#the same methods can be used to run the run() fuction as others outside function
+@bot.event
+async def on_ready():
+    bot.loop.create_task(picker())
+    print("Change status for {} is ready!".format(bot.user.name))
 
 @bot.command(pass_context=True)
 async def hug(ctx, *, member: discord.Member = None):
