@@ -28,7 +28,7 @@ async def picker():
         kind=random.randint(1,2)
         if kind == 1:
             members=0
-            for i in bot.server:
+            for i in bot.servers:
                 members+=len(i.members)
             num = random.choice([1, 2, 3])
             if num == 1:
@@ -48,7 +48,7 @@ async def picker():
                 await bot.change_presence(game=discord.Game(name=random.choice(ser_listen).format(len(bot.servers)), type=2))
             if num == 3:
                 await bot.change_presence(game=discord.Game(name=random.choice(ser_watch).format(len(bot.servers)), type=3))
-            await asyncio.sleep(random.choice([3000, 2000, 1000, 1500, 2500, 500, 1234, 400, 200, 580, 800]))
+            await asyncio.sleep(random.choice([3, 2000, 1000, 1500, 2500, 500, 1234, 400, 200, 580, 800]))
 
         if kind == 3:
             await bot.change_presence(game=discord.Game(name=random.choice(ser_watch).format(len(bot.servers)), type=3))
