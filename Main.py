@@ -208,7 +208,7 @@ async def help_fun(ctx):
 @bot.command(pass_context=True, no_pm=True)
 async def help_setup(ctx):
     author = ctx.message.author
-    embed = discord.Embed(description=":robot Setup Bot's Permissions", color=0xFFFF)
+    embed = discord.Embed(description=":robot: Setup Bot's Permissions :robot:", color=0xFFFF)
     embed.add_field(name="- Add a rank for the bot", value="Make sure it has all of the permissions.",inline=True)
     embed.add_field(name="- Make sure it is above all of the user ranks.", value="To make sure if a admin is abusing the higher rank can kick.",inline=True)
     embed.add_field(name="- Make sure you join the **Support Server** for more info.", value="Command = .stats --> Support Server --> Link.",inline=True)
@@ -222,13 +222,13 @@ async def help_setup(ctx):
     embed = discord.Embed(title=f"User: {ctx.message.author.name} have used **Fun** help command", description=f"User ID: {ctx.message.author.id}", color=0xff9393)
     await bot.send_message(channel, embed=embed)
 
-@bot.event
-async def on_message(message):
-	if message.content.startswith('.setup_done'):
-		embed=discord.Embed(description=f"Looks like your ready to go {message.author.mention} Enjoy the bot!")
-		embed.set_image(url="https://cdn.discordapp.com/attachments/524655977832775710/541446963887996939/Fade_image.png")    
-		await bot.send_message(message.channel, embed=embed)
-	await bot.process_commands(message)
+@bot.command(pass_context=True, no_pm=True)
+async def help_done(ctx):
+    author = ctx.message.author
+    embed = discord.Embed(description=":white_check_mark: Setup Complete!", color=0xFFFF)
+    embed.add_field(name="Setup Complete. The bot should be running normally now.", value="*:bulb: Make sure it has all of the permissions for the role otherwise the bot will not function correctly.*",inline=True)
+    embed.set_footer(text="Requested by: " + author.name)
+    await bot.send_message(author, embed=embed)
 	
 @bot.command(pass_context=True)
 async def bug(ctx, *, reportmsg):
