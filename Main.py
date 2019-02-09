@@ -216,7 +216,7 @@ async def help_setup(ctx):
     embed.set_footer(text="Requested by: " + author.name)
     await bot.send_message(author, embed=embed)
     embed = discord.Embed(description=" ", color=0xFFFF)
-    embed.add_field(name=":white_check_mark: Success!", value="I've sent you a list of my ``Fun`` commands in your **Direct Messages**",inline=True)
+    embed.add_field(name=":white_check_mark: Success!", value="I've sent you a list of my ``Setup`` instructions in your **Direct Messages**",inline=True)
     await bot.say(embed=embed)
     channel = bot.get_channel('543488075809030145')
     embed = discord.Embed(title=f"User: {ctx.message.author.name} have used **Fun** help command", description=f"User ID: {ctx.message.author.id}", color=0xff9393)
