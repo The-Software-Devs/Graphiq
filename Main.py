@@ -229,6 +229,10 @@ async def setup_done(ctx):
     embed.add_field(name="Setup Complete. The bot should be running normally now.", value="*:bulb: Make sure it has all of the permissions for the role otherwise the bot will not function correctly.*",inline=True)
     embed.set_footer(text="Requested by: " + author.name)
     await bot.send_message(author, embed=embed)
+    embed = discord.Embed(description=" ", color=0xFFFF)
+    embed.add_field(name=":white_check_mark: Success!", value="I've gave you my report in your **Direct Messages**",inline=True)
+    await bot.say(embed=embed)
+
 	
 @bot.command(pass_context=True)
 async def bug(ctx, *, reportmsg):
