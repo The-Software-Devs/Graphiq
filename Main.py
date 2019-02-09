@@ -11,9 +11,9 @@ bot = commands.Bot(command_prefix = ".")
 bot.remove_command('help')
 
 async def picker():
-    watching_list = ['Death Notes', 'You', 'One Piece','Code Geass', 'Anime', "Man vs Wild: Grylls",'PewDiePie','The World God Only Knows','Mushishi']
-    games = ['Overwatch','s.help | help commands',"League of Legends",'Mission Against Terror','Jump Rope Kitten: Nyawatobi', 'Potion Maker','Alphabear', 'OSU!', 'Tales of Sword', 's.help | help commands', 'Sword and Lovers', 'Giant Turnip Game', 'MEOW MEOW STAR ACRES','Tiny Sheep']
-    listening_list = ['Alan Walker Force', 'Alan Walker Alone', 'Alan Walker Faded', 'Women Flower','I\'m Nothing But A 2D Girl','Let it go -Meiko','River Flow In You','Legends Never Die','Scary Stories', 'Initial D Deja Vu','You Can Be King Again']
+    watching_list = ['You', ']
+	    games = ['.help | help commands','.help | Help Command', 'Fun Commands','with alot of users']
+    listening_list = ['Alan Walker Force','Users chatting']
     
     
     while True:
