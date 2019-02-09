@@ -11,7 +11,7 @@ bot = commands.Bot(command_prefix = ".")
 bot.remove_command('help')
 
 async def picker():
-    watching_list = ['You', ']
+    watching_list = ['You']
 	    games = ['.help | help commands','.help | Help Command', 'Fun Commands','with alot of users']
     listening_list = ['Alan Walker Force','Users chatting']
     
