@@ -6,30 +6,53 @@ from discord import game
 import inspect
 import os
 import random
+import json
 
 bot = commands.Bot(command_prefix = ".")
 bot.remove_command('help')
 
-async def picker():
-    watching_list = ['You']
-	games_list = ['.help | help commands','.help | Help Command','Fun Commands','with alot of users']
-    listening_list = ['Alan Walker Force','Users chatting']
-    
-    
-    while True:
-        random_watching = random.choice(watching_list)
-        random_game = random.choice(games)
-        random_listening = random.choice(listening_list)
-        num = random.choice([1, 2, 3])
-        sleepTime = random.choice([3000, 2000, 1000, 1500, 2500, 500, 1234, 400, 200, 580, 800])
-        if num == 1:
-            await bot.change_presence(game=discord.Game(name=random_game, type=1))
-        if num == 2:
-            await bot.change_presence(game=discord.Game(name=random_listening, type=2))
-        if num == 3:
-            await bot.change_presence(game=discord.Game(name=random_watching, type=3))
-        await asyncio.sleep(sleepTime)
+evn=bot.event
+cms=bot.command(pass_context=True)
 
+async def picker():
+    mem_watching=[' {} members','a totle of {} members']
+    mem_listening=['{} members',' to {} members total']
+    mem_playing=['with {} members','tag with {} members']
+
+    ser_watch=['with {} servers','a game with {} servers']
+    ser_listen=['to {} servers','a song with {} servers']
+    ser_play=['with {} servers','in {} servers']
+    helps=['!help | for help','!help for help commands']
+
+    while True:
+        kind=random.randint(1,2)
+        if kind == 1:
+            members=0
+            for i in bot.server:
+                members+=len(i.members)
+            num = random.choice([1, 2, 3])
+            if num == 1:
+                await bot.change_presence(game=discord.Game(name=random.choice(mem_playing).format(members), type=1))
+            if num == 2:
+                await bot.change_presence(game=discord.Game(name=random.choice(mem_listening).format(members), type=2))
+            if num == 3:
+                await bot.change_presence(game=discord.Game(name=random.choice(mem_watching).format(members), type=3))
+            await asyncio.sleep(random.choice([3000, 2000, 1000, 1500, 2500, 500, 1234, 400, 200, 580, 800]))
+        
+        
+        if kind == 2:
+            num = random.choice([1, 2, 3])
+            if num == 1:
+                await bot.change_presence(game=discord.Game(name=random.choice(ser_play).format(len(bot.servers)), type=1))
+            if num == 2:
+                await bot.change_presence(game=discord.Game(name=random.choice(ser_listen).format(len(bot.servers)), type=2))
+            if num == 3:
+                await bot.change_presence(game=discord.Game(name=random.choice(ser_watch).format(len(bot.servers)), type=3))
+            await asyncio.sleep(random.choice([3000, 2000, 1000, 1500, 2500, 500, 1234, 400, 200, 580, 800]))
+
+        if kind == 3:
+            await bot.change_presence(game=discord.Game(name=random.choice(ser_watch).format(len(bot.servers)), type=3))
+            await asyncio.sleep(random.choice([3000, 2000, 1000, 1500, 2500, 500, 1234, 400, 200, 580, 800]))
 
 @bot.event
 async def on_ready():
