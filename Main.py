@@ -91,23 +91,6 @@ async def hug(ctx, *, member: discord.Member = None):
                 await bot.say(embed=embed)
     except:
         pass
-
-
-@bot.command(pass_context=True)
-async def puppy(ctx, *, member: discord.Member = None):
-  #  Hug someone on the server <3
-    try:
-        if member is None:
-            await bot.say(ctx.message.author.mention + " has been adored!")
-        else:
-            if member.id == ctx.message.author.id:
-                await bot.say(ctx.message.author.mention + " hugged him self with cuteness :heart:")
-            else:
-                embed=discord.Embed(description=member.mention + " has been adored by " + ctx.message.author.mention + "!")
-                embed.set_image(url="https://media1.tenor.com/images/245862f2c9e21194eb2a491309198491/tenor.gif")
-                await bot.say(embed=embed)
-    except:
-        pass
 	
 	
 @bot.command(pass_context=True)
@@ -183,6 +166,22 @@ async def fortnite(ctx, *, member: discord.Member = None):
                 embed.set_image(url="https://media.tenor.com/images/6ce0ab7d03193e9723ef58defbd02257/tenor.gif")
                 await bot.say(embed=embed)
 		
+    except:
+        pass
+	
+@bot.command(pass_context=True)
+async def puppy(ctx, *, member: discord.Member = None):
+  #  Hug someone on the server <3
+    try:
+        if member is None:
+            await bot.say(ctx.message.author.mention + " has been adored!")
+        else:
+            if member.id == ctx.message.author.id:
+                await bot.say(ctx.message.author.mention + " hugged him self with cuteness :heart:")
+		    else:
+                embed=discord.Embed(description=member.mention + " has been adored by " + ctx.message.author.mention + "!")
+                embed.set_image(url="https://media1.tenor.com/images/245862f2c9e21194eb2a491309198491/tenor.gif")
+                await bot.say(embed=embed)
     except:
         pass
 	
