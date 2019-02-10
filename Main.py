@@ -92,6 +92,7 @@ async def hug(ctx, *, member: discord.Member = None):
     except:
         pass
 
+
 @bot.command(pass_context=True)
 async def puppy(ctx, *, member: discord.Member = None):
   #  Hug someone on the server <3
@@ -107,6 +108,7 @@ async def puppy(ctx, *, member: discord.Member = None):
                 await bot.say(embed=embed)
     except:
         pass
+	
 	
 @bot.command(pass_context=True)
 async def roblox(ctx, *, member: discord.Member = None):
