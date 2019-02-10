@@ -92,7 +92,21 @@ async def hug(ctx, *, member: discord.Member = None):
     except:
         pass
 	
-		
+@bot.command(pass_context=True)
+async def fortnite(ctx, *, member: discord.Member = None):
+  #  Hug someone on the server <3
+    try:
+        if member is None:
+            await bot.say(ctx.message.author.mention + " has lost a victory royale!")
+        else:
+            if member.id == ctx.message.author.id:
+                await bot.say(ctx.message.author.mention + " killed him/herself.")
+            else:
+                embed=discord.Embed(description=member.mention + " has lost a Victory Royale by " + ctx.message.author.mention + "!")
+                embed.set_image(url="https://media1.tenor.com/images/9bb8f1a9272c2d29f77f442b90a5b111/tenor.gif")
+                await bot.say(embed=embed)
+    except:
+        pass	
 	
 @bot.command(pass_context=True) #pass the context of user
 @commands.has_permissions(manage_roles=True) #mkes it so that only people with this permission can use this command
