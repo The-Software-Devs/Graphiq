@@ -454,7 +454,7 @@ async def info(ctx):
 	
 @bot.command(name="report", pass_context=True)
 async def _report(ctx, user: discord.Member = None, *, arg = None):
-    if ctx.message.author.server_permissions.manage_messages == True:
+    if ctx.message.author.server_permissions.send_messages == True:
         log_channel = discord.utils.get(ctx.message.server.channels, name = 'mod-log')
         if user is None:
             await bot.say(":x: Error 302. Please mention a member")
