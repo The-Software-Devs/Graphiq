@@ -82,7 +82,7 @@ async def hug(ctx, *, member: discord.Member = None):
                 await bot.say(ctx.message.author.mention + " hugged his self! LOL")
             else:
                 embed=discord.Embed(description=member.mention + " has been hugged by " + ctx.message.author.mention + "!")
-                embed.set_image(url="https://i.gifer.com/SkDN.gif")
+                embed.set_image(url="https://media1.tenor.com/images/d7529f6003b20f3b21f1c992dffb8617/tenor.gif")
                 await bot.say(embed=embed)
     except:
         pass
