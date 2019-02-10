@@ -528,10 +528,10 @@ async def puppy(ctx, *, member: discord.Member = None):
         else:
             if member.id == ctx.message.author.id:
                 await bot.say(ctx.message.author.mention + " hugged him self with cuteness :heart:")
-	else:
-                embed=discord.Embed(description=member.mention + " has been adored by " + ctx.message.author.mention + "!")
-                embed.set_image(url="https://media1.tenor.com/images/245862f2c9e21194eb2a491309198491/tenor.gif")
-                await bot.say(embed=embed)
+		else:
+		    embed=discord.Embed(description=member.mention + " has been adored by " + ctx.message.author.mention + "!")
+		    embed.set_image(url="https://media1.tenor.com/images/245862f2c9e21194eb2a491309198491/tenor.gif")
+                    await bot.say(embed=embed)
     except:
         pass
 
