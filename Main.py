@@ -449,6 +449,33 @@ async def info(ctx):
     embed.set_image(url="https://cdn.discordapp.com/attachments/524655977832775710/541446963887996939/Fade_image.png")	
     await bot.send_message(channel, embed=embed)
 	
+@bot.command(name="report", pass_context=True)
+async def _report(ctx, user: discord.Member = None, *, arg = None):
+    if ctx.message.author.server_permissions.manage_messages == True:
+        log_channel = discord.utils.get(ctx.message.server.channels, name = 'mod-log')
+        if user is None:
+            await bot.say(":x: Error 302. Please mention a member")
+            return False
+        if arg is None:
+            await bot.say("please provide a reason for reporting {}".format(user.name))
+            return False
+        reason = arg
+        author = ctx.message.author
+        server = ctx.message.server
+        channel = ctx.message.channel
+        em = discord.Embed(title=f"{user} has been reported",description="", color=0x00ff00)
+        em.add_field(name="Reason:", value=reason,inline=True)
+        em.add_field(name="Moderator:", value=author,inline=True)
+        em.add_field(name="In server:", value=server,inline=True)
+        em.add_field(name="In Channel:", value=channel,inline=True)
+        em.set_footer(text=f"{datetime.datetime.now()}")
+        try:
+            await bot.send_message(log_channel, embed=em)
+        except:
+            await bot.say("There doesn't seem to be a channel called `mod-log` in this server! Please create it and try again")
+    else:
+        await bot.send_message(ctx.message.channel, "Sorry {}, You don't have requirement permission to use this command `manage messages`.".format(ctx.message.author.mention))
+	
 @bot.command(name="warn", pass_context=True)
 async def _warn(ctx, user: discord.Member = None, *, arg = None):
     if ctx.message.author.server_permissions.manage_messages == True:
