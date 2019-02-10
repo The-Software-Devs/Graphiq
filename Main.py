@@ -113,7 +113,7 @@ async def addRole(con,user:discord.Member,*roles:discord.Role):
 	
 	
 @bot.command(pass_context=True)
-async def hug(ctx, *, member: discord.Member = None):
+async def kill(ctx, *, member: discord.Member = None):
   #  Hug someone on the server <3
     try:
         if member is None:
