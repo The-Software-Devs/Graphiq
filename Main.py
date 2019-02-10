@@ -83,7 +83,7 @@ async def hug(ctx, *, member: discord.Member = None):
             else:
                 await bot.say(member.mention + " has been hugged by " + ctx.message.author.mention + "!")
 	embed.set_image(url="https://i.gifer.com/SkDN.gif")
-	await bot.send_message(embed=embed)
+	await bot.say(embed=embed)
 
     except:
         await bot.say("There is an error, either with the bot or a problem with the command")
