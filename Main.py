@@ -102,7 +102,7 @@ async def yesbro(ctx, *, member: discord.Member = None):
             if member.id == ctx.message.author.id:
                 await bot.say(ctx.message.author.mention + " got beat up by his own gang. LOL")
             else:
-                embed=discord.Embed(description=member.mention + " has ganged up  by " + ctx.message.author.mention + "!")
+                embed=discord.Embed(description=member.mention + " has ganged up on " + ctx.message.author.mention + "!")
                 embed.set_image(url="https://media1.tenor.com/images/3e20a7e3f4e1b29f2c638756fadfc2fa/tenor.gif")
                 await bot.say(embed=embed)
     except:
