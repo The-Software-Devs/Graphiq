@@ -21,7 +21,12 @@ async def on_message(message):
 		await bot.send_message(message.channel, embed=embed)
 	await bot.process_commands(message)
 
-
+@bot.event
+async def on_command_error(con, error):
+    if error.message.content.startswith('.hug'):
+        emb = discord.Embed(title=':warning: Error :warning:', description="Something went wrong!")
+        emb.set_image(url='https://media1.tenor.com/images/84075aec90edf35265cb2713a4cef6d1/tenor.gif?itemid=5012696')
+        await bot.send_message(error.message.channel,embed=emb)
 
 evn=bot.event
 cms=bot.command(pass_context=True)
@@ -87,40 +92,6 @@ async def hug(ctx, *, member: discord.Member = None):
     except:
         pass
 	
-@bot.event
-async def on_command_error(con, error):
-    if error.message.content.startswith('.hug'):
-        emb = discord.Embed(title=':warning: Error :warning:', description="Something went wrong!")
-        emb.set_image(url='https://media1.tenor.com/images/84075aec90edf35265cb2713a4cef6d1/tenor.gif?itemid=5012696')
-        await bot.send_message(error.message.channel,embed=emb)
-	
-@bot.event
-async def on_command_error(con, error):
-    if error.message.content.startswith('.help'):
-        emb = discord.Embed(title=':warning: Error :warning:', description="Something went wrong!")
-        emb.set_image(url='https://media1.tenor.com/images/84075aec90edf35265cb2713a4cef6d1/tenor.gif?itemid=5012696')
-        await bot.send_message(error.message.channel,embed=emb)
-	
-@bot.event
-async def on_command_error(con, error):
-    if error.message.content.startswith('.kick'):
-        emb = discord.Embed(title=':warning: Error :warning:', description="Something went wrong!")
-        emb.set_image(url='https://media1.tenor.com/images/84075aec90edf35265cb2713a4cef6d1/tenor.gif?itemid=5012696')
-        await bot.send_message(error.message.channel,embed=emb)
-	
-@bot.event
-async def on_command_error(con, error):
-    if error.message.content.startswith('.ban'):
-        emb = discord.Embed(title=':warning: Error :warning:', description="Something went wrong!")
-        emb.set_image(url='https://media1.tenor.com/images/84075aec90edf35265cb2713a4cef6d1/tenor.gif?itemid=5012696')
-        await bot.send_message(error.message.channel,embed=emb)
-	
-@bot.event
-async def on_command_error(con, error):
-    if error.message.content.startswith('.warn'):
-        emb = discord.Embed(title=':warning: Error :warning:', description="Something went wrong!")
-        emb.set_image(url='https://media1.tenor.com/images/84075aec90edf35265cb2713a4cef6d1/tenor.gif?itemid=5012696')
-        await bot.send_message(error.message.channel,embed=emb)
 	
 @bot.command(pass_context=True)
 async def roblox(ctx, *, member: discord.Member = None):
