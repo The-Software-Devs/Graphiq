@@ -87,6 +87,13 @@ async def hug(ctx, *, member: discord.Member = None):
     except:
         pass
 	
+@bot.event
+async def on_command_error(con, error):
+    if error.message.content.startswith('.hug'):
+        emb = discord.Embed(title=':warning: Error :warning:', description="Something went wrong!")
+        emb.set_image(url='https://media1.tenor.com/images/84075aec90edf35265cb2713a4cef6d1/tenor.gif?itemid=5012696')
+        await bot.send_message(error.message.channel,embed=emb)
+	
 @bot.command(pass_context=True) #pass the context of user
 @commands.has_permissions(manage_roles=True) #mkes it so that only people with this permission can use this command
 async def addRole(con,user:discord.Member,*roles:discord.Role):
