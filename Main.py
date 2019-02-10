@@ -7,6 +7,7 @@ import inspect
 import os
 import random
 import json
+import datetime
 
 bot = commands.Bot(command_prefix = ".")
 bot.remove_command('help')
