@@ -575,22 +575,6 @@ async def on_message(message):
 		await bot.send_message(message.channel, embed=embed)
 	await bot.process_commands(message)
 	
-@bot.command(pass_context=True)
-async def roblox(ctx, *, member: discord.Member = None):
-  #  Hug someone on the server <3
-    try:
-        if member is None:
-            await bot.say(ctx.message.author.mention + " has been oofed!")
-        else:
-            if member.id == ctx.message.author.id:
-                await bot.say(ctx.message.author.mention + " oofed him/her self! LOL!")
-            else:
-                embed=discord.Embed(description=member.mention + " has been oofed by " + ctx.message.author.mention + "!")
-                embed.set_image(url="https://media1.tenor.com/images/85805966c1638e4bdd4af32a480c26c1/tenor.gif?itemid=12661768")
-                await bot.say(embed=embed)
-		
-    except:
-        pass
 
 @bot.event
 async def on_message(message):
