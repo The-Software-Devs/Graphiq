@@ -77,6 +77,19 @@ async def on_ready():
     print("Change status for {} is ready!".format(bot.user.name))
 
 @bot.command(pass_context=True)
+async def urban( con, *, msg):
+    session = rq.Session()
+    """USES URBAN DICT TO FIND DEFINITION OF WORDS. EX: s.urban neko"""
+    link = 'http://api.urbandictionary.com/v0/define?term={}'.format(msg)
+    rq_link = session.get(link).text
+    rq_json = json.loads(rq_link)
+    if rq_json['list'] == []:
+        await bot.send_message(con.message.channel, "**No Results Found**")
+    elif rq_json['list'] != []:
+        await bot.send_message(con.message.channel, "**Word**: {}\n**Votes**: {}\n**Definitioin**: {}\n**Example**: {}".format(rq_json['list'][0]['word'], rq_json['list'][0]['thumbs_up'], rq_json['list'][0]['definition'], rq_json['list'][0]['example']))
+	
+	
+@bot.command(pass_context=True)
 async def hug(ctx, *, member: discord.Member = None):
   #  Hug someone on the server <3
     try:
