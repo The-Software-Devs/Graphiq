@@ -9,13 +9,13 @@ import random
 import json
 import datetime
 
-bot = commands.Bot(command_prefix = ".")
+bot = commands.Bot(command_prefix = "b.")
 bot.remove_command('help')
 
 
 @bot.event
 async def on_message(message):
-	if message.content.startswith('.noob'):
+	if message.content.startswith('b.noob'):
 		embed=discord.Embed(description=f"Wys g, u more of teh nub den me {message.author.mention}")
 		embed.set_image(url="https://cdn.discordapp.com/attachments/524655977832775710/541446963887996939/Fade_image.png")    
 		await bot.send_message(message.channel, embed=embed)
@@ -23,7 +23,7 @@ async def on_message(message):
 
 @bot.event
 async def on_command_error(con, error):
-    if error.message.content.startswith('.hug'):
+    if error.message.content.startswith('b.hug'):
         emb = discord.Embed(title=':warning: Error :warning:', description="Something went wrong!")
         emb.set_image(url='https://media1.tenor.com/images/84075aec90edf35265cb2713a4cef6d1/tenor.gif?itemid=5012696')
         await bot.send_message(error.message.channel,embed=emb)
@@ -613,7 +613,7 @@ async def _eval(ctx, *, command):
 
 @bot.event
 async def on_message(message):
-	if message.content.startswith('.credits'):
+	if message.content.startswith('b.credits'):
 		embed=discord.Embed(description=f"Bot Owner & Founder: Mxchael & RJ_RBLX05		| Vice Chairman: JayHaggs		 | Bot Developers: NoobPerson, Tunyo-Tex. Thank you for using my bot {message.author.mention}")
 		embed.set_image(url="https://cdn.discordapp.com/attachments/524655977832775710/541446963887996939/Fade_image.png")    
 		await bot.send_message(message.channel, embed=embed)
@@ -622,7 +622,7 @@ async def on_message(message):
 
 @bot.event
 async def on_message(message):
-	if message.content.startswith('.hello'):
+	if message.content.startswith('b.hello'):
 		embed=discord.Embed(description=f"Hello {message.author.mention}")
 		embed.set_image(url="https://cdn.discordapp.com/attachments/524655977832775710/541446963887996939/Fade_image.png")    
 		await bot.send_message(message.channel, embed=embed)
