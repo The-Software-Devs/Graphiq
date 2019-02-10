@@ -104,6 +104,54 @@ async def hug(ctx, *, member: discord.Member = None):
                 await bot.say(embed=embed)
     except:
         pass
+
+@bot.command(pass_context=True)
+async def thanks(ctx, *, member: discord.Member = None):
+  #  Hug someone on the server <3
+    try:
+        if member is None:
+            await bot.say(ctx.message.author.mention + " has been thanked!")
+        else:
+            if member.id == ctx.message.author.id:
+                await bot.say(ctx.message.author.mention + " thanked his self! LOL")
+            else:
+                embed=discord.Embed(description=member.mention + " has been thanked by " + ctx.message.author.mention + "!")
+                embed.set_image(url="https://media1.tenor.com/images/cc619912fe89d1ff0d496b9d8fae70a4/tenor.gif")
+                await bot.say(embed=embed)
+    except:
+        pass
+	
+@bot.command(pass_context=True)
+async def your welcome(ctx, *, member: discord.Member = None):
+  #  Hug someone on the server <3
+    try:
+        if member is None:
+            await bot.say(ctx.message.author.mention + " has been welcomed!")
+        else:
+            if member.id == ctx.message.author.id:
+                await bot.say(ctx.message.author.mention + " welcomed his self! LOL")
+            else:
+                embed=discord.Embed(description=member.mention + " has been ``your welcomed`` by " + ctx.message.author.mention + "!")
+                embed.set_image(url="https://media1.tenor.com/images/15bafc0b414757acab81650a6ff21963/tenor.gif")
+                await bot.say(embed=embed)
+    except:
+        pass
+	
+@bot.command(pass_context=True)
+async def wow(ctx, *, member: discord.Member = None):
+  #  Hug someone on the server <3
+    try:
+        if member is None:
+            await bot.say(ctx.message.author.mention + " has been wowed!")
+        else:
+            if member.id == ctx.message.author.id:
+                await bot.say(ctx.message.author.mention + " wowed his self! LOL")
+            else:
+                embed=discord.Embed(description=member.mention + " has been wowed by " + ctx.message.author.mention + "!")
+                embed.set_image(url="https://media1.tenor.com/images/e99fe0258fde8ba4cf5956018f839c83/tenor.gif")
+                await bot.say(embed=embed)
+    except:
+        pass
 	
 @bot.command(pass_context=True)
 async def please(ctx, *, member: discord.Member = None):
