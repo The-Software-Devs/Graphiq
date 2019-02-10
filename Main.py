@@ -93,6 +93,23 @@ async def hug(ctx, *, member: discord.Member = None):
         pass
 	
 @bot.command(pass_context=True)
+async def please(ctx, *, member: discord.Member = None):
+  #  Hug someone on the server <3
+    try:
+        if member is None:
+            await bot.say(ctx.message.author.mention + " has begged!")
+        else:
+            if member.id == ctx.message.author.id:
+                await bot.say(ctx.message.author.mention + " begged his self! LOL")
+            else:
+                embed=discord.Embed(description=member.mention + " has begged and begged from  " + ctx.message.author.mention + "!")
+                embed.set_image(url="https://media1.tenor.com/images/09556e93c9967bc494c022e13c551dc8/tenor.gif")
+                await bot.say(embed=embed)
+    except:
+        pass
+	
+	
+@bot.command(pass_context=True)
 async def yesbro(ctx, *, member: discord.Member = None):
   #  Hug someone on the server <3
     try:
