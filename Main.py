@@ -108,23 +108,6 @@ async def yesbro(ctx, *, member: discord.Member = None):
     except:
         pass
 	
-@bot.command(pass_context=True)
-async def msg(ctx, member: discord.Member = None):
-    if ctx.message.author.id == "459738312412889098":
-  #  Hug someone on the server <3
-    try:
-        if member is None:
-            await bot.say(ctx.message.author.mention + " Error.")
-        else:
-            if member.id == ctx.message.author.id:
-                await bot.say(ctx.message.author.mention + " Error.")
-            else:
-                embed=discord.Embed(description=member.mention + " i am very very sorry of over the past few months. I've had a rough time lately and i don't want me stop you and what ever you do. Therefore, i ``shall`` keep out of your way if you would like. Anything else, I'm going to listen to some depressing music. Bye. From " + ctx.message.author.mention + "!")
-                embed.set_image(url="https://media.tenor.com/images/05aef073ea10969a81d89ad221f20219/tenor.gif")
-                await bot.say(embed=embed)
-    except:
-        pass
-	
 	
 @bot.command(pass_context=True)
 async def fortnite(ctx, *, member: discord.Member = None):
