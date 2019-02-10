@@ -103,7 +103,7 @@ async def puppy(ctx, *, member: discord.Member = None):
                 await bot.say(ctx.message.author.mention + " hugged him self with cuteness :heart:")
             else:
                 embed=discord.Embed(description=member.mention + " has been adored by " + ctx.message.author.mention + "!")
-                embed.set_image(url=" https://media1.tenor.com/images/245862f2c9e21194eb2a491309198491/tenor.gif?itemid=8151807")
+                embed.set_image(url="https://media1.tenor.com/images/245862f2c9e21194eb2a491309198491/tenor.gif?itemid=8151807")
                 await bot.say(embed=embed)
     except:
         pass
