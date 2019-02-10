@@ -123,7 +123,7 @@ async def kill(ctx, *, member: discord.Member = None):
                 await bot.say(ctx.message.author.mention + " killed im/her self! R.I.P")
             else:
                 embed=discord.Embed(description=member.mention + " has been killed by " + ctx.message.author.mention + "!")
-                embed.set_image(url="https://tenor.com/zdFn.gif")
+                embed.set_image(url="https://media1.tenor.com/images/62e86b68157aa404cb69b13d1ec297a2/tenor.gif")
                 await bot.say(embed=embed)
     except:
         pass
