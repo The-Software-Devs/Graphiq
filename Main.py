@@ -162,7 +162,7 @@ async def fortnite(ctx, *, member: discord.Member = None):
             if member.id == ctx.message.author.id:
                 await bot.say(ctx.message.author.mention + " has lost a Victory Ryale! :rage:")
             else:
-                embed=discord.Embed(description=member.mention + " has been oofed by " + ctx.message.author.mention + "!")
+                embed=discord.Embed(description=member.mention + " has lsot a Victory Royale by " + ctx.message.author.mention + "! Arnt't you angry?")
                 embed.set_image(url="https://media.tenor.com/images/6ce0ab7d03193e9723ef58defbd02257/tenor.gif")
                 await bot.say(embed=embed)
 		
