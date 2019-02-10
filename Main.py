@@ -113,19 +113,20 @@ async def addRole(con,user:discord.Member,*roles:discord.Role):
 	
 	
 @bot.command(pass_context=True)
-async def kill(ctx, *, member: discord.Member = None):
-  #  Kill someone on the server <3
+async def hug(ctx, *, member: discord.Member = None):
+  #  Hug someone on the server <3
     try:
         if member is None:
             await bot.say(ctx.message.author.mention + " has been killed!")
         else:
             if member.id == ctx.message.author.id:
-                await bot.say(ctx.message.author.mention + "  Commited Suicide. R.I.P")
+                await bot.say(ctx.message.author.mention + " killed im/her self! R.I.P")
             else:
-                await bot.say(member.mention + " has been killed by " + ctx.message.author.mention + "!")
-
+                embed=discord.Embed(description=member.mention + " has been hugged by " + ctx.message.author.mention + "!")
+                embed.set_image(url="https://tenor.com/view/home-alone-macaulay-culkin-kevin-gun-serious-gif-3581186")
+                await bot.say(embed=embed)
     except:
-        await bot.say("There is an error, either with the bot or a problem with the command")
+        pass
 	
 
 	
