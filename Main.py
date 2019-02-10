@@ -107,6 +107,9 @@ async def roblox(ctx, *, member: discord.Member = None):
                 embed.set_image(url="https://media1.tenor.com/images/85805966c1638e4bdd4af32a480c26c1/tenor.gif?itemid=12661768")
                 await bot.say(embed=embed)
 		
+    except:
+        pass
+		
 	
 @bot.command(pass_context=True) #pass the context of user
 @commands.has_permissions(manage_roles=True) #mkes it so that only people with this permission can use this command
