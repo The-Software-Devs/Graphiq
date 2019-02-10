@@ -92,23 +92,6 @@ async def hug(ctx, *, member: discord.Member = None):
     except:
         pass
 	
-	
-@bot.command(pass_context=True)
-async def roblox(ctx, *, member: discord.Member = None):
-  #  Hug someone on the server <3
-    try:
-        if member is None:
-            await bot.say(ctx.message.author.mention + " has been oofed!")
-        else:
-            if member.id == ctx.message.author.id:
-                await bot.say(ctx.message.author.mention + " oofed him/her self! LOL!")
-            else:
-                embed=discord.Embed(description=member.mention + " has been oofed by " + ctx.message.author.mention + "!")
-                embed.set_image(url="https://media1.tenor.com/images/85805966c1638e4bdd4af32a480c26c1/tenor.gif?itemid=12661768")
-                await bot.say(embed=embed)
-		
-    except:
-        pass
 		
 	
 @bot.command(pass_context=True) #pass the context of user
@@ -166,22 +149,6 @@ async def fortnite(ctx, *, member: discord.Member = None):
                 embed.set_image(url="https://media.tenor.com/images/6ce0ab7d03193e9723ef58defbd02257/tenor.gif")
                 await bot.say(embed=embed)
 		
-    except:
-        pass
-	
-@bot.command(pass_context=True)
-async def puppy(ctx, *, member: discord.Member = None):
-  #  Hug someone on the server <3
-    try:
-        if member is None:
-            await bot.say(ctx.message.author.mention + " has been adored!")
-        else:
-            if member.id == ctx.message.author.id:
-                await bot.say(ctx.message.author.mention + " hugged him self with cuteness :heart:")
-		    else:
-                embed=discord.Embed(description=member.mention + " has been adored by " + ctx.message.author.mention + "!")
-                embed.set_image(url="https://media1.tenor.com/images/245862f2c9e21194eb2a491309198491/tenor.gif")
-                await bot.say(embed=embed)
     except:
         pass
 	
@@ -552,7 +519,21 @@ async def _warn(ctx, user: discord.Member = None, *, arg = None):
     else:
     	await bot.send_message(ctx.message.channel, "Sorry {}, You don't have requirement permission to use this command `manage messages`.".format(ctx.message.author.mention))
 	
-		
+@bot.command(pass_context=True)
+async def puppy(ctx, *, member: discord.Member = None):
+  #  Hug someone on the server <3
+    try:
+        if member is None:
+            await bot.say(ctx.message.author.mention + " has been adored!")
+        else:
+            if member.id == ctx.message.author.id:
+                await bot.say(ctx.message.author.mention + " hugged him self with cuteness :heart:")
+		    else:
+                embed=discord.Embed(description=member.mention + " has been adored by " + ctx.message.author.mention + "!")
+                embed.set_image(url="https://media1.tenor.com/images/245862f2c9e21194eb2a491309198491/tenor.gif")
+                await bot.say(embed=embed)
+    except:
+        pass
 
 	
 @bot.command(pass_context=True)
