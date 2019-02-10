@@ -385,12 +385,6 @@ async def _ban(ctx, user: discord.Member = None, *, arg = None):
     else:
     	await bot.send_message(ctx.message.channel, "Sorry {}, You don't have requirement permission to use this command `ban members`.".format(ctx.message.author.mention))
 
-@bot.command(pass_context=True)
-async def report(ctx,user:discord.Member=None,*,reason):
-    channel = bot.get_channel("532949494036168706")
-    channel2 = bot.get_channel("542401839694348298")
-    await bot.send_message(channel,f"{user} has been reported for: **{reason}**")
-    await bot.send_message(channel2,f"{user} has been reported for: **{reason}**")
 	
 @bot.command(pass_context=True)
 async def unban(con,user:int):
