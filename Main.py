@@ -93,6 +93,20 @@ async def hug(ctx, *, member: discord.Member = None):
         pass
 	
 @bot.command(pass_context=True)
+async def yesbro(ctx, *, member: discord.Member = None):
+  #  Hug someone on the server <3
+    try:
+        if member is None:
+            await bot.say(ctx.message.author.mention + " has became a ganster!")
+        else:
+            if member.id == ctx.message.author.id:
+                await bot.say(ctx.message.author.mention + " got beat up by his own gang. LOL")
+            else:
+                embed=discord.Embed(description=member.mention + " has ganged up  by " + ctx.message.author.mention + "!")
+                embed.set_image(url="https://media1.tenor.com/images/d7529f6003b20f3b21f1c992dffb8617/tenor.gif")
+                await bot.say(embed=embed)
+	
+@bot.command(pass_context=True)
 async def fortnite(ctx, *, member: discord.Member = None):
   #  Hug someone on the server <3
     try:
