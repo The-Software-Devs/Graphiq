@@ -81,12 +81,11 @@ async def hug(ctx, *, member: discord.Member = None):
             if member.id == ctx.message.author.id:
                 await bot.say(ctx.message.author.mention + " hugged his self! LOL")
             else:
-                await bot.say(member.mention + " has been hugged by " + ctx.message.author.mention + "!")
-	embed.set_image(url="https://i.gifer.com/SkDN.gif")
-	await bot.say(embed=embed)
-
+                embed=discord.Embed(description=member.mention + " has been hugged by " + ctx.message.author.mention + "!")
+                embed.set_image(url="https://i.gifer.com/SkDN.gif")
+                await bot.say(embed=embed)
     except:
-        await bot.say("There is an error, either with the bot or a problem with the command")
+        pass
 	
 @bot.command(pass_context=True) #pass the context of user
 @commands.has_permissions(manage_roles=True) #mkes it so that only people with this permission can use this command
