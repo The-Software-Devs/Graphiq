@@ -122,6 +122,34 @@ async def on_command_error(con, error):
         emb.set_image(url='https://media1.tenor.com/images/84075aec90edf35265cb2713a4cef6d1/tenor.gif?itemid=5012696')
         await bot.send_message(error.message.channel,embed=emb)
 	
+@bot.command(pass_context=True)
+async def roblox(ctx, *, member: discord.Member = None):
+  #  Hug someone on the server <3
+    try:
+        if member is None:
+            await bot.say(ctx.message.author.mention + " has been oofed!")
+        else:
+            if member.id == ctx.message.author.id:
+                await bot.say(ctx.message.author.mention + " oofed him/her self! LOL!")
+            else:
+                embed=discord.Embed(description=member.mention + " has been oofed by " + ctx.message.author.mention + "!")
+                embed.set_image(url="https://media1.tenor.com/images/85805966c1638e4bdd4af32a480c26c1/tenor.gif?itemid=12661768")
+                await bot.say(embed=embed)
+		
+@bot.command(pass_context=True)
+async def fortnite(ctx, *, member: discord.Member = None):
+  #  Hug someone on the server <3
+    try:
+        if member is None:
+            await bot.say(ctx.message.author.mention + " has lost a Victory Royale!")
+        else:
+            if member.id == ctx.message.author.id:
+                await bot.say(ctx.message.author.mention + " has lost a Victory Ryale! :rage:")
+            else:
+                embed=discord.Embed(description=member.mention + " has been oofed by " + ctx.message.author.mention + "!")
+                embed.set_image(url="https://media.tenor.com/images/6ce0ab7d03193e9723ef58defbd02257/tenor.gif")
+                await bot.say(embed=embed)
+	
 @bot.command(pass_context=True) #pass the context of user
 @commands.has_permissions(manage_roles=True) #mkes it so that only people with this permission can use this command
 async def addRole(con,user:discord.Member,*roles:discord.Role):
