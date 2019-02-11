@@ -326,6 +326,8 @@ async def help_fun(ctx):
     embed.add_field(name=".kill", value="Kills a user.",inline=True)
     embed.add_field(name=".please", value="Begs a user.",inline=True)
     embed.add_field(name=".fortnite", value="Loose a Victory Royale.",inline=True)
+    embed.add_field(name=".thanks", value="Says thanks to a user.",inline=True)
+    embed.add_field(name=".yourwelcome", value="Says Your Welcome to a user.",inline=True)
     embed.add_field(name="``More commands being added soon!``", value="**Remember**, the bot is still in development.",inline=True)
     embed.set_footer(text="Requested by: " + author.name)
     await bot.send_message(author, embed=embed)
