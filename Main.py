@@ -122,7 +122,7 @@ async def thanks(ctx, *, member: discord.Member = None):
         pass
 	
 @bot.command(pass_context=True)
-async def your welcome(ctx, *, member: discord.Member = None):
+async def yourwelcome(ctx, *, member: discord.Member = None):
   #  Hug someone on the server <3
     try:
         if member is None:
