@@ -137,7 +137,7 @@ async def yourwelcome(ctx, *, member: discord.Member = None):
     except:
         pass
 	
-@client.command(pass_context=True)
+@bot.command(pass_context=True)
 async def bothelp(ctx):
     m1=await client.say('Getting information...Please Wait. http://gph.is/2gEPAHj')
     await asyncio.sleep(10)
