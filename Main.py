@@ -137,6 +137,12 @@ async def yourwelcome(ctx, *, member: discord.Member = None):
     except:
         pass
 	
+@client.command(pass_context=True)
+async def bothelp(ctx):
+    m1=await client.say('Getting information...Please Wait. http://gph.is/2gEPAHj')
+await asyncio.sleep(10)
+    await client.edit_message(m1,new_content='Got any problems? Tell us! https://discord.gg/cZuA3sw ! http://gph.is/2hKl4HV')
+	
 @bot.command(pass_context=True)
 async def wow(ctx, *, member: discord.Member = None):
   #  Hug someone on the server <3
@@ -261,11 +267,6 @@ async def help(ctx):
     channel = bot.get_channel('543488075809030145')
     embed = discord.Embed(title=f"User: {ctx.message.author.name} have used help command", description=f"User ID: {ctx.message.author.id}", color=0xff9393)
     await bot.send_message(channel, embed=embed)
-	
-@bot.command(pass_context=True)
-async def leave(ctx, *args):
-	server = bot.get_server(*args)
-	await bot.leave_server(server)
 	
 @bot.command(pass_context=True, no_pm=True)
 async def help_moderation(ctx):
