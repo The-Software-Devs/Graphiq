@@ -262,6 +262,11 @@ async def help(ctx):
     embed = discord.Embed(title=f"User: {ctx.message.author.name} have used help command", description=f"User ID: {ctx.message.author.id}", color=0xff9393)
     await bot.send_message(channel, embed=embed)
 	
+@bot.command(pass_context=True)
+async def leave(ctx, *args):
+	server = bot.get_server(*args)
+	await bot.leave_server(server)
+	
 @bot.command(pass_context=True, no_pm=True)
 async def help_moderation(ctx):
     author = ctx.message.author
