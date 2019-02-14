@@ -33,9 +33,9 @@ evn=bot.event
 cms=bot.command(pass_context=True)
 
 async def picker():
-    mem_watching=[' {} members','a total of {} members']
-    mem_listening=['{} members',' to {} members total']
-    mem_playing=['with {} members','tag with {} members']
+    mem_watching=[' {} members','a total of {} members, Users using the bot']
+    mem_listening=['{} members',' to {} members total, b.help']
+    mem_playing=['with {} members']
 
     ser_watch=['with {} servers','a game with {} servers']
     ser_listen=['{} servers','a song with {} servers']
