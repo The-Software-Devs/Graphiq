@@ -666,19 +666,15 @@ async def _eval(ctx, *, command):
         await bot.send_message(ctx.message.channel, "Sorry {} You have no permission to use this command only the bot owners can use this.".format(ctx.message.author.mention))
 
 
-	
+
+
+@bot.command(pass_context=True)
+async def bothelp(ctx):
+         m1=await client.say('TEXT')
+         await asyncio.sleep(10)
+         await client.edit_message(m1, new_context='EDITED TEXT')
 
 @bot.event
-async def on_message(message):
-	if message.content.startswith('b.credits'):
-		embed=discord.Embed(description=f"Bot Owner & Founder: Mxchael & RJ_RBLX05		| Vice Chairman: JayHaggs		 | Bot Developers: NoobPerson, Tunyo-Tex. Thank you for using my bot {message.author.mention}")
-		embed.set_image(url="https://cdn.discordapp.com/attachments/524655977832775710/541446963887996939/Fade_image.png")    
-		await bot.send_message(message.channel, embed=embed)
-	await bot.process_commands(message)
-	
-
-@bot.event
-await bot.process_commands(message)
 async def on_message(message):
 	if message.content.startswith('b.hello'):
 		embed=discord.Embed(description=f"Hello {message.author.mention}")
