@@ -662,9 +662,9 @@ async def _eval(ctx, *, command):
 
 @bot.command(pass_context=True)
 async def bothelp(ctx):
-    m1=await client.say('Getting information...Please Wait. http://gph.is/2gEPAHj')
+    m1=await bot.say('Getting information...Please Wait. http://gph.is/2gEPAHj')
     await asyncio.sleep(10)
-    await client.edit_message(m1,new_content='Got any problems? Tell us! https://discord.gg/cZuA3sw ! http://gph.is/2hKl4HV')
+    await bot.edit_message(m1,new_content='Got any problems? Tell us! https://discord.gg/cZuA3sw ! http://gph.is/2hKl4HV')
 
 @bot.event
 async def on_message(message):
