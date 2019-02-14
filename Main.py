@@ -34,7 +34,7 @@ cms=bot.command(pass_context=True)
 
 async def picker():
     mem_watching=[' {} members','a total of {} members, Users using the bot']
-    mem_listening=['{} members',' to {} members total, "b.help"]
+    mem_listening=['{} members',' to {} members total]
     mem_playing=['with {} members']
 
     ser_watch=['with {} servers','a game with {} servers']
