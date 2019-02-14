@@ -138,11 +138,6 @@ async def yourwelcome(ctx, *, member: discord.Member = None):
     except:
         pass
 	
-@bot.command(pass_context=True)
-async def bothelp(ctx):
-    m1=await client.say('Getting information...Please Wait. http://gph.is/2gEPAHj')
-    await asyncio.sleep(10)
-    await client.edit_message(m1,new_content='Got any problems? Tell us! https://discord.gg/cZuA3sw ! http://gph.is/2hKl4HV')
 	
 @bot.command(pass_context=True)
 async def wow(ctx, *, member: discord.Member = None):
@@ -665,14 +660,11 @@ async def _eval(ctx, *, command):
         await asyncio.sleep(10)
         await bot.send_message(ctx.message.channel, "Sorry {} You have no permission to use this command only the bot owners can use this.".format(ctx.message.author.mention))
 
-
-
-
 @bot.command(pass_context=True)
 async def bothelp(ctx):
-         m1=await client.say('TEXT')
-         await asyncio.sleep(10)
-         await client.edit_message(m1, new_context='EDITED TEXT')
+    m1=await client.say('Getting information...Please Wait. http://gph.is/2gEPAHj')
+    await asyncio.sleep(10)
+    await client.edit_message(m1,new_content='Got any problems? Tell us! https://discord.gg/cZuA3sw ! http://gph.is/2hKl4HV')
 
 @bot.event
 async def on_message(message):
