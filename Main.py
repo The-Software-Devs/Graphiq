@@ -332,13 +332,6 @@ async def help_fun(ctx):
     embed = discord.Embed(title=f"User: {ctx.message.author.name} have used **Fun** help command", description=f"User ID: {ctx.message.author.id}", color=0xff9393)
     await bot.send_message(channel, embed=embed)
 	
-@bot.event
-async def on_message(message):
-	if message.content.startswith('b.rank'):
-		embed=discord.Embed(description=f"Hello {message.author.mention} The rank command hasn't been set-up yet. Please try again later.")
-		embed.set_image(url="https://media1.tenor.com/images/84075aec90edf35265cb2713a4cef6d1/tenor.gif?itemid=5012696")    
-		await bot.send_message(message.channel, embed=embed)
-	await bot.process_commands(message)
 	
 @bot.command(pass_context=True, no_pm=True)
 async def help_setup(ctx):
@@ -674,7 +667,13 @@ async def on_message(message):
 		await bot.send_message(message.channel, embed=embed)
 	await bot.process_commands(message)
 	
-	
+@bot.event
+await bot.process_commands(message)
+async def on_message(message):
+	if message.content.startswith('b.rank'):
+		embed=discord.Embed(description=f"Hello {message.author.mention} The rank command hasn't been set-up yet. Please try again later.")
+		embed.set_image(url="https://media1.tenor.com/images/84075aec90edf35265cb2713a4cef6d1/tenor.gif?itemid=5012696")    
+		await bot.send_message(message.channel, embed=embed)
 	
 	
 bot.run(os.environ['BOT_TOKEN'])
