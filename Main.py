@@ -33,12 +33,12 @@ evn=bot.event
 cms=bot.command(pass_context=True)
 
 async def picker():
-    mem_watching=[' {} members','a totle of {} members']
+    mem_watching=[' {} members','a total of {} members']
     mem_listening=['{} members',' to {} members total']
     mem_playing=['with {} members','tag with {} members']
 
     ser_watch=['with {} servers','a game with {} servers']
-    ser_listen=['to {} servers','a song with {} servers']
+    ser_listen=['{} servers','a song with {} servers']
     ser_play=['with {} servers','in {} servers']
     helps=['!help | for help','!help for help commands']
 
@@ -55,7 +55,7 @@ async def picker():
                 await bot.change_presence(game=discord.Game(name=random.choice(mem_listening).format(members), type=2))
             if num == 3:
                 await bot.change_presence(game=discord.Game(name=random.choice(mem_watching).format(members), type=3))
-            await asyncio.sleep(random.choice([10, 15, 20, 5, 5, 10, 15, 20]))
+            await asyncio.sleep(random.choice([5, 5, 5, 5, 5, 5]))
         
         
         if kind == 2:
@@ -66,11 +66,11 @@ async def picker():
                 await bot.change_presence(game=discord.Game(name=random.choice(ser_listen).format(len(bot.servers)), type=2))
             if num == 3:
                 await bot.change_presence(game=discord.Game(name=random.choice(ser_watch).format(len(bot.servers)), type=3))
-            await asyncio.sleep(random.choice([10, 15, 20, 5, 5, 10, 15, 20]))
+            await asyncio.sleep(random.choice([5, 5, 5, 5, 5, 5]))
 
         if kind == 3:
             await bot.change_presence(game=discord.Game(name=random.choice(ser_watch).format(len(bot.servers)), type=3))
-            await asyncio.sleep(random.choice([3000, 2000, 1000, 1500, 2500, 500, 1234, 400, 200, 580, 800]))
+            await asyncio.sleep(random.choice([5, 5, 5, 5, 5, 5]))
 
 @bot.event
 async def on_ready():
