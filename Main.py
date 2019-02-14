@@ -664,7 +664,7 @@ async def _eval(ctx, *, command):
 async def bothelp(ctx):
     m1=await bot.say('Getting information...Please Wait. http://gph.is/2gEPAHj')
     await asyncio.sleep(10)
-    await bot.edit_message(m1,new_content='Got any problems? Tell us! https://discord.gg/cZuA3sw ! http://gph.is/2hKl4HV')
+    await bot.edit_message(m1,new_content='Welcome to Graphiq! Graphiq is far by recommended by other Discord Members and Developers. We 100% recommend our bot to other servers to help us grow but also help us to improve your experiance using our Bot. If you wish to use our commands it is listed underneath ``b.help``. Thank you for using our bot. https://tenor.com/view/busu8s-thank-you-gif-7859545')
 
 @bot.event
 async def on_message(message):
