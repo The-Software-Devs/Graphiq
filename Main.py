@@ -661,7 +661,7 @@ async def _eval(ctx, *, command):
         await bot.send_message(ctx.message.channel, "Sorry {} You have no permission to use this command only the bot owners can use this.".format(ctx.message.author.mention))
 
 @bot.command(pass_context=True)
-async def bothelp(ctx):
+async def botinfo(ctx):
     m1=await bot.say('Getting the bots information...Please Wait. http://gph.is/2gEPAHj')
     await asyncio.sleep(20)
     await bot.edit_message(m1,new_content='Welcome to Graphiq! Graphiq is far by recommended by other Discord Members and Developers. We 100% recommend our bot to other servers to help us grow but also help us to improve your experience using our Bot. If you wish to use our commands it is listed underneath ``b.help``. Thank you for using our bot. https://tenor.com/view/busu8s-thank-you-gif-7859545')
