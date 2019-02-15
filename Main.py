@@ -81,6 +81,12 @@ async def urban( con, *, msg):
     elif rq_json['list'] != []:
         await bot.send_message(con.message.channel, "**Word**: {}\n**Votes**: {}\n**Definitioin**: {}\n**Example**: {}".format(rq_json['list'][0]['word'], rq_json['list'][0]['thumbs_up'], rq_json['list'][0]['definition'], rq_json['list'][0]['example']))
 	
+@bot.command(pass_context=True,aliases=["Roles","ROLES","Role"])
+async def userroles(ctx, member: discord.Member = None):
+    roles = [role for role in member.roles]
+    embed=discord.Embed(title="Users Roles",description="{}'s Roles are".format(member.name))
+    embed.add_field(name=f"({len(roles)})", value=" ".join([role.mention for role in roles]))
+    await client.say(embed=embed)
 	
 @bot.command(pass_context=True)
 async def hug(ctx, *, member: discord.Member = None):
