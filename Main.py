@@ -86,7 +86,7 @@ async def userroles(ctx, member: discord.Member = None):
     roles = [role for role in member.roles]
     embed=discord.Embed(title="Users Roles",description="{}'s Roles are".format(member.name))
     embed.add_field(name=f"({len(roles)})", value=" ".join([role.mention for role in roles]))
-    await client.say(embed=embed)
+    await bot.say(embed=embed)
 	
 @bot.command(pass_context=True)
 async def hug(ctx, *, member: discord.Member = None):
