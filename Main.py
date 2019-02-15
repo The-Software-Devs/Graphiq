@@ -86,7 +86,7 @@ async def userroles(ctx, member: discord.Member = None):
     roles = [role for role in member.roles]
     embed=discord.Embed(title="Users Roles",description="{}'s Roles are".format(member.name))
     embed.add_field(name=f"({len(roles)})", value=" ".join([role.mention for role in roles]))
-    await client.say(embed=embed)
+    await bot.say(embed=embed)
 	
 @bot.command(pass_context=True)
 async def hug(ctx, *, member: discord.Member = None):
@@ -660,12 +660,6 @@ async def _eval(ctx, *, command):
         await asyncio.sleep(10)
         await bot.send_message(ctx.message.channel, "Sorry {} You have no permission to use this command only the bot owners can use this.".format(ctx.message.author.mention))
 
-@bot.command(pass_context=True,aliases=["Roles","ROLES","Role"])
-async def userroles(ctx, member: discord.Member = None):
-    roles = [role for role in member.roles]
-    embed=discord.Embed(title="Users Roles",description="{}'s Roles are".format(member.name))
-    embed.add_field(name=f"({len(roles)})", value=" ".join([role.mention for role in roles]))
-    await client.say(embed=embed)
 	
 @bot.command(pass_context=True)
 async def botinfo(ctx):
