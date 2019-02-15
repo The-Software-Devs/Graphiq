@@ -81,13 +81,6 @@ async def urban( con, *, msg):
     elif rq_json['list'] != []:
         await bot.send_message(con.message.channel, "**Word**: {}\n**Votes**: {}\n**Definitioin**: {}\n**Example**: {}".format(rq_json['list'][0]['word'], rq_json['list'][0]['thumbs_up'], rq_json['list'][0]['definition'], rq_json['list'][0]['example']))
 	
-@bot.command(pass_context=True,aliases=["Roles","ROLES","Role"])
-async def userroles(ctx, member: discord.Member = None):
-    roles = [role for role in member.roles]
-    embed=discord.Embed(title="Users Roles",description="{}'s Roles are".format(member.name))
-    embed.add_field(name=f"({len(roles)})", value=" ".join([role.mention for role in roles]))
-    await client.say(embed=embed)
-	
 @bot.command(pass_context=True)
 async def hug(ctx, *, member: discord.Member = None):
   #  Hug someone on the server <3
@@ -665,6 +658,13 @@ async def botinfo(ctx):
     m1=await bot.say('Getting the bots information...Please Wait. http://gph.is/2gEPAHj')
     await asyncio.sleep(10)
     await bot.edit_message(m1,new_content='Welcome to Graphiq! Graphiq is far by recommended by other Discord Members and Developers. We 100% recommend our bot to other servers to help us grow but also help us to improve your experience using our Bot. If you wish to use our commands it is listed underneath ``b.help``. Thank you for using our bot. https://tenor.com/view/busu8s-thank-you-gif-7859545')
+
+@bot.command(pass_context=True,aliases=["Roles","ROLES","Role"])
+async def userroles(ctx, member: discord.Member = None):
+    roles = [role for role in member.roles]
+    embed=discord.Embed(title="Users Roles",description="{}'s Roles are".format(member.name))
+    embed.add_field(name=f"({len(roles)})", value=" ".join([role.mention for role in roles]))
+    await client.say(embed=embed)
 
 @bot.event
 async def on_message(message):
