@@ -524,6 +524,7 @@ async def stats(ctx):
 	embed.add_field(name="Users:", value=f"{str(len(set(bot.get_all_members())))}")
 	embed.add_field(name="Invite", value=f"[Link](https://discordapp.com/api/oauth2/authorize?client_id=529463184910712872&permissions=0&scope=bot)")
 	embed.add_field(name="Support server", value=f"[Link](https://discord.gg/c3tQZ43)")
+	embed.add_field(name="Discord Server List", value=f"[Link](https://discordbots.org/bot/529463184910712872#)")
 	embed.add_field(name="Memory", value="Free: 10.20GB / Total: 20.80GB",inline=True)
 	embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/534386687652921344/543179854544371712/Screenshot_26.png")
 	embed.set_footer(text=" | {}".format(bot.user.name), icon_url="https://cdn.discordapp.com/attachments/536467416390041627/543179199268126731/Screenshot_26.png")
