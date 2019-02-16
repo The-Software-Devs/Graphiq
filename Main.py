@@ -85,7 +85,7 @@ async def urban( con, *, msg):
 @bot.command()
 @commands.check(user_is_me)
 def user_is_me(ctx):
-    return ctx.message.author.id == "341933833136111617"
+return ctx.message.author.id == "341933833136111617"
 async def servers():
   servers = list(bot.servers)
   await bot.say("Connected on " + str(len(bot.servers)) + " servers:")
