@@ -297,6 +297,7 @@ async def help_admin(ctx):
     embed = discord.Embed(title=f"User: {ctx.message.author.name} have used **admin** help command", description=f"User ID: {ctx.message.author.id}", color=0xff9393)
     await bot.send_message(channel, embed=embed)
 
+
 @bot.command(pass_context=True, no_pm=True)
 async def help_credits(ctx):
     author = ctx.message.author
@@ -533,6 +534,20 @@ async def stats(ctx):
 	embed.add_field(name="Support server", value=f"[Link](https://discord.gg/cZuA3sw)")
 	embed.add_field(name="Discord Server List", value=f"[Link](https://discordbots.org/bot/529463184910712872#)")
 	embed.add_field(name="Memory", value="Free: 10.40GB / Total: 20.80GB",inline=True)
+	embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/534386687652921344/543179854544371712/Screenshot_26.png")
+	embed.set_footer(text=" | {}".format(bot.user.name), icon_url="https://cdn.discordapp.com/attachments/536467416390041627/543179199268126731/Screenshot_26.png")
+	await bot.say(embed=embed)
+	channel = bot.get_channel('543488075809030145')
+	embed = discord.Embed(title=f"User: {ctx.message.author.name} have used stats command", description=f"User ID: {ctx.message.author.id}", color=0xff9393)
+	embed.set_image(url="https://cdn.discordapp.com/attachments/524655977832775710/541446963887996939/Fade_image.png")
+	await bot.send_message(channel, embed=embed)
+	
+@bot.command(pass_context=True)
+async def sponsors(ctx):
+	author = ctx.message.author
+	servers = list(bot.servers)
+	embed = discord.Embed(description=" ", color=0xFFFF)
+	embed.add_field(name="RobuxIsland - Always helping you out.", value=f"[Link](https://discord.gg/FyGgBy8)")
 	embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/534386687652921344/543179854544371712/Screenshot_26.png")
 	embed.set_footer(text=" | {}".format(bot.user.name), icon_url="https://cdn.discordapp.com/attachments/536467416390041627/543179199268126731/Screenshot_26.png")
 	await bot.say(embed=embed)
