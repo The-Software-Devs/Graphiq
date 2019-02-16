@@ -71,9 +71,6 @@ async def on_ready():
 
 @bot.event
 async def on_command_error(ctx, error):
-
-    if hasattr(ctx.command, 'on_error'):
-        return
         
     #Put ignored errors here!
     ignored = ()
