@@ -29,7 +29,7 @@ async def picker():
     mem_listening=['{} members']
     mem_playing=['with {} members']
 
-    ser_watch=['with {} servers']
+    ser_watch=['{} servers']
     ser_listen=['{} servers']
     ser_play=['in {} servers']
     helps=['!help | for help','!help for help commands']
