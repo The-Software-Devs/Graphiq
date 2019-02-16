@@ -70,7 +70,7 @@ async def on_ready():
     print("Change status for {} is ready!".format(bot.user.name))
 
 @bot.event
-async def on_command_error(ctx, error):
+async def discord.on_error(event, *args, **kwargs):
     if isinstance(error, commands.CommandNotFound):
         bot.say("An error occured while performing the command! Error: 301")
         await bot.send_message(author)
