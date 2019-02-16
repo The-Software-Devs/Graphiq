@@ -82,6 +82,12 @@ async def urban( con, *, msg):
     elif rq_json['list'] != []:
         await bot.send_message(con.message.channel, "**Word**: {}\n**Votes**: {}\n**Definitioin**: {}\n**Example**: {}".format(rq_json['list'][0]['word'], rq_json['list'][0]['thumbs_up'], rq_json['list'][0]['definition'], rq_json['list'][0]['example']))
 
+@bot.event
+async def on_command_error(error, ctx):
+    if isinstance(error, commands.CommandNotFound):
+        await bot.send_message(ctx.message.channel, 'This command doesn\'t exist!')
+	
+	
 def user_is_me(ctx):
     return ctx.message.author.id == "341933833136111617"
 	
