@@ -85,7 +85,7 @@ async def urban( con, *, msg):
 @bot.event
 async def on_command_error(error, ctx):
     if isinstance(error, commands.CommandNotFound):
-        await bot.send_message(ctx.message.channel, 'This command doesn\'t exist!')
+        await bot.send_message(ctx.message.channel, 'This command doesn\'t exist or you have spelt it incorrectly. Please try again.')
 	
 	
 def user_is_me(ctx):
