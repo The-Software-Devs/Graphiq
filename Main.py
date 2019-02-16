@@ -676,7 +676,7 @@ async def bothelp(ctx):
 
 @bot.event
 async def on_message(message):
-	if message.content.startswith('b.hello'):
+	if message.content.startswith('Hello' or 'Hi' or 'Hey.'):
 		embed=discord.Embed(description=f"Hello {message.author.mention}")
 		embed.set_image(url="https://cdn.discordapp.com/attachments/524655977832775710/541446963887996939/Fade_image.png")    
 		await bot.send_message(message.channel, embed=embed)
