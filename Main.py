@@ -47,7 +47,7 @@ async def picker():
                 await bot.change_presence(game=discord.Game(name=random.choice(mem_listening).format(members), type=2))
             if num == 3:
                 await bot.change_presence(game=discord.Game(name=random.choice(mem_watching).format(members), type=3))
-            await asyncio.sleep(random.choice([15, 15, 15, 15, 15,]))
+            await asyncio.sleep(random.choice([10, 10, 10, 10, 10, 10]))
         
         
         if kind == 2:
@@ -58,11 +58,11 @@ async def picker():
                 await bot.change_presence(game=discord.Game(name=random.choice(ser_listen).format(len(bot.servers)), type=2))
             if num == 3:
                 await bot.change_presence(game=discord.Game(name=random.choice(ser_watch).format(len(bot.servers)), type=3))
-            await asyncio.sleep(random.choice([15, 15, 15, 15, 15, 15]))
+            await asyncio.sleep(random.choice([10, 10, 10, 10, 10, 10]))
 
         if kind == 3:
             await bot.change_presence(game=discord.Game(name=random.choice(ser_watch).format(len(bot.servers)), type=3))
-            await asyncio.sleep(random.choice([15, 15, 15, 15, 15, 15]))
+            await asyncio.sleep(random.choice([10, 10, 10, 10, 10, 10]))
 
 @bot.event
 async def on_ready():
