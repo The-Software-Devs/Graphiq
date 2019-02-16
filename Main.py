@@ -557,7 +557,7 @@ async def sponsors(ctx):
 	embed.add_field(name="[PAID AD HERE]", value=f"[Link](https://discordapp.com/)")
 	embed.add_field(name="[PAID AD HERE]", value=f"[Link](https://discordapp.com/)")
 	embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/540965469788700743/546360912680976404/Sponsor-Icon-300x300Red2.png")
-	embed.set_footer(text=" | {} Want to add your server here? Dm Mxchael#7748!".format(bot.user.name), icon_url="https://cdn.discordapp.com/attachments/546356904369192971/546357447477035029/Sponsor-Icon-300x300Red2.png")
+	embed.set_footer(text=" | {} | Want to add your server here? DM Mxchael#7748!".format(bot.user.name), icon_url="https://cdn.discordapp.com/attachments/546356904369192971/546357447477035029/Sponsor-Icon-300x300Red2.png")
 	await bot.say(embed=embed)
 	channel = bot.get_channel('543488075809030145')
 	embed = discord.Embed(title=f"User: {ctx.message.author.name} have used stats command", description=f"User ID: {ctx.message.author.id}", color=0xff9393)
