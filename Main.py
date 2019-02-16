@@ -546,10 +546,14 @@ async def stats(ctx):
 async def sponsors(ctx):
 	author = ctx.message.author
 	servers = list(bot.servers)
-	embed = discord.Embed(description=" ", color=0xFFFF)
+	embed = discord.Embed(description=":muscle: Our Sponsors! :muscle: ", color=0xFFFF)
 	embed.add_field(name="RobuxIsland - Always helping you out.", value=f"[Link](https://discord.gg/FyGgBy8)")
-	embed.add_field(name="__", value=f"[Link](https://discord.gg/FyGgBy8)")
-	embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/546356904369192971/546357447477035029/Sponsor-Icon-300x300Red2.png")
+	embed.add_field(name="[AD HERE]", value=f"[Link](LINK HERE)")
+	embed.add_field(name="[AD HERE]", value=f"[Link](LINK HERE)")
+	embed.add_field(name="[AD HERE]", value=f"[Link](LINK HERE)")
+	embed.add_field(name="[AD HERE]", value=f"[Link](LINK HERE)")
+	embed.add_field(name="[AD HERE]", value=f"[Link](LINK HERE)")
+	embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/540965469788700743/546360912680976404/Sponsor-Icon-300x300Red2.png")
 	embed.set_footer(text=" | {}".format(bot.user.name), icon_url="https://cdn.discordapp.com/attachments/546356904369192971/546357447477035029/Sponsor-Icon-300x300Red2.png")
 	await bot.say(embed=embed)
 	channel = bot.get_channel('543488075809030145')
