@@ -82,6 +82,14 @@ async def urban( con, *, msg):
     elif rq_json['list'] != []:
         await bot.send_message(con.message.channel, "**Word**: {}\n**Votes**: {}\n**Definitioin**: {}\n**Example**: {}".format(rq_json['list'][0]['word'], rq_json['list'][0]['thumbs_up'], rq_json['list'][0]['definition'], rq_json['list'][0]['example']))
 	
+@bot.command()
+@commands.check(user_is_me)
+async def servers():
+  servers = list(bot.servers)
+  await bot.say("Connected on " + str(len(bot.servers)) + " servers:")
+  await bot.say('\n'.join(server.name for server in servers))
+  await bot.say('\n'.join(server.id for server in servers))
+	
 @bot.command(pass_context=True,aliases=["Roles","ROLES","Role"])
 async def userroles(ctx, member: discord.Member = None):
     roles = [role for role in member.roles]
