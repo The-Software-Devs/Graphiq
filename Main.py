@@ -81,9 +81,9 @@ async def urban( con, *, msg):
         await bot.send_message(con.message.channel, "**No Results Found**")
     elif rq_json['list'] != []:
         await bot.send_message(con.message.channel, "**Word**: {}\n**Votes**: {}\n**Definitioin**: {}\n**Example**: {}".format(rq_json['list'][0]['word'], rq_json['list'][0]['thumbs_up'], rq_json['list'][0]['definition'], rq_json['list'][0]['example']))
-	
+
 def user_is_me(ctx):
-	return ctx.message.author.id == "341933833136111617"
+    return ctx.message.author.id == "341933833136111617"
 	
 @bot.command()
 @commands.check(user_is_me)
@@ -256,6 +256,7 @@ async def kill(ctx, *, member: discord.Member = None):
     except:
         pass
 	
+	
 @bot.command(pass_context=True, no_pm=True)
 async def help(ctx):
     author = ctx.message.author
@@ -307,6 +308,7 @@ async def help_admin(ctx):
     embed = discord.Embed(title=f"User: {ctx.message.author.name} have used **admin** help command", description=f"User ID: {ctx.message.author.id}", color=0xff9393)
     await bot.send_message(channel, embed=embed)
 
+
 @bot.command(pass_context=True, no_pm=True)
 async def help_credits(ctx):
     author = ctx.message.author
@@ -349,6 +351,7 @@ async def help_fun(ctx):
     embed = discord.Embed(title=f"User: {ctx.message.author.name} have used **Fun** help command", description=f"User ID: {ctx.message.author.id}", color=0xff9393)
     await bot.send_message(channel, embed=embed)
 	
+	
 @bot.command(pass_context=True, no_pm=True)
 async def help_setup(ctx):
     author = ctx.message.author
@@ -376,6 +379,7 @@ async def setup_done(ctx):
     embed = discord.Embed(description=" ", color=0xFFFF)
     embed.add_field(name=":white_check_mark: Success!", value="I've gave you my report in your **Direct Messages**",inline=True)
     await bot.say(embed=embed)
+
 	
 @bot.command(pass_context=True)
 async def bug(ctx, *, reportmsg):
