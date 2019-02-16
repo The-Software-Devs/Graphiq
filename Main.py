@@ -31,6 +31,7 @@ async def picker():
 
     ser_watch=['{} servers']
     ser_listen=['{} servers']
+    ser_listen=['b.help']
     ser_play=['in {} servers']
     helps=['!help | for help','!help for help commands']
 
