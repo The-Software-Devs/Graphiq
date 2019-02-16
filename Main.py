@@ -69,6 +69,12 @@ async def on_ready():
     bot.loop.create_task(picker())
     print("Change status for {} is ready!".format(bot.user.name))
 
+@bot.event
+async def on_command_error(ctx, error):
+    if isinstance(error, commands.CommandNotFound):
+        bot.say("An error occured while performing the command! Error: 301")
+        await bot.send_message(author)
+	
 @bot.command(pass_context=True)
 async def urban( con, *, msg):
     session = rq.Session()
