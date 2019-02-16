@@ -70,18 +70,9 @@ async def on_ready():
     print("Change status for {} is ready!".format(bot.user.name))
 
 @bot.event
-async def on_command_error(ctx, error):
-        
-    #Put ignored errors here!
-    ignored = ()
-        
-    error = getattr(error, 'original', error)
-
-    if isinstance(error, ignored):
-        return
-
-    elif isinstance(error, commands.CommandNotFound):
-        await bot.say('An error has occured. Please check your spelling and try again.')
+async def on_command_error(error, ctx):
+    if isinstance(error, commands.CommandNotFound):
+        bot.say("An error occured while performing the command! Error: 301")
 	
 @bot.command(pass_context=True)
 async def urban( con, *, msg):
