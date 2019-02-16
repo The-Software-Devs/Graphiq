@@ -69,6 +69,22 @@ async def on_ready():
     bot.loop.create_task(picker())
     print("Change status for {} is ready!".format(bot.user.name))
 
+@bot.event
+async def on_command_error(ctx, error):
+
+    if hasattr(ctx.command, 'on_error'):
+        return
+        
+    #Put ignored errors here!
+    ignored = ()
+        
+    error = getattr(error, 'original', error)
+
+    if isinstance(error, ignored):
+        return
+
+    elif isinstance(error, commands.CommandNotFound):
+        await bot.say('An error has occured. Please check your spelling and try again.')
 	
 @bot.command(pass_context=True)
 async def urban( con, *, msg):
