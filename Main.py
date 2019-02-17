@@ -88,6 +88,21 @@ async def on_command_error(error, ctx):
     if isinstance(error, commands.CommandNotFound):
         await bot.send_message(ctx.message.channel, 'This command doesn\'t exist or you have spelt it incorrectly. Please try again.')
 
+
+@bot.command(name='8ball',
+                description="Answers a yes/no question.",
+                brief="Answers from the beyond.",
+                aliases=['eight_ball', 'eightball', '8-ball'],
+                pass_context=True)
+async def eightball(context):
+    possible_responses = [
+        'That is a resounding no',
+        'It is not looking likely',
+        'Too hard to tell',
+        'It is quite possible',
+        'Definitely',
+    ]
+    await bot.say(random.choice(possible_responses) + ", " + context.message.author.mention)
 	
 def user_is_me(ctx):
     return ctx.message.author.id == "341933833136111617"
