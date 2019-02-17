@@ -88,7 +88,12 @@ async def on_command_error(error, ctx):
     if isinstance(error, commands.CommandNotFound):
         await bot.send_message(ctx.message.channel, 'This command doesn\'t exist or you have spelt it incorrectly. Please try again.')
 
-
+@bot.command()
+async def square(number):
+    squared_value = int(number) * int(number)
+    await bot.say(str(number) + " squared is " + str(squared_value))
+	
+	
 @bot.command(name='8ball',
                 description="Answers a yes/no question.",
                 brief="Answers from the beyond.",
