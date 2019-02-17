@@ -70,12 +70,6 @@ async def on_ready():
     bot.loop.create_task(picker())
     print("Change status for {} is ready!".format(bot.user.name))
 	
-
-@bot.event
-async def on_member_join(user):
-    print("Recognised that a member called " + user.name + " joined")
-    await bot.send_message(user, newUserMessage)
-print("Sent message to " + user.name)
 	
 @bot.command(pass_context=True)
 async def urban( con, *, msg):
