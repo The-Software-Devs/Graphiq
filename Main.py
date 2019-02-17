@@ -90,7 +90,6 @@ async def on_command_error(error, ctx):
 	
 @commands.command()
 async def say(self, content):
-"""Makes me say something 👀"""
 await self.bot.say(content)
 	
 def user_is_me(ctx):
