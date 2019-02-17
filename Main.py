@@ -88,10 +88,7 @@ async def on_command_error(error, ctx):
     if isinstance(error, commands.CommandNotFound):
         await bot.send_message(ctx.message.channel, 'This command doesn\'t exist or you have spelt it incorrectly. Please try again.')
 
-@command.command()
-async def say(self, ctx, *, text=None):
-         """I say the text you tell me to say."""
-         await ctx.send(text or "You forgot to include text.")	
+
 
 @bot.command()
 async def square(number):
