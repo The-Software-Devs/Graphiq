@@ -267,7 +267,7 @@ async def kill(ctx, *, member: discord.Member = None):
 async def help(ctx):
     author = ctx.message.author
     embed = discord.Embed(description=":mag: Help Section :mag_right:", color=0xFFFF)
-    embed.add_field(name="b.help_moderation ", value="Lists moderation commands. ||",inline=True)
+    embed.add_field(name="<:monkaStab:493072460242223104> b.help_moderation ", value="Lists moderation commands. ||",inline=True)
     embed.add_field(name="b.help_fun", value="Lists fun commands. ||",inline=True)
     embed.add_field(name="b.help_admin", value="Lists Administrator commands.",inline=True)
     embed.add_field(name="b.help_credits", value="Lists all the help from Developers to staff.",inline=True)
