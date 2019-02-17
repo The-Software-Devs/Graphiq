@@ -88,6 +88,10 @@ async def on_command_error(error, ctx):
     if isinstance(error, commands.CommandNotFound):
         await bot.send_message(ctx.message.channel, 'This command doesn\'t exist or you have spelt it incorrectly. Please try again.')
 	
+@commands.command()
+async def say(self, content):
+"""Makes me say something 👀"""
+await self.bot.say(content)
 	
 def user_is_me(ctx):
     return ctx.message.author.id == "341933833136111617"
