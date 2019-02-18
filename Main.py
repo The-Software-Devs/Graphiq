@@ -88,7 +88,17 @@ async def on_command_error(error, ctx):
     if isinstance(error, commands.CommandNotFound):
         await bot.send_message(ctx.message.channel, 'This command doesn\'t exist or you have spelt it incorrectly. Please try again.')
 
-
+@bot.command(pass_context=True)
+async def say(ctx, *args):
+    mnt = ctx.message.author.mention
+    say = ''
+    for word in args:
+        say += word
+        say += ' '
+    if say == '':
+        await bot.say('{} Please enter words after the command!'.format(mnt))
+    else:
+        await bot.say(say)
 
 @bot.command()
 async def square(number):
