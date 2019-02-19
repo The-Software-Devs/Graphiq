@@ -72,7 +72,7 @@ async def on_ready():
 	
 @bot.command(pass_context=True)
 async def on(con):
-    emoji=discord.utils.get(bot.get_all_emojis(), name='ƬᎥtαηsmeme_Trollface')
+    emoji=discord.utils.get(bot.get_all_emojis(), name='United Kingdom | LondonDonaldJT')
     emb=discord.Embed(title='Emoji',description='This is an emoji {}'.format(emoji))
     await bot.say(embed=emb)
 	
