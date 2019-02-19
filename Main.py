@@ -71,10 +71,9 @@ async def on_ready():
     print("Change status for {} is ready!".format(bot.user.name))
 	
 @bot.command(pass_context=True)
-async def test(con):
-    emb=discord.Embed(title="Test Embed",description="A test embed")
-    emoji=discord.utils.get(bot.get_all_emojis(), name=':monkaStab:')
-    emb.add_field(name='An Emoji',value=emoji)
+async def on(con):
+    emoji=discord.utils.get(bot.get_all_emojis(), name='yunoThink')
+    emb=discord.Embed(title='Emoji',description='This is an emoji {}'.format(emoji))
     await bot.say(embed=emb)
 	
 @bot.command(pass_context=True)
