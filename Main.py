@@ -70,6 +70,12 @@ async def on_ready():
     bot.loop.create_task(picker())
     print("Change status for {} is ready!".format(bot.user.name))
 	
+@bot.command(pass_context=True)
+async def test(con):
+    emb=discord.Embed(title="Test Embed",description="A test embed")
+    emoji=discord.utils.get(bot.get_all_emojis(), name='name of a custom emoji that your bot can use')
+    emb.add_field(name='An Emoji',value=emoji)
+    await bot.say(embed=emb)
 	
 @bot.command(pass_context=True)
 async def urban( con, *, msg):
