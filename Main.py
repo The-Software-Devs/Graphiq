@@ -73,7 +73,7 @@ async def on_ready():
 @bot.command(pass_context=True)
 async def test(con):
     emb=discord.Embed(title="Test Embed",description="A test embed")
-    emoji=discord.utils.get(bot.get_all_emojis(), name='name of a custom emoji that your bot can use')
+    emoji=discord.utils.get(bot.get_all_emojis(), name=':monkaStab:')
     emb.add_field(name='An Emoji',value=emoji)
     await bot.say(embed=emb)
 	
