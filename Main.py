@@ -88,17 +88,7 @@ async def on_command_error(error, ctx):
     if isinstance(error, commands.CommandNotFound):
         await bot.send_message(ctx.message.channel, 'This command doesn\'t exist or you have spelt it incorrectly. Please try again.')
 
-@bot.command(pass_context=True)
-async def say(ctx, *args):
-    mnt = ctx.message.author.mention
-    say = ''
-    for word in args:
-        say += word
-        say += ' '
-    if say == '':
-        await bot.say('{} Please enter words after the command!'.format(mnt))
-    else:
-        await bot.say(say)
+
 
 @bot.command()
 async def square(number):
@@ -699,7 +689,7 @@ async def puppy(ctx, *, member: discord.Member = None):
   #  Hug someone on the server <3
     try:
         if member is None:
-            await bot.say(ctx.message.author.mention + " has been adored!")
+            await bot.say(ctx.message.author.mention + " has been adored! ")
         else:
             if member.id == ctx.message.author.id:
                 await bot.say(ctx.message.author.mention + " hugged him self with cuteness :heart:")
@@ -740,13 +730,13 @@ async def _eval(ctx, *, command):
 @bot.command(pass_context=True)
 async def botinfo(ctx):
     m1=await bot.say('Getting the bots information...Please Wait. http://gph.is/2gEPAHj')
-    await asyncio.sleep(2)
+    await asyncio.sleep(10)
     await bot.edit_message(m1,new_content='Welcome to Graphiq! Graphiq is far by recommended by other Discord Members and Developers. We 100% recommend our bot to other servers to help us grow but also help us to improve your experience using our Bot. If you wish to use our commands it is listed underneath ``b.help``. Thank you for using our bot. https://tenor.com/view/busu8s-thank-you-gif-7859545')
 
 @bot.command(pass_context=True)
 async def bothelp(ctx):
     m1=await bot.say('Getting the bots information...Please Wait. http://gph.is/2gEPAHj')
-    await asyncio.sleep(2)
+    await asyncio.sleep(10)
     await bot.edit_message(m1,new_content='Dont know how to use the bot? Use ``b.help``. Use ``b.stats`` for us in Discord Bot List and make sure to join our Support Server for more help within the bot.')
 
 @bot.event
