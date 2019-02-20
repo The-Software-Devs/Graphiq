@@ -600,7 +600,7 @@ async def sponsors(ctx):
 	embed.add_field(name="RobuxIsland", value=f"[Link](https://discord.gg/FyGgBy8)")
 	embed.add_field(name="GamingLounge", value=f"[Link](https://discord.gg/mx9rSy)")
 	embed.add_field(name="City Of London", value=f"[Link](https://discord.gg/B67wz7)")
-	embed.add_field(name="[FREE AD HERE]", value=f"[Link](https://discordapp.com/)")
+	embed.add_field(name="Graphic-Topia", value=f"[Link](https://discord.gg/SMWs72)")
 	embed.add_field(name="[FREE AD HERE]", value=f"[Link](https://discordapp.com/)")
 	embed.add_field(name="[PAID AD HERE]", value=f"[Link](https://discordapp.com/)")
 	embed.add_field(name="[PAID AD HERE]", value=f"[Link](https://discordapp.com/)")
