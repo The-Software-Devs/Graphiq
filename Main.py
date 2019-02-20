@@ -106,13 +106,16 @@ async def square(number):
                 brief="Answers from the beyond.",
                 aliases=['eight_ball', 'eightball', '8-ball'],
                 pass_context=True)
+
 async def eightball(context):
     possible_responses = [
         'That is a resounding no',
         'It is not looking likely',
         'Too hard to tell',
         'It is quite possible',
-        'Definitely',
+        'Definitely'
+	'Yes',
+	'No',
     ]
     await bot.say(random.choice(possible_responses) + ", " + context.message.author.mention)
 	
@@ -130,7 +133,7 @@ async def servers():
 @bot.command(pass_context=True,aliases=["Roles","ROLES","Role"])
 async def userroles(ctx, member: discord.Member = None):
     roles = [role for role in member.roles]
-    embed=discord.Embed(title="Users Roles",description="{}'s Roles are".format(member.name))
+    embed=discord.Embed(title="Users Roles",description="{}'s Roles are:".format(member.name))
     embed.add_field(name=f"({len(roles)})", value=" ".join([role.mention for role in roles]))
     await bot.say(embed=embed)
 	
