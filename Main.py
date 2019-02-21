@@ -411,6 +411,7 @@ async def help_setup(ctx):
     author = ctx.message.author
     embed = discord.Embed(description=":robot: Setup Bot's Permissions :robot:", color=0xFFFF)
     embed.add_field(name="- Add a rank for the bot", value="Make sure it has all of the permissions.",inline=True)
+    embed.add_field(name="- New role called ``Verified``", value="Verify the user.",inline=True)
     embed.add_field(name="- Make sure it is above all of the user ranks.", value="To make sure if a admin is abusing the higher rank can kick.",inline=True)
     embed.add_field(name="- Make sure you join the **Support Server** for more info.", value="Command = .stats --> Support Server --> Link.",inline=True)
     embed.add_field(name="``Thank you for your contibrution.``", value="**Remember**, Put ``.setup_done`` for the verification.",inline=True)
