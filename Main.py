@@ -70,14 +70,9 @@ async def on_ready():
     bot.loop.create_task(picker())
     print("Change status for {} is ready!".format(bot.user.name))
 
-newUserMessage = """ # customise this to the message you want to send new users
-You
-can
-put
-your
-multiline
-message
-here!
+newUserMessage = """Welcome to the server!
+Make sure you read the rules before doing anything else!
+Enjoy your time here!
 """
 
 @bot.event
