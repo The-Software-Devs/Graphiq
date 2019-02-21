@@ -73,19 +73,7 @@ async def on_ready():
 newUserMessage = """Welcome to the server!
 """
 
-@bot.event
-async def on_member_join(member):
-    serverchannel = member.server.default_channel
-    msg = "Willkommen {0} auf {1}".format(member.mention, member.server.name)
-    await bot.send_message(serverchannel, msg)
 
-
-@bot.event
-async def on_member_remove(member):
-    serverchannel = member.server.default_channel
-    msg = "Bye Bye {0}".format(member.mention)
-    await bot.send_message(serverchannel, msg)
-	
 @bot.command(pass_context=True)
 async def on(con):
     emoji=discord.utils.get(bot.get_all_emojis(), name='United Kingdom | LondonDonaldJT')
