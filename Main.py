@@ -84,7 +84,6 @@ async def on_member_join(member, ctx):
     role = discord.utils.get(member.server.roles, name="Verified")
     await bot.add_roles(member, role)
     print("Added role '" + role.name + "' to " + member.name)
-    await bot.send_message(ctx.message.channel, 'This command doesn\'t exist or you have spelt it incorrectly. Please try again.')
 	
 @bot.command(pass_context=True)
 async def on(con):
