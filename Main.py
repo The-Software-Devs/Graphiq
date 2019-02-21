@@ -71,8 +71,6 @@ async def on_ready():
     print("Change status for {} is ready!".format(bot.user.name))
 
 newUserMessage = """Welcome to the server!
-Make sure you read the rules before doing anything else!
-Enjoy your time here!
 """
 
 @bot.event
@@ -83,7 +81,7 @@ async def on_member_join(member):
 
     # give member the steam role here
     ## to do this the bot must have 'Manage Roles' permission on server, and role to add must be lower than bot's top role
-    role = discord.utils.get(member.server.roles, name="name-of-your-role")
+    role = discord.utils.get(member.server.roles, name="Verified")
     await bot.add_roles(member, role)
     print("Added role '" + role.name + "' to " + member.name)
 	
