@@ -77,14 +77,14 @@ newUserMessage = """Welcome to the server!
 async def on_member_join(member):
     serverchannel = member.server.default_channel
     msg = "Willkommen {0} auf {1}".format(member.mention, member.server.name)
-    await client.send_message(serverchannel, msg)
+    await bot.send_message(serverchannel, msg)
 
 
 @bot.event
 async def on_member_remove(member):
     serverchannel = member.server.default_channel
     msg = "Bye Bye {0}".format(member.mention)
-    await client.send_message(serverchannel, msg)
+    await bot.send_message(serverchannel, msg)
 	
 @bot.command(pass_context=True)
 async def on(con):
