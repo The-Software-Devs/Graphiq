@@ -8,6 +8,8 @@ import os
 import random
 import json
 import datetime
+from bot.commands.command import Command
+from bot.utilities.permission import Permission
 
 bot = commands.Bot(command_prefix = "b.")
 bot.remove_command('help')
@@ -70,11 +72,6 @@ async def on_ready():
     bot.loop.create_task(picker())
     print("Change status for {} is ready!".format(bot.user.name))
 
-	
-"""Commands: "!sleep", "!wakeup"."""
-
-from bot.commands.command import Command
-from bot.utilities.permission import Permission
 
 
 class Sleep(Command):
