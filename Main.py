@@ -75,15 +75,16 @@ newUserMessage = """Welcome to the server!
 
 @bot.event
 async def on_member_join(member):
-    print("Recognised that a member called " + member.name + " joined")
-    await bot.send_message(member, newUserMessage)
-    print("Sent message to " + member.name)
+    serverchannel = member.server.default_channel
+    msg = "Willkommen {0} auf {1}".format(member.mention, member.server.name)
+    await client.send_message(serverchannel, msg)
 
-    # give member the steam role here
-    ## to do this the bot must have 'Manage Roles' permission on server, and role to add must be lower than bot's top role
-    role = discord.utils.get(member.server.roles, name="Verified")
-    await bot.add_roles(member, role)
-    print("Added role '" + role.name + "' to " + member.name)
+
+@bot.event
+async def on_member_remove(member):
+    serverchannel = member.server.default_channel
+    msg = "Bye Bye {0}".format(member.mention)
+    await client.send_message(serverchannel, msg)
 	
 @bot.command(pass_context=True)
 async def on(con):
