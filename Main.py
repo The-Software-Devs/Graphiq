@@ -74,7 +74,7 @@ newUserMessage = """Welcome to the server!
 """
 
 @bot.event
-async def on_member_join(member):
+async def on_member_join(member, ctx):
     print("Recognised that a member called " + member.name + " joined")
     await bot.send_message(member, newUserMessage)
     print("Sent message to " + member.name)
@@ -84,6 +84,7 @@ async def on_member_join(member):
     role = discord.utils.get(member.server.roles, name="Verified")
     await bot.add_roles(member, role)
     print("Added role '" + role.name + "' to " + member.name)
+     await bot.send_message(ctx.message.channel, 'This command doesn\'t exist or you have spelt it incorrectly. Please try again.')
 	
 @bot.command(pass_context=True)
 async def on(con):
