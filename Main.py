@@ -80,16 +80,16 @@ message
 here!
 """
 
-@client.event
+@bot.event
 async def on_member_join(member):
     print("Recognised that a member called " + member.name + " joined")
-    await client.send_message(member, newUserMessage)
+    await bot.send_message(member, newUserMessage)
     print("Sent message to " + member.name)
 
     # give member the steam role here
     ## to do this the bot must have 'Manage Roles' permission on server, and role to add must be lower than bot's top role
     role = discord.utils.get(member.server.roles, name="name-of-your-role")
-    await client.add_roles(member, role)
+    await bot.add_roles(member, role)
     print("Added role '" + role.name + "' to " + member.name)
 	
 @bot.command(pass_context=True)
