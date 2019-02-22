@@ -96,7 +96,9 @@ async def on_command_error(error, ctx):
     if isinstance(error, commands.CommandNotFound):
         await bot.send_message(ctx.message.channel, 'This command doesn\'t exist or you have spelt it incorrectly. Please try again.')
 
-
+@bot.command()
+async def logout():
+    await bot.logout()
 
 @bot.command()
 async def square(number):
