@@ -70,7 +70,10 @@ async def on_ready():
     bot.loop.create_task(picker())
     print("Change status for {} is ready!".format(bot.user.name))
 
-
+	
+@bot.command()
+async def logout():
+    await bot.logout()
 
 
 @bot.command(pass_context=True)
