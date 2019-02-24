@@ -754,7 +754,7 @@ async def bothelp(ctx):
     await bot.edit_message(m1,new_content='Dont know how to use the bot? Use ``b.help``. Use ``b.stats`` for us in Discord Bot List and make sure to join our Support Server for more help within the bot.')
 
 @bot.command(pass_context=True)
-async def bothelp(ctx):
+async def restart(ctx):
     m1=await bot.say('Updating the bot...')
     await asyncio.sleep(4)
     await bot.edit_message(m1,new_content='Restarting Bot...')
