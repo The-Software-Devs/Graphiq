@@ -755,13 +755,13 @@ async def bothelp(ctx):
 
 @bot.command(pass_context=True)
 async def restart(ctx):
-    m1=await bot.say('Updating the bot...')
+    m1=await bot.say('Restarting the bot...')
     await asyncio.sleep(4)
     await bot.edit_message(m1,new_content='Restarting Bot...')
     await asyncio.sleep(4)
     await bot.edit_message(m1,new_content='Updating Commands...')
     await asyncio.sleep(4)
-    await bot.edit_message(m1,new_content=':white_check_mark: Bot Updaated Successfully!')
+    await bot.edit_message(m1,new_content=':white_check_mark: Bot Restarted Sucessfully!')
 
 @bot.event
 async def on_message(message):
