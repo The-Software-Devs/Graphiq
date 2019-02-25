@@ -621,6 +621,20 @@ async def sponsors(ctx):
 	await bot.send_message(channel, embed=embed)
 	
 @bot.command(pass_context=True)
+async def sponsors(ctx):
+	author = ctx.message.author
+	servers = list(bot.servers)
+	embed = discord.Embed(description="Test", color=0xFFFF)
+	embed.add_field(name=" ", value=f"[Link](https://discord.gg/FyGgBy8)")
+	embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/540965469788700743/546360912680976404/Sponsor-Icon-300x300Red2.png")
+	embed.set_footer(text=" | {}".format(bot.user.name), icon_url="https://cdn.discordapp.com/attachments/546356904369192971/546357447477035029/Sponsor-Icon-300x300Red2.png")
+	await bot.say(embed=embed)
+	channel = bot.get_channel('543488075809030145')
+	embed = discord.Embed(title=f"User: {ctx.message.author.name} have used test command", description=f"User ID: {ctx.message.author.id}", color=0xff9393)
+	embed.set_image(url="https://cdn.discordapp.com/attachments/524655977832775710/541446963887996939/Fade_image.png")
+	await bot.send_message(channel, embed=embed)
+	
+@bot.command(pass_context=True)
 async def info(ctx):
     '''Displays Info About The Server!'''
 
@@ -745,7 +759,7 @@ async def _eval(ctx, *, command):
 async def botinfo(ctx):
     m1=await bot.say('Getting the bots information...Please Wait. http://gph.is/2gEPAHj')
     await asyncio.sleep(10)
-    await bot.edit_message(message, new_content=None, *, embed=https://tenor.com/view/busu8s-thank-you-gif-7859545)='Welcome to Graphiq! Graphiq is far by recommended by other Discord Members and Developers. We 100% recommend our bot to other servers to help us grow but also help us to improve your experience using our Bot. If you wish to use our commands it is listed underneath ``b.help``. Thank you for using our bot.')
+    await bot.edit_message(message, new_content=None, *, embed=None)='Welcome to Graphiq! Graphiq is far by recommended by other Discord Members and Developers. We 100% recommend our bot to other servers to help us grow but also help us to improve your experience using our Bot. If you wish to use our commands it is listed underneath ``b.help``. Thank you for using our bot.')
 
 @bot.command(pass_context=True)
 async def bothelp(ctx):
