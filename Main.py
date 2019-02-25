@@ -745,7 +745,7 @@ async def _eval(ctx, *, command):
 async def botinfo(ctx):
     m1=await bot.say('Getting the bots information...Please Wait. http://gph.is/2gEPAHj')
     await asyncio.sleep(10)
-    await bot.edit_message(message, new_content=None, *, embed=None)='Welcome to Graphiq! Graphiq is far by recommended by other Discord Members and Developers. We 100% recommend our bot to other servers to help us grow but also help us to improve your experience using our Bot. If you wish to use our commands it is listed underneath ``b.help``. Thank you for using our bot. https://tenor.com/view/busu8s-thank-you-gif-7859545')
+    await bot.edit_message(message, new_content=None, *, embed=https://tenor.com/view/busu8s-thank-you-gif-7859545)='Welcome to Graphiq! Graphiq is far by recommended by other Discord Members and Developers. We 100% recommend our bot to other servers to help us grow but also help us to improve your experience using our Bot. If you wish to use our commands it is listed underneath ``b.help``. Thank you for using our bot.')
 
 @bot.command(pass_context=True)
 async def bothelp(ctx):
