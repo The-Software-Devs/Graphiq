@@ -70,16 +70,7 @@ async def on_ready():
     bot.loop.create_task(picker())
     print("Change status for {} is ready!".format(bot.user.name))
 
-@bot.event
-async def rank_up():
-	await bot.wait_until_ready()
-	channel = discord.Object(id='Please enter server id')
-	while not bot.is_closed:
-	    message = random_number_generator()
-	    await bot.send_message(channel, message)
-	    await asyncio.sleep(60)
 
-bot.loop.create_task(rank_up())
 
 
 @bot.command(pass_context=True)
