@@ -21,6 +21,8 @@ async def on_message(message):
 		await bot.send_message(message.channel, embed=embed)
 	await bot.process_commands(message)
 
+
+
 evn=bot.event
 cms=bot.command(pass_context=True)
 
@@ -29,9 +31,9 @@ async def picker():
     mem_listening=['{} members']
 
     ser_watch=['{} servers']
-    ser_listen=['b.help | Version 1.8']
-    ser_watch=['New Update | 02/03/2019']
-    ser_playing=['Need upvotes to grow']
+    ser_listen=['{} servers']
+    ser_listen=['b.help | Version 1.7']
+    ser_play=['in {} servers']
     helps=['!help | for help','!help for help commands']
 
     while True:
@@ -67,9 +69,7 @@ async def picker():
 @bot.event
 async def on_ready():
     bot.loop.create_task(picker())
-    print("Change status for {} is ready!".format(bot.user.name))
-
-
+print("Change status for {} is ready!".format(bot.user.name))
 
 
 @bot.command(pass_context=True)
