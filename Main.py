@@ -31,6 +31,7 @@ async def picker():
     ser_watch=['{} servers']
     ser_listen=['b.help | Version 1.8']
     ser_watch=['New Update | 02/03/2019']
+    ser_play=['Need upvotes to grow']
     helps=['!help | for help','!help for help commands']
 
     while True:
