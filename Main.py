@@ -70,18 +70,7 @@ async def on_ready():
     bot.loop.create_task(picker())
     print("Change status for {} is ready!".format(bot.user.name))
 
-	
-@bot.command
-def get_prefix(bot, msg):
-    """A callable Prefix for our bot. This could be edited to allow per server prefixes."""
 
-    # Notice how you can use spaces in prefixes. Try to keep them simple though.
-    prefixes = ['b.', 'g.','+']
-
-
-    return commands.when_mentioned_or(*prefixes)(bot, msg)
-
-bot = commands.Bot(command_prefix=get_prefix,description='Discord multiple command prefix')
 
 
 @bot.command(pass_context=True)
