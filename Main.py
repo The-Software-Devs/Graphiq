@@ -25,13 +25,11 @@ evn=bot.event
 cms=bot.command(pass_context=True)
 
 async def picker():
-    mem_watching=['{} members']
-    mem_listening=['{} members']
-    mem_playing=['with {} members']
+    mem_watching=['{} members | Version 1.7']
+    mem_listening=['{} members | Version 1.7']
 
-    ser_watch=['{} servers']
-    ser_listen=['{} servers']
-    ser_listen=['b.help']
+    ser_watch=['{} servers | Version 1.7']
+    ser_listen=['b.help | Version 1.7']
     ser_play=['in {} servers']
     helps=['!help | for help','!help for help commands']
 
