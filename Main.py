@@ -300,6 +300,10 @@ async def kill(ctx, *, member: discord.Member = None):
 	
 @bot.command(pass_context=True, no_pm=True)
 async def help(ctx):
+	
+	
+await bot.say("<a:Daxarloading:545749821089120258>")
+await asyncio.sleep(5)
     author = ctx.message.author
     embed = discord.Embed(description=":mag: Help Section :mag_right:", color=0xFFFF)
     embed.add_field(name="b.help_moderation ", value="Lists moderation commands. ||",inline=True)
