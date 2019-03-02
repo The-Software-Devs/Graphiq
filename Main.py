@@ -71,7 +71,7 @@ async def on_ready():
     print("Change status for {} is ready!".format(bot.user.name))
 
 	
-	
+@bot.command
 def get_prefix(bot, msg):
     """A callable Prefix for our bot. This could be edited to allow per server prefixes."""
 
