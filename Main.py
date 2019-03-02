@@ -29,8 +29,8 @@ async def picker():
     mem_listening=['{} members']
 
     ser_watch=['{} servers']
-    ser_listen=['b.help | Version 1.7']
-    ser_playing=['Updating bot...']
+    ser_listen=['b.help | Version 1.8']
+    ser_watch=['New Update | 02/03/2019']
     helps=['!help | for help','!help for help commands']
 
     while True:
