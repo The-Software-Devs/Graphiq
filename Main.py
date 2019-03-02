@@ -299,21 +299,29 @@ async def kill(ctx, *, member: discord.Member = None):
 	
 	
 @bot.command(pass_context=True, no_pm=True)
+
 async def help(ctx):
-    author = ctx.message.author
-    embed = discord.Embed(description=":mag: Help Section :mag_right:", color=0xFFFF)
-    embed.add_field(name="b.help_moderation ", value="Lists moderation commands. ||",inline=True)
-    embed.add_field(name="b.help_fun", value="Lists fun commands. ||",inline=True)
-    embed.add_field(name="b.help_admin", value="Lists Administrator commands.",inline=True)
-    embed.add_field(name="b.help_credits", value="Lists all the help from Developers to staff.",inline=True)
-    embed.set_footer(text="Requested by: " + author.name)
-    await bot.send_message(author, embed=embed)
-    embed = discord.Embed(description=" ", color=0xFFFF)
-    embed.add_field(name=":white_check_mark: Success!", value="I've sent you a list of my commands in your **Direct Messages**",inline=True)
-    await bot.say(embed=embed)
-    channel = bot.get_channel('543488075809030145')
-    embed = discord.Embed(title=f"User: {ctx.message.author.name} have used help command", description=f"User ID: {ctx.message.author.id}", color=0xff9393)
-    await bot.send_message(channel, embed=embed)
+
+await bot.say("<a:Daxarloading:545749821089120258>")
+await asyncio.sleep(5)
+ 
+
+    author = ctx.message.author
+    embed = discord.Embed(description=":mag: Help Section :mag_right:", color=0xFFFF)
+    embed.add_field(name="b.help_moderation ", value="Lists moderation commands. ||",inline=True)
+    embed.add_field(name="b.help_fun", value="Lists fun commands. ||",inline=True)
+    embed.add_field(name="b.help_admin", value="Lists Administrator commands.",inline=True)
+    embed.add_field(name="b.help_credits", value="Lists all the help from Developers to staff.",inline=True)
+    embed.set_footer(text="Requested by: " + author.name)
+    await bot.send_message(author, embed=embed)
+    embed = discord.Embed(description=" ", color=0xFFFF)
+    embed.add_field(name=":white_check_mark: Success!", value="I've sent you a list of my commands in your **Direct Messages**",inline=True)
+    await bot.say(embed=embed)
+    channel = bot.get_channel('543488075809030145')
+    embed = discord.Embed(title=f"User: {ctx.message.author.name} have used help command", description=f"User ID: {ctx.message.author.id}", color=0xff9393)
+    await bot.send_message(channel, embed=embed)
+
+
 	
 @bot.command(pass_context=True, no_pm=True)
 async def help_moderation(ctx):
