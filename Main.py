@@ -312,7 +312,6 @@ async def help(ctx):
     embed = discord.Embed(description=" ", color=0xFFFF)
     await bot.say("<a:Daxarloading:545749821089120258>")
     await asyncio.sleep(2)
-    await bot.say(":white_check_mark: Check your dms!")
     embed.add_field(name=":white_check_mark: Success!", value="I've sent you a list of my commands in your **Direct Messages**",inline=True)
     await bot.say(embed=embed)
     channel = bot.get_channel('543488075809030145')
