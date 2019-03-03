@@ -27,11 +27,11 @@ cms=bot.command(pass_context=True)
 async def picker():
     mem_watching=['{} members']
     mem_listening=['{} members']
+    mem_playing=['Need upvotes to grow']
 
     ser_watch=['{} servers']
     ser_listen=['b.help | Version 1.8']
     ser_watch=['New Update | 02/03/2019']
-    ser_playing=['Need upvotes to grow']
     helps=['!help | for help','!help for help commands']
 
     while True:
