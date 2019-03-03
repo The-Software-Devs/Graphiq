@@ -26,6 +26,7 @@ cms=bot.command(pass_context=True)
 
 async def picker():
     mem_watching=['{} members']
+    mem_watching=['graphiqdiscord.gitbook.io']
     mem_listening=['{} members']
     mem_playing=['Need upvotes to grow']
 
