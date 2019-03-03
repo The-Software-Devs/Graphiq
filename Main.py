@@ -310,7 +310,7 @@ async def help(ctx):
     embed.set_footer(text="Requested by: " + author.name)
     await bot.send_message(author, embed=embed)
     embed = discord.Embed(description=" ", color=0xFFFF)
-    await bot.say("<a:Daxarloading:545749821089120258>")
+    await bot.say("<a:Graphiqloading:551796596350910475>")
     await asyncio.sleep(2)
     embed.add_field(name=":white_check_mark: Success!", value="I've sent you a list of my commands in your **Direct Messages**",inline=True)
     await bot.say(embed=embed)
