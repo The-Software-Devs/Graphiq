@@ -766,7 +766,6 @@ async def _eval(ctx, *, command):
         if inspect.isawaitable(res):
             await bot.say(await res)
         else:
-	    await bot.delete_message(ctx.message)
             await bot.send_typing(ctx.message.channel)
             await asyncio.sleep(5)
             await bot.say(res)
