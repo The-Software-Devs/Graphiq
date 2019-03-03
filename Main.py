@@ -85,6 +85,15 @@ async def userinfo(ctx, member: discord.Member = None):
     await bot.send_message(ctx.message.channel,embed=embed)
 
 @bot.command(pass_context=True)
+async def afks(con):
+    amt=0
+    for i in con.message.server.members:
+        if i.is_afk == True:
+            amt+=1
+    await bot.send_message(con.message.channel,"**Currently `{}` AFK Members In `{}`**".format(amt,con.message.server.name))
+ 
+
+@bot.command(pass_context=True)
 async def ping( con):
     channel = con.message.channel
     t1 = time.perf_counter()
