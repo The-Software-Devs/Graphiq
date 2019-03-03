@@ -71,7 +71,16 @@ async def on_ready():
     print("Change status for {} is ready!".format(bot.user.name))
 
 
-
+@bot.command(pass_context=True)
+async def ping( con):
+    channel = con.message.channel
+    t1 = time.perf_counter()
+    await bot.send_typing(channel)
+    t2 = time.perf_counter()
+    embed = discord.Embed(title=None, description='Ping: {}'.format(
+        round((t2-t1)*1000)), color=0x2874A6)
+    await bot.say(embed=embed)
+ 
 
 @bot.command(pass_context=True)
 async def on(con):
