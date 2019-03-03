@@ -310,7 +310,7 @@ async def help(ctx):
     embed.set_footer(text="Requested by: " + author.name)
     await bot.send_message(author, embed=embed)
     embed = discord.Embed(description=" ", color=0xFFFF)
-    m=await bot.say(":Graphiqloading:")
+    m=await bot.say("<a:Graphiqloading:551796596350910475>")
     await asyncio.sleep(2)
     await bot.delete_message(m)
     em=discord.Embed()
