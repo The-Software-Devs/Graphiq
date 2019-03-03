@@ -77,7 +77,7 @@ async def ping( con):
     t1 = time.perf_counter()
     await bot.send_typing(channel)
     t2 = time.perf_counter()
-    embed = discord.Embed(title=None, description='<a:Graphiqloading:551796596350910475> Ping! Your ping is: {}ms'.format(
+    embed = discord.Embed(title=None, description='<a:Graphiqloading:551796596350910475> Pong! Your ping is: {}ms'.format(
         round((t2-t1)*1000)), color=0x2874A6)
     await bot.say(embed=embed)
  
