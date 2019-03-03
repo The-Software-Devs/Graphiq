@@ -783,11 +783,11 @@ async def bothelp(ctx):
 
 @bot.command(pass_context=True)
 async def restart(ctx):
-    m1=await bot.say('Restarting the bot...')
+    m1=await bot.say('<a:Daxarloading:545749821089120258> Restarting the bot...')
     await asyncio.sleep(4)
-    await bot.edit_message(m1,new_content='Restarting Bot...')
+    await bot.edit_message(m1,new_content='<a:Daxarloading:545749821089120258> Restarting Bot...')
     await asyncio.sleep(4)
-    await bot.edit_message(m1,new_content='Updating Commands...')
+    await bot.edit_message(m1,new_content='<a:Daxarloading:545749821089120258> Updating Commands...')
     await asyncio.sleep(4)
     await bot.edit_message(m1,new_content=':white_check_mark: Bot Restarted Sucessfully!')
 
