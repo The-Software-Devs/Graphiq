@@ -127,7 +127,7 @@ async def on_command_error(error, ctx):
 		draw.text((10, 10), "Looks like there was an error! {}".format(ctx.message.author.name), (255, 255, 255), font=font)
 		draw.text((15, 15), "Please check your spelling and try again.", (255, 255, 255), font=font)
 		img.save('error.png') #Change infoimg2.png if needed.
-		await bot.upload(ctx.message.channel,"error.png")
+		await bot.send_file(ctx.message.channel,"error.png")
 	
 @bot.command()
 async def logout():
