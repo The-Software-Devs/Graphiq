@@ -125,7 +125,7 @@ async def on_command_error(error, ctx):
 		fontbig = ImageFont.truetype("Fitamint Script.ttf", 400) #Make sure you insert a valid font from your folder.
 		#    (x,y)::↓ ↓ ↓ (text)::↓ ↓     (r,g,b)::↓ ↓ ↓
 		draw.text((10, 10), "Looks like there was an error! {}".format(ctx.message.author.name), (255, 255, 255), font=font)
-		draw.text((60, 90), "Please check your spelling and try again.", (255, 255, 255), font=font)
+		draw.text((10, 90), "Please check your spelling and try again.", (255, 255, 255), font=font)
 		img.save('error.png') #Change infoimg2.png if needed.
 		await bot.send_file(ctx.message.channel,"error.png")
 	
