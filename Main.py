@@ -118,7 +118,7 @@ async def urban( con, *, msg):
 
 @bot.event
 async def on_command_error(error, ctx):
-	if isinstance(error, commands.CommandNotFound):
+	if isinstance(error, commands.CommandNotFound, user: discord.Member):
 		img = Image.open("error.png") #Replace infoimgimg.png with your background image.
 		draw = ImageDraw.Draw(img)
 		font = ImageFont.truetype("Modern_Sans_Light.otf", 100) #Make sure you insert a valid font from your folder.
