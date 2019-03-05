@@ -118,15 +118,15 @@ async def urban( con, *, msg):
 
 @bot.event
 async def on_command_error(error, ctx):
-if isinstance(error, commands.CommandNotFound):
-img = Image.open("error.png") #Replace infoimgimg.png with your background image.
-draw = ImageDraw.Draw(img)
-font = ImageFont.truetype("Modern_Sans_Light.otf", 100) #Make sure you insert a valid font from your folder.
-fontbig = ImageFont.truetype("Fitamint Script.ttf", 400) #Make sure you insert a valid font from your folder.
-#    (x,y)::↓ ↓ ↓ (text)::↓ ↓     (r,g,b)::↓ ↓ ↓
-draw.text((10, 10), "Looks like there was an error {}".format(user.name), (255, 255, 255), font=font)
-img.save('error.png') #Change infoimg2.png if needed.
-await bot.upload("error.png")
+	if isinstance(error, commands.CommandNotFound):
+		img = Image.open("error.png") #Replace infoimgimg.png with your background image.
+		draw = ImageDraw.Draw(img)
+		font = ImageFont.truetype("Modern_Sans_Light.otf", 100) #Make sure you insert a valid font from your folder.
+		fontbig = ImageFont.truetype("Fitamint Script.ttf", 400) #Make sure you insert a valid font from your folder.
+		#    (x,y)::↓ ↓ ↓ (text)::↓ ↓     (r,g,b)::↓ ↓ ↓
+		draw.text((10, 10), "Looks like there was an error {}".format(user.name), (255, 255, 255), font=font)
+		img.save('error.png') #Change infoimg2.png if needed.
+		await bot.upload("error.png")
 	
 @bot.command()
 async def logout():
