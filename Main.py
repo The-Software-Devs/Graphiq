@@ -75,7 +75,7 @@ async def on_ready():
 
 @bot.command(pass_context=True)
 async def test1(ctx, user: discord.Member):
-    img = Image.open("infoimg2.png") #Replace infoimgimg.png with your background image.
+    img = Image.open("infoimgimg.png") #Replace infoimgimg.png with your background image.
     draw = ImageDraw.Draw(img)
     font = ImageFont.truetype("Modern_Sans_Light.otf", 100) #Make sure you insert a valid font from your folder.
     fontbig = ImageFont.truetype("Fitamint Script.ttf", 400) #Make sure you insert a valid font from your folder.
@@ -88,8 +88,8 @@ async def test1(ctx, user: discord.Member):
     draw.text((50, 1300), "Nickname:{}".format(user.display_name), (255, 255, 255), font=font)
     draw.text((50, 1500), "Users' Top Role:{}".format(user.top_role), (255, 255, 255), font=font)
     draw.text((50, 1700), "User Joined:{}".format(user.joined_at), (255, 255, 255), font=font)
-    img.save('infoimg2.png') #Change infoimg2.png if needed.
-    await bot.upload("infoimg2.png")
+    img.save('infoimgimg.png') #Change infoimg2.png if needed.
+    await bot.upload("infoimgimg.png")
 	
 @bot.command(pass_context=True)
 async def userinfo(ctx, member: discord.Member = None):
