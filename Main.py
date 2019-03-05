@@ -75,7 +75,7 @@ async def on_ready():
 
 @bot.command(pass_context=True)
 async def test1(ctx, user: discord.Member):
-    img = Image.open("infoimgimg.png") #Replace infoimgimg.png with your background image.
+    img = Image.open("infoimg2.png") #Replace infoimgimg.png with your background image.
     draw = ImageDraw.Draw(img)
     font = ImageFont.truetype("Modern_Sans_Light.otf", 100) #Make sure you insert a valid font from your folder.
     fontbig = ImageFont.truetype("Fitamint Script.ttf", 400) #Make sure you insert a valid font from your folder.
