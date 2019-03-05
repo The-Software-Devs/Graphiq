@@ -8,6 +8,9 @@ import os
 import random
 import json
 import datetime
+from PIL import Image
+from PIL import ImageFont
+from PIL import ImageDraw
 
 bot = commands.Bot(command_prefix = "b.")
 bot.remove_command('help')
@@ -70,6 +73,24 @@ async def on_ready():
     bot.loop.create_task(picker())
     print("Change status for {} is ready!".format(bot.user.name))
 
+@bot.command(pass_context=True)
+async def test1(ctx, user: discord.Member):
+    img = Image.open("infoimgimg.png") #Replace infoimgimg.png with your background image.
+    draw = ImageDraw.Draw(img)
+    font = ImageFont.truetype("Modern_Sans_Light.otf", 100) #Make sure you insert a valid font from your folder.
+    fontbig = ImageFont.truetype("Fitamint Script.ttf", 400) #Make sure you insert a valid font from your folder.
+    #    (x,y)::↓ ↓ ↓ (text)::↓ ↓     (r,g,b)::↓ ↓ ↓
+    draw.text((200, 0), "Information:", (255, 255, 255), font=fontbig)
+    draw.text((50, 500), "Username: {}".format(user.name), (255, 255, 255), font=font)
+    draw.text((50, 700), "ID:  {}".format(user.id), (255, 255, 255), font=font)
+    draw.text((50, 900), "User Status:{}".format(user.status), (255, 255, 255), font=font)
+    draw.text((50, 1100), "Account created: {}".format(user.created_at), (255, 255, 255), font=font)
+    draw.text((50, 1300), "Nickname:{}".format(user.display_name), (255, 255, 255), font=font)
+    draw.text((50, 1500), "Users' Top Role:{}".format(user.top_role), (255, 255, 255), font=font)
+    draw.text((50, 1700), "User Joined:{}".format(user.joined_at), (255, 255, 255), font=font)
+    img.save('infoimg2.png') #Change infoimg2.png if needed.
+await bot.upload("infoimg2.png")
+	
 @bot.command(pass_context=True)
 async def userinfo(ctx, member: discord.Member = None):
     roles = [role for role in member.roles]
