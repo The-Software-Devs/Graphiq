@@ -89,7 +89,7 @@ async def test1(ctx, user: discord.Member):
     draw.text((50, 1500), "Users' Top Role:{}".format(user.top_role), (255, 255, 255), font=font)
     draw.text((50, 1700), "User Joined:{}".format(user.joined_at), (255, 255, 255), font=font)
     img.save('infoimg2.png') #Change infoimg2.png if needed.
-await bot.upload("infoimg2.png")
+    await bot.upload("infoimg2.png")
 	
 @bot.command(pass_context=True)
 async def userinfo(ctx, member: discord.Member = None):
