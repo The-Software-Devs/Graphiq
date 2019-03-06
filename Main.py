@@ -117,7 +117,7 @@ async def urban( con, *, msg):
         await bot.send_message(con.message.channel, "**Word**: {}\n**Votes**: {}\n**Definitioin**: {}\n**Example**: {}".format(rq_json['list'][0]['word'], rq_json['list'][0]['thumbs_up'], rq_json['list'][0]['definition'], rq_json['list'][0]['example']))
 
 @bot.event
-async def on_command_error(error, ctx): command you given!
+async def on_command_error(error, ctx):
 	if isinstance(error, commands.CommandNotFound):
 		img = Image.open("error.png") #Replace infoimgimg.png with your background image.
 		draw = ImageDraw.Draw(img)
