@@ -124,8 +124,8 @@ async def on_command_error(error, ctx):
 		font = ImageFont.truetype("Modern_Sans_Light.otf", 80) #Make sure you insert a valid font from your folder.
 		fontbig = ImageFont.truetype("Fitamint Script.ttf", 400) #Make sure you insert a valid font from your folder.
 		#    (x,y)::↓ ↓ ↓ (text)::↓ ↓     (r,g,b)::↓ ↓ ↓
-		draw.text((10, 10), "Looks like there was an error!", (255, 255, 255), font=font)
-		draw.text((10, 90), "❗ Are you sure this command exists?", (255, 255, 255), font=font)
+		draw.text((10, 10), "Looks like there was an error with the command you given!", (255, 255, 255), font=font)
+		draw.text((10, 90), "Are you sure this command exists?", (255, 255, 255), font=font)
 		draw.text((10, 160), "See if the commands exists b.help.", (255, 255, 255), font=font)
 		draw.text((10, 1100), "Graphiq. 2019", (255, 255, 255), font=font)
 		img.save('error.png') #Change infoimg2.png if needed.
