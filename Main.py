@@ -64,9 +64,6 @@ async def on_ready():
     bot.loop.create_task(picker())
     print("Change status for {} is ready!".format(bot.user.name))
 	
-@bot.command
-async def poll(user: discord.Member)
-	await bot.say('Shall {} shutdown `__Graphiq__`? React now... Poll requested by: Mxchael#7748, Bot Founder & Owner').format(user.name)
 	
 @bot.command(pass_context=True)
 async def userinfo(ctx, member: discord.Member = None):
