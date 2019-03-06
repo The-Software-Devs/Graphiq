@@ -117,15 +117,16 @@ async def urban( con, *, msg):
         await bot.send_message(con.message.channel, "**Word**: {}\n**Votes**: {}\n**Definitioin**: {}\n**Example**: {}".format(rq_json['list'][0]['word'], rq_json['list'][0]['thumbs_up'], rq_json['list'][0]['definition'], rq_json['list'][0]['example']))
 
 @bot.event
-async def on_command_error(error, ctx):
+async def on_command_error(error, ctx): command you given!
 	if isinstance(error, commands.CommandNotFound):
 		img = Image.open("error.png") #Replace infoimgimg.png with your background image.
 		draw = ImageDraw.Draw(img)
 		font = ImageFont.truetype("Modern_Sans_Light.otf", 80) #Make sure you insert a valid font from your folder.
 		fontbig = ImageFont.truetype("Fitamint Script.ttf", 400) #Make sure you insert a valid font from your folder.
 		#    (x,y)::↓ ↓ ↓ (text)::↓ ↓     (r,g,b)::↓ ↓ ↓
-		draw.text((10, 10), "Looks like there was an error with the command you given!", (255, 255, 255), font=font)
-		draw.text((10, 90), "Are you sure this command exists?", (255, 255, 255), font=font)
+		draw.text((10, 10), "Looks like there was an error with the", (255, 255, 255), font=font)
+		draw.text((10, 10), "command you given!", (255, 255, 255), font=font)
+		draw.text((10, 140), "Are you sure this command exists?", (255, 255, 255), font=font)
 		draw.text((10, 160), "See if the commands exists b.help.", (255, 255, 255), font=font)
 		draw.text((10, 1100), "Graphiq. 2019", (255, 255, 255), font=font)
 		img.save('error.png') #Change infoimg2.png if needed.
