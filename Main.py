@@ -66,7 +66,7 @@ async def on_ready():
 	
 @bot.command
 async def poll(user: discord.Member)
-	await bot.say('Shall {} shutdown `__Graphiq__`? React now... Poll requested by: Mxchael#7748, Bot Founder & Owner').format (user.name)
+	await bot.say('Shall {} shutdown `__Graphiq__`? React now... Poll requested by: Mxchael#7748, Bot Founder & Owner').format(user.name)
 	
 @bot.command(pass_context=True)
 async def userinfo(ctx, member: discord.Member = None):
