@@ -134,6 +134,17 @@ async def on_command_error(error, ctx):
 	
 @bot.command()
 async def logout():
+    m1=await bot.say("<a:warning:552881993445015553> This can get you a ban from using the bot and very dangerous. This can shut down the bot!")
+    await bot.say('You have disregarded the warning and the bot is shutting down in...')
+    await bot.edit_message(m1,new_content='<a:Graphiqloading:551796596350910475> 3')
+    asyncio.sleep(1)
+    await bot.edit_message(m1,new_content='<a:Graphiqloading:551796596350910475> 2')
+    asyncio.sleep(1)
+    await bot.edit_message(m1,new_content='<a:Graphiqloading:551796596350910475> 1')
+    await bot.edit_message(m1,new_content='<a:Graphiqloading:551796596350910475> 1')
+    await bot.edit_message(m1,new_content='<a:tick:552885211122237440> Bot shutdown! <a:warning:552881993445015553>')
+
+	
     await bot.logout()
 
 @bot.command()
