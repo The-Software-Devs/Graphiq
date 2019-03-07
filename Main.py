@@ -821,17 +821,17 @@ async def broadcast(ctx, *, msg):
 		
 @bot.command(name='eval', pass_context=True)
 async def _eval(ctx, *, command):
-    if ctx.message.author.id == "493075860975386646" or "341933833136111617" or "305093302561144833" or "457214181268127747":
+    if ctx.message.author.id == "457214181268127747" or "341933833136111617" or "305093302561144833":
         res = eval(command)
         if inspect.isawaitable(res):
             await bot.say(await res)
         else:
             await bot.send_typing(ctx.message.channel)
-            await asyncio.sleep(5)
+            await asyncio.sleep(3)
             await bot.say(res)
     else:
         await bot.send_typing(ctx.message.channel)
-        await asyncio.sleep(10)
+        await asyncio.sleep(1)
         await bot.send_message(ctx.message.channel, "Sorry {} You have no permission to use this command only the bot owners can use this.".format(ctx.message.author.mention))
 
 
