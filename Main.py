@@ -8,6 +8,7 @@ import os
 import random
 import json
 import datetime
+import requests as rq
 from PIL import Image
 from PIL import ImageFont
 from PIL import ImageDraw
