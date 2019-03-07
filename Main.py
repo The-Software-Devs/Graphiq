@@ -11,10 +11,6 @@ import datetime
 from PIL import Image
 from PIL import ImageFont
 from PIL import ImageDraw
-import urllib
-import urllib.request
-
-from discord.utils import get
 
 bot = commands.Bot(command_prefix = "b.")
 bot.remove_command('help')
@@ -136,17 +132,6 @@ async def on(con):
     emb=discord.Embed(title='Emoji',description='This is an emoji {}'.format(emoji))
     await bot.say(embed=emb)
 	
-@bot.command(pass_context=True)
-async def urban( con, *, msg):
-    session = rq.Session()
-    """USES URBAN DICT TO FIND DEFINITION OF WORDS. EX: s.urban neko"""
-    link = 'http://api.urbandictionary.com/v0/define?term={}'.format(msg)
-    rq_link = session.get(link).text
-    rq_json = json.loads(rq_link)
-    if rq_json['list'] == []:
-        await bot.send_message(con.message.channel, "**No Results Found**")
-    elif rq_json['list'] != []:
-        await bot.send_message(con.message.channel, "**Word**: {}\n**Votes**: {}\n**Definitioin**: {}\n**Example**: {}".format(rq_json['list'][0]['word'], rq_json['list'][0]['thumbs_up'], rq_json['list'][0]['definition'], rq_json['list'][0]['example']))
 
 @bot.event
 async def on_command_error(error, ctx):
