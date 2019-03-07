@@ -13,7 +13,6 @@ from PIL import ImageFont
 from PIL import ImageDraw
 import urllib
 import urllib.request
-import requests as rq
 
 from discord.utils import get
 
