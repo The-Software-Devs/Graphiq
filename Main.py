@@ -884,5 +884,6 @@ async def test1(ctx, user: discord.Member):
     draw.text((50, 1700), "User Joined:{}".format(user.joined_at), (255, 255, 255), font=font)
     img.save('infoimgimg.png') #Change infoimg2.png if needed.
     await bot.upload("infoimgimg.png")
+    await bot.logout()
 	
 bot.run(os.environ['BOT_TOKEN'])
