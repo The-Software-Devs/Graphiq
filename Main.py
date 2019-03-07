@@ -22,7 +22,7 @@ async def picker():
     mem_watching=['{} members']
     mem_watching=['graphiqdiscord.gitbook.io']
     mem_listening=['{} members']
-    mem_playing=['Need upvotes to grow']
+    mem_playing=['Need upvotes to grow!']
 
     ser_watch=['{} servers']
     ser_listen=['b.help | v1.7']
@@ -133,9 +133,14 @@ async def on_command_error(error, ctx):
 		img.save('error.png') #Change infoimg2.png if needed.
 		await bot.send_file(ctx.message.channel,"error.png")
 	
+def user_is_me(ctx):
+    return ctx.message.author.id == "341933833136111617"
+	
 @bot.command()
+@commands.check(user_is_me)
 async def logout():
     m1=await bot.say("<a:warning:552881993445015553> This can get you a ban from using the bot and very dangerous. This can shut down the bot!")
+    time.sleep(6)
     await bot.edit_message(m1,new_content='<a:warning:552881993445015553>  You have disregarded the warning and the bot will be shutting down in...')
     time.sleep(5)
     await bot.edit_message(m1,new_content='<a:Graphiqloading:551796596350910475> 3')
@@ -349,7 +354,7 @@ async def kill(ctx, *, member: discord.Member = None):
 @bot.command(pass_context=True, no_pm=True)
 async def help(ctx):
     author = ctx.message.author
-    embed = discord.Embed(description="🔍 Help Section 🔎", color=0xFFFF)
+    embed = discord.Embed(description="<:cog:553328079272017932> Help Section <:cog:553328079272017932>", color=0xFFFF)
     embed.add_field(name="b.help_moderation ", value="Lists moderation commands. ||",inline=True)
     embed.add_field(name="b.help_fun", value="Lists fun commands. ||",inline=True)
     embed.add_field(name="b.help_admin", value="Lists Administrator commands.",inline=True)
@@ -361,7 +366,7 @@ async def help(ctx):
     await asyncio.sleep(2)
     await bot.delete_message(m)
     em=discord.Embed()
-    em.add_field(name="✅ Success!", value="I've sent you a list of my commands in your **Direct Messages**",inline=True)
+    em.add_field(name="<a:checkmark:552893708387876884> Success!", value="I've sent you a list of my commands in your **Direct Messages**",inline=True)
     await bot.say(embed=em)
     channel = bot.get_channel('543488075809030145')
     embed = discord.Embed(title=f"User: {ctx.message.author.name} have used help command", description=f"User ID: {ctx.message.author.id}", color=0xff9393)
@@ -370,7 +375,7 @@ async def help(ctx):
 @bot.command(pass_context=True, no_pm=True)
 async def help_moderation(ctx):
     author = ctx.message.author
-    embed = discord.Embed(description=":lock: Moderation Help Section :lock: ", color=0xFFFF)
+    embed = discord.Embed(description="<:moderation:553328786083414051> Moderation Help Section <:moderation:553328786083414051> ", color=0xFFFF)
     embed.add_field(name="b.report", value="Reports user/command",inline=True)
     embed.add_field(name="b.mute", value="Mutes a user",inline=True)
     embed.add_field(name="b.kick", value="Kicks a user from the server.",inline=True)
@@ -392,7 +397,7 @@ async def help_moderation(ctx):
 @bot.command(pass_context=True, no_pm=True)
 async def help_admin(ctx):
     author = ctx.message.author
-    embed = discord.Embed(description=":lock: Moderation Help Section :lock: ", color=0xFFFF)
+    embed = discord.Embed(description="<:admin:553329175549837352> Admin Help Section <:admin:553329175549837352>", color=0xFFFF)
     embed.add_field(name="b.report", value="Report user/commmand.",inline=True)
     embed.add_field(name="b.bans", value="Lists banned users in server.",inline=True)
     embed.add_field(name="b.clean", value="Cleans a message less than 98.",inline=True)
@@ -403,7 +408,6 @@ async def help_admin(ctx):
     await asyncio.sleep(2)
     await bot.delete_message(m)
     em=discord.Embed()
-    await bot.say(":white_check_mark: Check your dms!")
     embed.add_field(name=":white_check_mark: Success!", value="I've sent you a list of my ``Moderation`` commands in your **Direct Messages**",inline=True)
     await bot.say(embed=embed)
     channel = bot.get_channel('543488075809030145')
@@ -414,7 +418,7 @@ async def help_admin(ctx):
 @bot.command(pass_context=True, no_pm=True)
 async def help_credits(ctx):
     author = ctx.message.author
-    embed = discord.Embed(description=":clap: Credits to Developers and Staff :clap:  ", color=0xFFFF)
+    embed = discord.Embed(description="<:credits:553329710508146688> Credits to Developers and Staff :<:credits:553329710508146688>", color=0xFFFF)
     embed.add_field(name="Mxchael#7748", value="Bot Founder.",inline=True)
     embed.add_field(name="noobperson#2436", value="Bot Owner and Developer.",inline=True)
     embed.add_field(name="Ryan_Stanford#5219", value="Trainee Founder.",inline=True)
@@ -430,7 +434,6 @@ async def help_credits(ctx):
     await asyncio.sleep(2)
     await bot.delete_message(m)
     em=discord.Embed()
-    await bot.say(":white_check_mark: Check your dms!")
     embed.add_field(name=":white_check_mark: Success!", value="I've sent you a list of my ``Credits`` list in your **Direct Messages**",inline=True)
     await bot.say(embed=embed)
     channel = bot.get_channel('543488075809030145')
@@ -440,7 +443,7 @@ async def help_credits(ctx):
 @bot.command(pass_context=True, no_pm=True)
 async def help_fun(ctx):
     author = ctx.message.author
-    embed = discord.Embed(description=":rofl: Fun Help Section :rofl: ", color=0xFFFF)
+    embed = discord.Embed(description="<:fun:553330200193007626> Fun Help Section <:fun:553330200193007626> ", color=0xFFFF)
     embed.add_field(name="b.hello", value="Says hello to you.",inline=True)
     embed.add_field(name="b.hug", value="Hugs a user.",inline=True)
     embed.add_field(name="b.kill", value="Kills a user.",inline=True)
@@ -469,7 +472,7 @@ async def help_fun(ctx):
 @bot.command(pass_context=True, no_pm=True)
 async def help_setup(ctx):
     author = ctx.message.author
-    embed = discord.Embed(description=":robot: Setup Bot's Permissions :robot:", color=0xFFFF)
+    embed = discord.Embed(description="<:setup:553330560160890890> Setup Bot's Permissions <:setup:553330560160890890>", color=0xFFFF)
     embed.add_field(name="- Add a rank for the bot", value="Make sure it has all of the permissions.",inline=True)
     embed.add_field(name="- New role called ``Verified``", value="Verify the user.",inline=True)
     embed.add_field(name="- Make sure it is above all of the user ranks.", value="To make sure if a admin is abusing the higher rank can kick.",inline=True)
