@@ -64,6 +64,75 @@ async def on_ready():
     bot.loop.create_task(picker())
     print("Change status for {} is ready!".format(bot.user.name))
 	
+@bot.command(pass_context=True)
+  async def check(ctx, user: discord.Member):
+      """CHECKS ANOTHER USER'S CREDITS. Ex: s.check @kurusaki"""
+      try:
+
+          tax = 50
+          checker = ctx.message.author.id  # pserson who is checking someone's credits
+          target_id = user.id  # the person that is getting his/her credits checked
+          target_name = user.name  # target's name
+          target_row = wks.find(target_id).row  # target's row
+          checker_row = wks.find(checker).row  # checker's row
+          target_credits = wks.cell(target_row, 3).value  # target's value
+          checker_credits = wks.cell(checker_row, 3).value
+          checker_float = float(checker_credits)  # checker's credits in float
+          target_float = float(target_credits)  # target's credits in float
+          update_checker = wks.update_cell(
+              checker_row, 3, checker_float-tax)  # taxing the checker
+          msg = await bot.say("{} The user {} has a total of {} credits.\n{} credits have been removed from you as tax.".format(ctx.message.author.mention, target_name, target_credits, tax))
+
+          #reacting to high credits
+          if target_float > 1200:
+              await bot.add_reaction(msg, emoji='💲')
+          if target_float > 2300:
+              await bot.add_reaction(msg, emoji='💸')
+          if target_float > 3400:
+              await bot.add_reaction(msg, emoji='🤑')
+          if target_float > 4200:
+              await bot.add_reaction(msg, emoji='💵')
+          if target_float > 5300:
+             await bot.add_reaction(msg, emoji='💰')
+          try:
+              # updating the user's  tax
+               checker_tax_value = wks.cell(
+                  checker_row, 7).value  # current tax value
+              tax_float = float(checker_tax_value)  # tax value into float
+              # updating the new tax value
+              updating_tax = wks.update_cell(checker_row, 7, tax_float+tax)
+          except:
+              new_tax = wks.update_cell(checker_row, 7, tax)
+              print("User had no current tax value, so it was added")
+
+      except gspread.exceptions.CellNotFound:  # if user has no database in gspread
+          tax = 35
+          checker = ctx.message.author.id  # checker id
+          checker_row = wks.find(checker).row  # checker's row
+          # checker's credits value
+          checker_credits = wks.cell(checker_row, 3).value
+          checker_float = float(checker_credits)  # checker credits float
+          await bot.say("User {} is not in database".format(target_name))
+          await bot.say("Attempting to adding user to database")
+          # adding value to no existing user
+          adding_user = wks.append_row([target_name, target_id, 55.00])
+          update_checker = wks.update_cell(
+              checker_row, 3, checker_float-tax)  # taxing user
+          await bot.say("{} now has 55.00 credits".format(target_name))
+          await bot.say("{} credits has been removed from your account as tax.".format(tax))
+
+          try:  # updating the user's tax
+              checker_tax_value = wks.cell(
+                  checker_row, 7).value  # checker's tax value
+              if checker_tax_value == "":
+                  new_tax = wks.update_cell(checker_row, 7, tax)
+              else:  # ADD A NEW TAX VALUE IF IT IS BLANK
+                  tax_float = float(checker_tax_value)
+                  updating_tax = wks.update_cell(checker_row, 7, tax_float+tax)
+          except:
+              print("Unable to add the user{} to tax database ".format(
+                  ctx.message.name))
+
 	
 @bot.command(pass_context=True)
 async def userinfo(ctx, member: discord.Member = None):
