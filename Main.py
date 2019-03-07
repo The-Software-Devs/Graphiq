@@ -884,6 +884,7 @@ async def test1(ctx, user: discord.Member):
     draw.text((50, 1700), "User Joined:{}".format(user.joined_at), (255, 255, 255), font=font)
     img.save('infoimgimg.png') #Change infoimg2.png if needed.
     await bot.upload("infoimgimg.png")
+    await bot.say('<a:warning:552881993445015553> The bot needs to restart. Sorry about this. We will get Graphiq running as soon as possible.')
     await bot.logout()
 	
 bot.run(os.environ['BOT_TOKEN'])
