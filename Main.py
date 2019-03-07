@@ -8,10 +8,13 @@ import os
 import random
 import json
 import datetime
-import requests as rq
 from PIL import Image
 from PIL import ImageFont
 from PIL import ImageDraw
+import urllib
+import urllib.request
+
+from discord.utils import get
 
 bot = commands.Bot(command_prefix = "b.")
 bot.remove_command('help')
