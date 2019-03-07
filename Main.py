@@ -11,6 +11,11 @@ import datetime
 from PIL import Image
 from PIL import ImageFont
 from PIL import ImageDraw
+import urllib
+import urllib.request
+import requests as rq
+
+from discord.utils import get
 
 bot = commands.Bot(command_prefix = "b.")
 bot.remove_command('help')
@@ -65,7 +70,7 @@ async def on_ready():
     print("Change status for {} is ready!".format(bot.user.name))
 	
 @bot.command(pass_context=True)
-  async def check(ctx, user: discord.Member):
+async def check(ctx, user: discord.Member):
       """CHECKS ANOTHER USER'S CREDITS. Ex: s.check @kurusaki"""
       try:
 
@@ -156,6 +161,24 @@ async def afks(con):
             amt+=1
     await bot.send_message(con.message.channel,"**Currently `{}` AFK Members In `{}`**".format(amt,con.message.server.name))
  
+@bot.command(pass_context=True)
+async def weather(ctx):
+    """GET THE WEATHER IN YOUR CITY. EX: s.weather austin"""
+    city_state = ctx.message.content[10:]
+    t = u"\u00b0"
+    try:
+        url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=imperial&appid={}'.format(
+            city_state, owm)
+        ser = rq.get(url).text
+        rq_json = json.loads(ser)
+        temp = rq_json['main']['temp']
+        max_temp = rq_json['main']['temp_max']
+        min_temp = rq_json['main']['temp_min']
+        dis = rq_json['weather'][0]['description']
+        wind = rq_json['wind']['speed']
+        await bot.say("**Temperature** **in** **{}** **is around** {}{}F\n**Minimum Temperature is**: {}{}F\n**Maximum Temperature is**: {}{}F\n**Mainly**: {}\n**Wind speed is around**: {} **MPH**".format(city_state, temp, t, min_temp, t, max_temp, t, dis, wind))
+    except:
+        await bot.say("Looks like something went wrong. Your spelling may be incorrect or the bot may just be able to process this command at the moment.")
 
 @bot.command(pass_context=True)
 async def ping( con):
