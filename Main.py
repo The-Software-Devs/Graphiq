@@ -80,7 +80,7 @@ async def urban(ctx):
 @bot.command(pass_context=True)
 async def info(ctx, *, member: discord.Member):
     """Tells you some info about the member."""
-    fmt = '{0} joined on {0.joined_at} and has {1} roles.'
+    fmt = '**{0}** joined on {0.joined_at} and has **{1}** roles.'
     await bot.say(fmt.format(member, len(member.roles)))
 
 @info.error
