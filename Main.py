@@ -179,7 +179,7 @@ async def _play(ctx, *, name):
 	embed.add_field(name="Now Playing", value=title)
 	await bot.say(embed=embed)
 	
-@client.command(pass_context=True)
+@bot.command(pass_context=True)
 async def queue(ctx, *, name):
 	name = ctx.message.content.replace("m.queue ", '')
 	fullcontent = ('http://www.youtube.com/results?search_query=' + name)
