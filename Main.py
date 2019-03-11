@@ -77,16 +77,16 @@ async def urban(ctx):
     rq_json = json.loads(rq_link)
     await bot.say("Word: {}\nVotes: {}\nDefinitioin: {}\nExample: {}".format(rq_json['list'][0]['word'], rq_json['list'][0]['thumbs_up'], rq_json['list'][0]['definition'], rq_json['list'][0]['example']))
 
-@bot.command()
+@bot.command(pass_context=True)
 async def info(ctx, *, member: discord.Member):
     """Tells you some info about the member."""
     fmt = '{0} joined on {0.joined_at} and has {1} roles.'
-    await ctx.send(fmt.format(member, len(member.roles)))
+    await bot.say(fmt.format(member, len(member.roles)))
 
 @info.error
-async def info_error(ctx, error):
+async def info_error(error, ctx):
     if isinstance(error, commands.BadArgument):
-        await ctx.send('I could not find that member...')
+        await bot.say('I could not find that member...')
 	
 @bot.command(pass_context=True)
 async def userinfo(ctx, member: discord.Member = None):
