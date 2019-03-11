@@ -213,7 +213,7 @@ async def resume(ctx):
     await bot.say(embed=embed)
 	
 	
-@client.command()
+@bot.command()
 async def invite():
   	"""Bot Invite"""
   	await client.say("📧Check DMs For Information✅")
