@@ -81,7 +81,6 @@ start_time = time.time()
 bot = commands.Bot(command_prefix=("m."))
 songs = asyncio.Queue()
 play_next_song = asyncio.Event()
-client.remove_command("help")
 
 players = {}
 queues = {}
