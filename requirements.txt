@@ -2,8 +2,3 @@ discord
 asyncio
 pillow
 Image
-discord.py[voice]
-youtube-dl
-PyNaCl
-requests
-bs4
