@@ -77,6 +77,16 @@ async def urban(ctx):
     rq_json = json.loads(rq_link)
     await bot.say("Word: {}\nVotes: {}\nDefinitioin: {}\nExample: {}".format(rq_json['list'][0]['word'], rq_json['list'][0]['thumbs_up'], rq_json['list'][0]['definition'], rq_json['list'][0]['example']))
 
+@bot.command()
+async def info(ctx, *, member: discord.Member):
+    """Tells you some info about the member."""
+    fmt = '{0} joined on {0.joined_at} and has {1} roles.'
+    await ctx.send(fmt.format(member, len(member.roles)))
+
+@info.error
+async def info_error(ctx, error):
+    if isinstance(error, commands.BadArgument):
+        await ctx.send('I could not find that member...')
 	
 @bot.command(pass_context=True)
 async def userinfo(ctx, member: discord.Member = None):
@@ -735,32 +745,6 @@ async def test(ctx):
 	embed.set_image(url="https://cdn.discordapp.com/attachments/524655977832775710/541446963887996939/Fade_image.png")
 	await bot.send_message(channel, embed=embed)
 	
-@bot.command(pass_context=True)
-async def info(ctx):
-    '''Displays Info About The Server!'''
-
-    server = ctx.message.server
-    roles = [x.name for x in server.role_hierarchy]
-    role_length = len(roles)
-
-    roles = ', '.join(roles)
-    channelz = len(server.channels)
-    time = str(server.created_at); time = time.split(' '); time= time[0]
-    join = discord.Embed(description= '%s '%(str(server)),title = 'Server Name', color=0x00D5FF)
-    join.set_thumbnail(url = server.icon_url)
-    join.add_field(name = 'Owner', value = str(server.owner) + '\n' + server.owner.id)
-    join.add_field(name = 'ID', value = str(server.id))
-    join.add_field(name = 'Member Count', value = str(server.member_count))
-    join.add_field(name = 'Text/Voice Channels', value = str(channelz))
-    join.add_field(name = '__Roles (%s)__'%str(role_length), value = roles)
-    join.set_footer(text ='Created: %s'%time)
-    join.set_image(url="https://cdn.discordapp.com/attachments/524655977832775710/541446963887996939/Fade_image.png")
-
-    return await bot.say(embed = join)
-    channel = bot.get_channel('532949494036168706')
-    embed = discord.Embed(title=f"User: {ctx.message.author.name} have used info command", description=f"User ID: {ctx.message.author.id}", color=0xff9393)
-    embed.set_image(url="https://cdn.discordapp.com/attachments/524655977832775710/541446963887996939/Fade_image.png")	
-    await bot.send_message(channel, embed=embed)
 	
 @bot.command(name="report", pass_context=True)
 async def _report(ctx, user: discord.Member = None, *, arg = None):
