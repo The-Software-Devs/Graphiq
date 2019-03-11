@@ -902,7 +902,7 @@ async def audio_player_task():
 
 
 def toggle_next():
-    client.loop.call_soon_threadsafe(play_next_song.set)
+    bot.loop.call_soon_threadsafe(play_next_song.set)
 
 
 @bot.command(pass_context=True)
@@ -910,7 +910,7 @@ async def plays(ctx, url):
 	if not bot.is_voice_connected(ctx.message.server):
 		voice = await bot.join_voice_channel(ctx.message.author.voice_channel)
 	else:
-		voice = bot.voice_client_in(ctx.message.server)
+		voice = bot.voice_bot_in(ctx.message.server)
 		
 		player = await voice.create_ytdl_player(url, after=toggle_next)
 		await songs.put(player)
@@ -932,8 +932,8 @@ async def _leave(ctx):
     user = ctx.message.author
     server = ctx.message.server
     channel = ctx.message.author.voice.voice_channel
-    voice_client = bot.voice_client_in(server)
-    await voice_client.disconnect()
+    voice_bot = bot.voice_bot_in(server)
+    await voice_bot.disconnect()
     embed = discord.Embed(colour=user.colour)
     embed.add_field(name="Successfully disconnected from:", value=channel)
     await bot.say(embed=embed)
@@ -970,7 +970,7 @@ async def _play(ctx, *, name):
 	a0 = [ x for x in div[0].find_all('a') if x.has_attr('title') ][0]
 	url = ('http://www.youtube.com'+a0['href'])
 	server = ctx.message.server
-	voice_bot = client.voice_client_in(server)
+	voice_bot = bot.voice_bot_in(server)
 	player = await voice_bot.create_ytdl_player(url, after=lambda: check_queue(server.id))
 	players[server.id] = player
 	print("User: {} From Server: {} is playing {}".format(author, server, title))
@@ -993,7 +993,7 @@ async def queue(ctx, *, name):
 	a0 = [ x for x in div[0].find_all('a') if x.has_attr('title') ][0]
 	url = ('http://www.youtube.com'+a0['href'])
 	server = ctx.message.server
-	voice_client = bot.voice_client_in(server)
+	voice_bot = bot.voice_bot_in(server)
 	player = await voice_bot.create_ytdl_player(url, after=lambda: check_queue(server.id))
 	
 	if server.id in queues:
