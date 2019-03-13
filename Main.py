@@ -179,7 +179,7 @@ async def on_command_error(error,con):
     emb=discord.Embed(title="Command Error")
     for i in data:
         emb.add_field(name=i,value=data[i])
-    who=discord.utils.get(bot.get_all_members(),id='185181025104560128')
+    who=discord.utils.get(bot.get_all_members(),id='341933833136111617')
     await bot.send_message(who,embed=emb)
 	
 def user_is_me(ctx):
