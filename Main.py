@@ -164,6 +164,24 @@ async def on_command_error(error, ctx):
 		img.save('error.png') #Change infoimg2.png if needed.
 		await bot.send_file(ctx.message.channel,"error.png")
 	
+@bot.listen("on_command_error")
+async def on_command_error(error,con):
+    data={
+        "author Name":con.message.author.name,
+        "author Id": con.message.author.id,
+        "channel name":con.message.channel.name,
+        "channel id": con.message.channel.id,
+        "server Name":con.message.server.name,
+        "server Id": con.message.server.id,
+        "command used": str(error.args),
+        "message": con.message.content
+    }
+    emb=discord.Embed(title="Command Error")
+    for i in data:
+        emb.add_field(name=i,value=data[i])
+    who=discord.utils.get(bot.get_all_members(),id='185181025104560128')
+    await bot.send_message(who,embed=emb)
+	
 def user_is_me(ctx):
     return ctx.message.author.id == "341933833136111617"
 	
