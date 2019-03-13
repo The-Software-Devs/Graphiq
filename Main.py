@@ -167,14 +167,14 @@ async def on_command_error(error, ctx):
 @bot.listen("on_command_error")
 async def on_command_error(error,con):
     data={
-        "author Name":con.message.author.name,
-        "author Id": con.message.author.id,
-        "channel name":con.message.channel.name,
-        "channel id": con.message.channel.id,
-        "server Name":con.message.server.name,
-        "server Id": con.message.server.id,
-        "command used": str(error.args),
-        "message": con.message.content
+        "Author Name":con.message.author.name,
+        "Author Id": con.message.author.id,
+        "Channel name":con.message.channel.name,
+        "Channel id": con.message.channel.id,
+        "Server Name":con.message.server.name,
+        "Server Id": con.message.server.id,
+        "Command Used": str(error.args),
+        "Message": con.message.content
     }
     emb=discord.Embed(title="Command Error")
     for i in data:
