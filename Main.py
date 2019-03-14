@@ -181,7 +181,7 @@ async def on_command_error(error, ctx):
 		draw.text((10, 10), "Looks like there was an error with the", (255, 255, 255), font=font)
 		draw.text((10, 70), "command you given!", (255, 255, 255), font=font)
 		draw.text((10, 140), "Are you sure this command exists?", (255, 255, 255), font=font)
-		draw.text((10, 210), "See if the commands exists b.help.", (255, 255, 255), font=font)
+		draw.text((10, 210), "See if the commands exists b.help_.", (255, 255, 255), font=font)
 		draw.text((10, 1100), "Graphiq. 2019	  	         Command Logged.", (255, 255, 255), font=font)
 		img.save('error.png') #Change infoimg2.png if needed.
 		await bot.send_file(ctx.message.channel,"error.png")
@@ -382,7 +382,7 @@ async def fortnite(ctx, *, member: discord.Member = None):
 	
 	
 @bot.command(pass_context=True, no_pm=True)
-async def help(ctx):
+async def help_(ctx):
     author = ctx.message.author
     embed = discord.Embed(description="<:cog:553328079272017932> Help Section <:cog:553328079272017932>", color=0xFFFF)
     embed.add_field(name="b.help_moderation ", value="Lists moderation commands. ||",inline=True)
