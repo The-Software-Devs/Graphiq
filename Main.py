@@ -87,9 +87,6 @@ async def on_ready():
     bot.loop.create_task(picker())
     print("Change status for {} is ready!".format(bot.user.name))
 	
-
-	
-	
 	
 @bot.command(pass_context=True)
 async def urban(ctx):
