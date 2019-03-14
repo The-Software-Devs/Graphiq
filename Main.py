@@ -69,6 +69,28 @@ async def on_ready():
     print("Change status for {} is ready!".format(bot.user.name))
 	
 	
+ban_list=[]
+def get_prefix(bot, msg):
+
+    if msg.author.id in ban_list and msg.content.startswith('!'):
+        return msg.channel.send("Looks like your banned of using Graphiq. In this case you cannot use Graphiq commands __at all__. Contact the owner for more info.")
+
+    prefixes = ['b.']
+
+    return commands.when_mentioned_or(*prefixes)(bot, msg)
+
+
+
+bot=commands.Bot(case_insensitive=True,command_prefix=get_prefix)
+
+@bot.command()
+async def botban(msg,*users:discord.Member):
+    for i in users:
+        if i.id not in ban_list:
+            ban_list.append(i.id)
+	
+	
+	
 @bot.command(pass_context=True)
 async def urban(ctx):
     """USES URBAN DICT TO FIND DEFINITION OF WORDS. EX: s.urban neko"""
