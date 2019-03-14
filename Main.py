@@ -16,7 +16,6 @@ import urllib.request
 
 from discord.utils import get
 
-bot = commands.Bot(command_prefix = "b.")
 bot.remove_command('help')
 
 evn=bot.event
