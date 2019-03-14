@@ -377,9 +377,10 @@ async def fortnite(ctx, *, member: discord.Member = None):
     except:
         pass	
 	
+bot.remove_command('help')
 	
 @bot.command(pass_context=True, no_pm=True)
-async def help_(ctx):
+async def help(ctx):
     author = ctx.message.author
     embed = discord.Embed(description="<:cog:553328079272017932> Help Section <:cog:553328079272017932>", color=0xFFFF)
     embed.add_field(name="b.help_moderation ", value="Lists moderation commands. ||",inline=True)
@@ -398,6 +399,8 @@ async def help_(ctx):
     channel = bot.get_channel('543488075809030145')
     embed = discord.Embed(title=f"User: {ctx.message.author.name} have used help command", description=f"User ID: {ctx.message.author.id}", color=0xff9393)
     await bot.send_message(channel, embed=embed)
+	
+
 	
 @bot.command(pass_context=True) #pass the context of user
 @commands.has_permissions(manage_roles=True) #mkes it so that only people with this permission can use this command
