@@ -484,7 +484,7 @@ async def help_admin(ctx):
     embed.add_field(name="<a:checkmark:552893708387876884>", value="I've sent you a list of my ``Moderation`` commands in your **Direct Messages**",inline=True)
     await bot.say(embed=embed)
     channel = bot.get_channel('543488075809030145')
-    embed = discord.Embed(title=f"User: {ctx.message.author.name} have used **admin** help command", description=f"User ID: {ctx.message.author.id}", color=0xff9393)
+    embed = discord.Embed(title=f"User: {ctx.message.author.name} have used **admin** help_ command", description=f"User ID: {ctx.message.author.id}", color=0xff9393)
     await bot.send_message(channel, embed=embed)
 
 
