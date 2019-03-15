@@ -916,7 +916,7 @@ async def on_message(message):
 	
 	
 @bot.command(pass_context=True)
-async def test1(ctx, user: discord.Member):
+async def about, user: discord.Member):
     img = Image.open("infoimgimg.png") #Replace infoimgimg.png with your background image.
     draw = ImageDraw.Draw(img)
     font = ImageFont.truetype("Modern_Sans_Light.otf", 100) #Make sure you insert a valid font from your folder.
@@ -934,6 +934,19 @@ async def test1(ctx, user: discord.Member):
     await bot.upload("infoimgimg.png")
     await bot.say('<a:warning:552881993445015553> The bot needs to restart. Sorry about this. We will get Graphiq running as soon as possible.')
     await bot.logout()
+		
+	
+
+	
+'''
+New Command will go here on the 15/03/2019 at 4:20PM (GMT)
+
+Command reuqested by Robert.
+
+Thank you.
+'''
+	
+	
 	
 	
 bot.run(os.environ['BOT_TOKEN'])
