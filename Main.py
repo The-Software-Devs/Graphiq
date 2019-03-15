@@ -920,7 +920,7 @@ async def on_message(message):
 	
 	
 @bot.command(pass_context=True)
-async def about, user: discord.Member):
+async def about (ctx,user: discord.Member):
     img = Image.open("infoimgimg.png") #Replace infoimgimg.png with your background image.
     draw = ImageDraw.Draw(img)
     font = ImageFont.truetype("Modern_Sans_Light.otf", 100) #Make sure you insert a valid font from your folder.
