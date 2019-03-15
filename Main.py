@@ -122,6 +122,16 @@ async def userinfo(ctx, member: discord.Member = None):
     embed.add_field(name="Top role:", value=member.top_role.mention)
     await bot.send_message(ctx.message.channel,embed=embed)
 
+
+'''
+ @bot.command(pass_context=True)
+async def NameYourCommandHere(ctx):
+	await bot.say('Put What you want the ot to say here. You can copy awaiy bot.say anytime.')
+	time.sleep(Number of time you want to stoop the bot from processing the next line)
+	
+	Continue here.
+'''
+
 @bot.command(pass_context=True)
 async def afks(con):
     amt=0
