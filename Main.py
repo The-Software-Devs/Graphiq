@@ -98,6 +98,18 @@ async def on_member_remove(user):
     embed.add_field(name='<:cog:553328079272017932> Top Role',value=user.top_role)
     embed.set_footer(icon_url=user.avatar_url,text=user.joined_at)
     await bot.send_message(discord.Object(id='556904666714079237'),embed=embed)
+
+@bot.event
+async def on_member_join(user):
+    embed=discord.Embed(description=f'{user.name} has joined the server')
+    embed.add_field(name='<:member:556962083426795526> Member',value=user.name)
+    embed.add_field(name='<:member:556962083426795526> Member ID',value=user.id)
+    embed.add_field(name=':robot: Bot Account',value=user.bot)
+    embed.add_field(name='<:member:556962083426795526> Nickname',value=None)
+    embed.add_field(name='<:member:556962083426795526> Avatar URL',value=user.avatar_url)
+    embed.add_field(name='<:cog:553328079272017932> Top Role',value=user.top_role)
+    embed.set_footer(icon_url=user.avatar_url,text=user.joined_at)
+    await bot.send_message(discord.Object(id='556904666714079237'),embed=embed)
 	
 @bot.command(pass_context=True)
 async def urban(ctx):
