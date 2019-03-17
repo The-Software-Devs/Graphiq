@@ -87,6 +87,17 @@ async def on_ready():
     bot.loop.create_task(picker())
     print("Change status for {} is ready!".format(bot.user.name))
 	
+@bot.event
+async def on_member_leave(user):
+    embed=discord.Embed(description=f'{user.name} has left the server')
+    embed.add_field(name='<:member:556962083426795526> Member',value=user.name)
+    embed.add_field(name='<:member:556962083426795526> Member ID',value=user.id)
+    embed.add_field(name=':robot: Bot Account',value=user.bot)
+    embed.add_field(name='<:member:556962083426795526> Nickname',value=None)
+    embed.add_field(name='<:member:556962083426795526> Avatar URL',value=user.avatar_url)
+    embed.add_field(name='<:cog:553328079272017932> Top Role',value=user.top_role)
+    embed.add_field(name="<:setup:553330560160890890> Current Member Count", value=member.server.member_count)
+    embed.set_footer(icon_url=user.avatar_url,text=user.joined_at)
 	
 @bot.command(pass_context=True)
 async def urban(ctx):
@@ -380,19 +391,6 @@ async def fortnite(ctx, *, member: discord.Member = None):
                 await bot.say(embed=embed)
     except:
         pass	
-
-
-@bot.event
-async def on_member_leave(user):
-    emb=discord.Embed(description=f'{user.name} has left the server')
-    emb.add_field(name='<:member:556962083426795526> Member',value=user.name)
-    emb.add_field(name='<:member:556962083426795526> Member ID',value=user.id)
-    emb.add_field(name=':robot: Bot Account',value=user.bot)
-    emb.add_field(name='<:member:556962083426795526> Nickname',value=None)
-    emb.add_field(name='<:member:556962083426795526> Avatar URL',value=user.avatar_url)
-    emb.add_field(name='<:cog:553328079272017932> Top Role',value=user.top_role)
-    emb.add_field(name="<:setup:553330560160890890> Current Member Count", value=member.server.member_count)
-    emb.set_footer(icon_url=user.avatar_url,text=user.joined_at)
 
 	
 bot.remove_command('help')
