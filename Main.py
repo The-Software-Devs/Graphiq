@@ -85,7 +85,7 @@ async def picker():
 @bot.event
 async def on_ready():
     bot.loop.create_task(picker())
-    print("Change status for {} is ready!".format(bot.user.name))
+    print("{} has successfully booted and running!".format(bot.user.name))
 	
 @bot.event
 async def on_member_leave(user):
