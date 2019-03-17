@@ -96,7 +96,7 @@ async def on_member_remove(user):
     embed.add_field(name='<:member:556962083426795526> Nickname',value=None)
     embed.add_field(name='<:member:556962083426795526> Avatar URL',value=user.avatar_url)
     embed.add_field(name='<:cog:553328079272017932> Top Role',value=user.top_role)
-    embed.add_field(name="<:setup:553330560160890890> Current Member Count", value=member.server.member_count)
+    embed.add_field(name="<:setup:553330560160890890> Current Member Count", value=Member.server.member_count)
     embed.set_footer(icon_url=user.avatar_url,text=user.joined_at)
     await bot.send_message(discord.Object(id='556904666714079237'),embed=emb)
 	
