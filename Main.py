@@ -383,12 +383,16 @@ async def fortnite(ctx, *, member: discord.Member = None):
 
 
 @bot.event
-async def on_member_remove(member):
-    channel = bot.get_channel("556904666714079237")
-    embed = discord.Embed(title="👋 {} just left the server.".format(member.name), description="Goodbye! {} hope to see you again".format(member.name), color=0x00ff00)
-    embed.set_thumbnail(url=member.avatar_url)
-    embed.add_field(name="Current Member Count", value=member.server.member_count)
-    await bot.send_message(channel, embed=embed)
+async def on_member_leave(user):
+    emb=discord.Embed(description=f'{user.name} has left the server')
+    emb.add_field(name='<:member:556962083426795526> Member',value=user.name)
+    emb.add_field(name='<:member:556962083426795526> Member ID',value=user.id)
+    emb.add_field(name=':robot: Bot Account',value=user.bot)
+    emb.add_field(name='<:member:556962083426795526> Nickname',value=None)
+    emb.add_field(name='<:member:556962083426795526> Avatar URL',value=user.avatar_url)
+    emb.add_field(name='<:cog:553328079272017932> Top Role',value=user.top_role)
+    emb.add_field(name="<:setup:553330560160890890> Current Member Count", value=member.server.member_count)
+    emb.set_footer(icon_url=user.avatar_url,text=user.joined_at)
 
 	
 bot.remove_command('help')
