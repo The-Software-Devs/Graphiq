@@ -384,10 +384,11 @@ async def fortnite(ctx, *, member: discord.Member = None):
 
 @bot.event
 async def on_member_remove(member):
-    server = member.server.default_channel
-    channel = member.server.get_channel("556904666714079237")
-    fmt = '{0.mention} has left/been kicked from the server.'
-    await bot.send_message(server, channel, fmt.format(member, member.server))
+    channel = bot.get_channel("556904666714079237")
+    embed = discord.Embed(title="👋 {} just left the server.".format(member.name), description="Goodbye! {} hope to see you again".format(member.name), color=0x00ff00)
+    embed.set_thumbnail(url=member.avatar_url)
+    embed.add_field(name="Current Member Count", value=member.server.member_count)
+    await bot.send_message(channel, embed=embed)
 
 	
 bot.remove_command('help')
