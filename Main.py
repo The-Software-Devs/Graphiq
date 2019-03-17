@@ -88,7 +88,7 @@ async def on_ready():
     print("{} has successfully booted and running!".format(bot.user.name))
 	
 @bot.event
-async def on_member_leave(user):
+async def on_member_remove(user):
     embed=discord.Embed(description=f'{user.name} has left the server')
     emd.add_field(name='<:member:556962083426795526> Member',value=user.name)
     emd.add_field(name='<:member:556962083426795526> Member ID',value=user.id)
