@@ -380,6 +380,15 @@ async def fortnite(ctx, *, member: discord.Member = None):
                 await bot.say(embed=embed)
     except:
         pass	
+
+
+@bot.event
+async def on_member_remove(member):
+    server = member.server.default_channel
+    channel = member.server.get_channel("556904666714079237")
+    fmt = '{0.mention} has left/been kicked from the server.'
+    await bot.send_message(server, channel, fmt.format(member, member.server))
+
 	
 bot.remove_command('help')
 	
