@@ -383,7 +383,7 @@ async def fortnite(ctx, *, member: discord.Member = None):
 
 
 @bot.event
-async def on_member_remove(member):
+async def on_member_leave(member):
     server = member.server.default_channel
     channel = member.server.get_channel("556904666714079237")
     fmt = '{0.mention} has left/been kicked from the server.'
