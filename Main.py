@@ -89,13 +89,14 @@ async def on_ready():
 	
 @bot.event
 async def on_member_remove(user):
-    embed=discord.Embed(description=f'{user.name} has left the server')
+    embed=discord.Embed(description=f'{user.name} has left a server')
     embed.add_field(name='<:member:556962083426795526> Member',value=user.name)
     embed.add_field(name='<:member:556962083426795526> Member ID',value=user.id)
     embed.add_field(name=':robot: Bot Account',value=user.bot)
     embed.add_field(name='<:member:556962083426795526> Nickname',value=None)
     embed.add_field(name='<:member:556962083426795526> Avatar URL',value=user.avatar_url)
     embed.add_field(name='<:cog:553328079272017932> Top Role',value=user.top_role)
+    embed.add_field(name='<:cog:553328079272017932> Server Name ',value=user.server.name)
     embed.set_footer(icon_url=user.avatar_url,text=user.joined_at)
     await bot.send_message(discord.Object(id='556971586230550549'),embed=embed)
 
