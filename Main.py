@@ -102,7 +102,6 @@ async def on_member_remove(user):
 
 @bot.event
 async def on_member_join(user):
-if user.server.id !='264445053596991498':
     embed=discord.Embed(description=f'{user.name} has joined a server')
     embed.add_field(name='<:member:556962083426795526> Member',value=user.name)
     embed.add_field(name='<:member:556962083426795526> Member ID',value=user.id)
