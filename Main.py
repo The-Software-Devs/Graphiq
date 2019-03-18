@@ -35,7 +35,7 @@ async def botban(msg,*users:discord.Member):
     for i in users:
         if i.id not in ban_list:
             ban_list.append(i.id)
-
+ 	
 bot.remove_command('help')
 
 evn=bot.event
@@ -89,7 +89,7 @@ async def on_ready():
 	
 @bot.event
 async def on_member_remove(user):
-    embed=discord.Embed(description=f'{user.name} has left a server')
+    embed=discord.Embed(description=f'<a:alert:557215953839194123>{user.name} has left a server <a:alert:557215953839194123>')
     embed.add_field(name='<:member:556962083426795526> Member',value=user.name)
     embed.add_field(name='<:member:556962083426795526> Member ID',value=user.id)
     embed.add_field(name=':robot: Bot Account',value=user.bot)
@@ -102,7 +102,7 @@ async def on_member_remove(user):
 
 @bot.event
 async def on_member_join(user):
-    embed=discord.Embed(description=f'{user.name} has joined a server')
+    embed=discord.Embed(description=f'<a:warning:557215838294507520> {user.name} has joined a server <a:warning:557215838294507520>')
     embed.add_field(name='<:member:556962083426795526> Member',value=user.name)
     embed.add_field(name='<:member:556962083426795526> Member ID',value=user.id)
     embed.add_field(name=':robot: Bot Account',value=user.bot)
