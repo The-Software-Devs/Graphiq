@@ -148,8 +148,26 @@ async def userinfo(ctx, member: discord.Member = None):
     await bot.send_message(ctx.message.channel,embed=embed)
 
 
-
-
+@bot.command(pass_context=True, no_pm=True)
+async def helpcommands(ctx):
+    author = ctx.message.author
+    embed = discord.Embed(description="<a:alert:557215953839194123> You requested help {}? Well here it is!".format{user.name}, color=0xFFFF)
+    embed.add_field(name="Welcome to the help commands! ", value="If you need any help feel free to contact the person who added Graphiq#6148!",inline=True)
+    embed.add_field(name="b.help_fun", value="Lists fun commands. ||",inline=True)
+    embed.add_field(name="b.help_admin", value="Lists Administrator commands.",inline=True)
+    embed.add_field(name="b.help_credits", value="Lists all the help from Developers to staff.",inline=True)
+    embed.set_footer(text="Requested by: " + author.name)
+    await bot.send_message(author, embed=embed)
+    embed = discord.Embed(description=" ", color=0xFFFF)
+    m=await bot.say("<a:Graphiqloading:551796596350910475>")
+    await asyncio.sleep(2)
+    await bot.delete_message(m)
+    em=discord.Embed()
+    em.add_field(name="<a:checkmark:552893708387876884> Success!", value="I've sent you a list of my commands in your **Direct Messages**",inline=True)
+    await bot.say(embed=em)
+    channel = bot.get_channel('543488075809030145')
+    embed = discord.Embed(title=f"User: {ctx.message.author.name} have used help command", description=f"User ID: {ctx.message.author.id}", color=0xff9393)
+    await bot.send_message(channel, embed=embed)
 
 @bot.command(pass_context=True)
 async def afks(con):
