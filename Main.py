@@ -169,24 +169,6 @@ async def helpcommands_test(ctx):
     channel = bot.get_channel('543488075809030145')
     embed = discord.Embed(title=f"User: {ctx.message.author.name} have used help command", description=f"User ID: {ctx.message.author.id}", color=0xff9393)
     await bot.send_message(channel, embed=embed)
-	
-@bot.listen("helpcommands_test")
-async def helpcommands_test(error,con):
-    data={
-        "Author Name":con.message.author.name,
-        "Author Id": con.message.author.id,
-        "Channel name":con.message.channel.name,
-        "Channel id": con.message.channel.id,
-        "Server Name":con.message.server.name,
-        "Server Id": con.message.server.id,
-        "Command Used": str(error.args),
-        "Message": con.message.content
-    }
-    emb=discord.Embed(title="Command Error")
-    for i in data:
-        emb.add_field(name=i,value=data[i])
-    who=discord.utils.get(bot.get_all_members(),id='341933833136111617')
-    await bot.send_message(who,embed=emb)
 
 @bot.command(pass_context=True)
 async def afks(con):
