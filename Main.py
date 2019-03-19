@@ -147,11 +147,9 @@ async def userinfo(ctx, member: discord.Member = None):
     embed.add_field(name="Top role:", value=member.top_role.mention)
     await bot.send_message(ctx.message.channel,embed=embed)
 
-def user_is_me1(ctx):
-    return ctx.message.author.id == "341933833136111617"
 
 @bot.command(pass_context=True, no_pm=True)
-@commands.check(user_is_me1)
+@commands.check(user_is_me)
 async def helpcommands_test(ctx):
     author = ctx.message.author
     embed = discord.Embed(description="<a:alert:557215953839194123> You requested help? Here it is!",color=0xFFFF)
