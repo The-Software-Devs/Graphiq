@@ -232,7 +232,7 @@ async def on_command_error(error,con):
 	
 	
 @bot.command(pass_context=True)
-async def helpcommands(ctx):
+async def helpcommands(ctx,user: discord.Member):
 	if isinstance():
 		img = Image.open("HoldOnHelpIsOnTheWay.png") #Replace infoimgimg.png with your background image.
 		draw = ImageDraw.Draw(img)
