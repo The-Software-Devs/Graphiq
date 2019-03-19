@@ -231,22 +231,6 @@ async def on_command_error(error,con):
     await bot.send_message(who,embed=emb)
 	
 	
-@bot.command(pass_context=True)
-async def helpcommands(ctx,user: discord.Member):
-	if isinstance():
-		img = Image.open("HoldOnHelpIsOnTheWay.png") #Replace infoimgimg.png with your background image.
-		draw = ImageDraw.Draw(img)
-		font = ImageFont.truetype("Modern_Sans_Light.otf", 80) #Make sure you insert a valid font from your folder.
-		fontbig = ImageFont.truetype("Fitamint Script.ttf", 400) #Make sure you insert a valid font from your folder.
-		#    (x,y)::↓ ↓ ↓ (text)::↓ ↓     (r,g,b)::↓ ↓ ↓
-		draw.text((10, 10), "Help Is Here! {}",{user.name}, (255, 255, 255), font=font,)
-		draw.text((10, 70), "Test", (255, 255, 255), font=font)
-		draw.text((10, 140), "Test", (255, 255, 255), font=font)
-		draw.text((10, 210), "Test", (255, 255, 255), font=font)
-		draw.text((10, 1100), "Graphiq. 2019	  	         Command Logged.", (255, 255, 255), font=font)
-		img.save('error.png') #Change infoimg2.png if needed.
-		await bot.send_file(ctx.message.channel,"HoldOnHelpIsOnTheWay.png")
-	
 def user_is_me(ctx):
     return ctx.message.author.id == "341933833136111617"
 	
@@ -982,7 +966,23 @@ async def about (ctx,user: discord.Member):
     await bot.say('<a:warning:552881993445015553> The bot needs to restart. Sorry about this. We will get Graphiq running as soon as possible.')
     await bot.logout()
 		
-	
+@bot.command(pass_context=True)
+async def helpcommands (ctx,user: discord.Member):
+    img = Image.open("infoimgimg.png") #Replace infoimgimg.png with your background image.
+    draw = ImageDraw.Draw(img)
+    font = ImageFont.truetype("Modern_Sans_Light.otf", 100) #Make sure you insert a valid font from your folder.
+    fontbig = ImageFont.truetype("Fitamint Script.ttf", 400) #Make sure you insert a valid font from your folder.
+    #    (x,y)::↓ ↓ ↓ (text)::↓ ↓     (r,g,b)::↓ ↓ ↓
+    draw.text((200, 0), "Help Commands:", (255, 255, 255), font=fontbig)
+    draw.text((50, 500), "Requested by: {}".format(user.name), (255, 255, 255), font=font)
+    draw.text((50, 700), "ID:  {}".format(user.id), (255, 255, 255), font=font)
+    draw.text((50, 900), "User Status: {}".format(user.status), (255, 255, 255), font=font)
+    draw.text((50, 1100), "Account created: {}".format(user.created_at), (255, 255, 255), font=font)
+    draw.text((50, 1300), "Nickname: {}".format(user.display_name), (255, 255, 255), font=font)
+    draw.text((50, 1500), "Users' Top Role: {}".format(user.top_role), (255, 255, 255), font=font)
+    draw.text((50, 1700), "Commands:"(255, 255, 255), font=font)
+    img.save('infoimgimg.png') #Change infoimg2.png if needed.
+    await bot.upload("infoimgimg.png")
 
 	
 '''
