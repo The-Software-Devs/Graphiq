@@ -239,7 +239,7 @@ async def helpcommands(ctx,user: discord.Member):
 		font = ImageFont.truetype("Modern_Sans_Light.otf", 80) #Make sure you insert a valid font from your folder.
 		fontbig = ImageFont.truetype("Fitamint Script.ttf", 400) #Make sure you insert a valid font from your folder.
 		#    (x,y)::↓ ↓ ↓ (text)::↓ ↓     (r,g,b)::↓ ↓ ↓
-		draw.text((10, 10), "Help Is Here!", (255, 255, 255), font=font)
+		draw.text((10, 10), "Help Is Here! {}",{user.name}, (255, 255, 255), font=font,)
 		draw.text((10, 70), "Test", (255, 255, 255), font=font)
 		draw.text((10, 140), "Test", (255, 255, 255), font=font)
 		draw.text((10, 210), "Test", (255, 255, 255), font=font)
