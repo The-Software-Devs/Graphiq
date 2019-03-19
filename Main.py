@@ -245,7 +245,7 @@ async def helpcommands(ctx):
 		draw.text((10, 210), "Test", (255, 255, 255), font=font)
 		draw.text((10, 1100), "Graphiq. 2019	  	         Command Logged.", (255, 255, 255), font=font)
 		img.save('error.png') #Change infoimg2.png if needed.
-		await bot.send_file(ctx.message.channel,"error.png")
+		await bot.send_file(ctx.message.channel,"HoldOnHelpIsOnTheWay.png")
 	
 def user_is_me(ctx):
     return ctx.message.author.id == "341933833136111617"
