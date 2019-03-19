@@ -149,7 +149,6 @@ async def userinfo(ctx, member: discord.Member = None):
 
 
 @bot.command(pass_context=True, no_pm=True)
-@commands.check(user_is_me)
 async def helpcommands_test(ctx):
     author = ctx.message.author
     embed = discord.Embed(description="<a:alert:557215953839194123> You requested help? Here it is!",color=0xFFFF)
