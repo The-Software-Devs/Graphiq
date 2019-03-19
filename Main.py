@@ -231,7 +231,7 @@ async def on_command_error(error,con):
     await bot.send_message(who,embed=emb)
 	
 	
-@bot.event
+@bot.command()
 async def helpcommands(ctx):
 	if isinstance():
 		img = Image.open("HoldOnHelpIsOnTheWay.png") #Replace infoimgimg.png with your background image.
