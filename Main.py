@@ -149,7 +149,7 @@ async def userinfo(ctx, member: discord.Member = None):
 
 
 @bot.command(pass_context=True, no_pm=True)
-async def helpcommands(ctx, member: discord.Member):
+async def helpcommands_test(ctx, member: discord.Member):
     author = ctx.message.author
     embed = discord.Embed(description="<a:alert:557215953839194123> You requested help? Here it is!",color=0xFFFF)
     embed.add_field(name="Welcome to the help commands! ", value="If you need any help feel free to contact the person who added Graphiq#6148!",inline=True)
