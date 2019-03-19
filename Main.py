@@ -147,9 +147,12 @@ async def userinfo(ctx, member: discord.Member = None):
     embed.add_field(name="Top role:", value=member.top_role.mention)
     await bot.send_message(ctx.message.channel,embed=embed)
 
+def user_is_me1(ctx):
+    return ctx.message.author.id == "341933833136111617"
 
 @bot.command(pass_context=True, no_pm=True)
-async def helpcommands_test(ctx, member: discord.Member):
+@commands.check(user_is_me1)
+async def helpcommands_test(ctx):
     author = ctx.message.author
     embed = discord.Embed(description="<a:alert:557215953839194123> You requested help? Here it is!",color=0xFFFF)
     embed.add_field(name="Welcome to the help commands! ", value="If you need any help feel free to contact the person who added Graphiq#6148!",inline=True)
@@ -168,6 +171,18 @@ async def helpcommands_test(ctx, member: discord.Member):
     channel = bot.get_channel('543488075809030145')
     embed = discord.Embed(title=f"User: {ctx.message.author.name} have used help command", description=f"User ID: {ctx.message.author.id}", color=0xff9393)
     await bot.send_message(channel, embed=embed)
+	
+@bot.listen("helpcommands_test")
+async def on_command_error(error,con):
+    data={
+        "Author Name":con.message.author.name,
+        "Author Id": con.message.author.id,
+        "Channel name":con.message.channel.name,
+        "Channel id": con.message.channel.id,
+        "Server Name":con.message.server.name,
+        "Server Id": con.message.server.id,
+        "Command Used": str(error.args),
+        "Message": con.message.content
 
 @bot.command(pass_context=True)
 async def afks(con):
