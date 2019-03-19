@@ -234,15 +234,15 @@ async def on_command_error(error,con):
 @bot.event
 async def helpcommands(ctx):
 	if isinstance():
-		img = Image.open("error.png") #Replace infoimgimg.png with your background image.
+		img = Image.open("HoldOnHelpIsOnTheWay.png") #Replace infoimgimg.png with your background image.
 		draw = ImageDraw.Draw(img)
 		font = ImageFont.truetype("Modern_Sans_Light.otf", 80) #Make sure you insert a valid font from your folder.
 		fontbig = ImageFont.truetype("Fitamint Script.ttf", 400) #Make sure you insert a valid font from your folder.
 		#    (x,y)::↓ ↓ ↓ (text)::↓ ↓     (r,g,b)::↓ ↓ ↓
-		draw.text((10, 10), "Looks like there was an error with the", (255, 255, 255), font=font)
-		draw.text((10, 70), "command you given!", (255, 255, 255), font=font)
-		draw.text((10, 140), "Are you sure this command exists?", (255, 255, 255), font=font)
-		draw.text((10, 210), "See if the commands exists b.help.", (255, 255, 255), font=font)
+		draw.text((10, 10), "Help Is Here!", (255, 255, 255), font=font)
+		draw.text((10, 70), "Test", (255, 255, 255), font=font)
+		draw.text((10, 140), "Test", (255, 255, 255), font=font)
+		draw.text((10, 210), "Test", (255, 255, 255), font=font)
 		draw.text((10, 1100), "Graphiq. 2019	  	         Command Logged.", (255, 255, 255), font=font)
 		img.save('error.png') #Change infoimg2.png if needed.
 		await bot.send_file(ctx.message.channel,"error.png")
