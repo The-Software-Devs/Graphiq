@@ -947,6 +947,7 @@ async def restart(ctx):
     await asyncio.sleep(4)
     await bot.edit_message(m1,new_content=':white_check_mark: Bot Restarted Sucessfully!')
 
+
 @bot.event
 async def on_message(message):
 	if message.content.startswith('Hello'):
@@ -1003,15 +1004,117 @@ async def helpcommands (ctx,user: discord.Member):
     await bot.upload("infoimgimg.png")
 
 	
-'''
-New Command will go here on the 15/03/2019 at 4:20PM (GMT)
+# This bit is not recommended to view by ANYONE.
 
-Command reuqested by Robert.
 
-Thank you.
-'''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	
-	
-	
-	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# I'm a sado... Don't judge me.
+
+
+
+
+@bot.command(pass_context=True)
+async def updates(ctx):
+    m1=await bot.say('<a:Daxarloading:545749821089120258> Checking the lastest bot updates...')
+    await asyncio.sleep(4)
+    await bot.edit_message(m1,new_content='<a:alert:557215953839194123> New Updates!')
+    await asyncio.sleep(4)
+    await bot.edit_message(m1,new_content='<a:alert:557215953839194123> We beleive at iCodeTM that we think it`s the best thing to do is shutdown Graphiq. We may change bot names but we think it`s for the best that we should shutdown Graphiq.')
+    await asyncio.sleep(4)
+    m2=await bot.edit_message(m1,new_content='<a:checkmark:552893708387876884> Thank you for understanding. This message will delete.')
+    await bot.delete_message(m2)
 bot.run(os.environ['BOT_TOKEN'])
