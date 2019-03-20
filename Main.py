@@ -99,18 +99,6 @@ async def on_member_remove(user):
     embed.add_field(name='<:cog:553328079272017932> Server Name ',value=user.server.name)
     embed.set_footer(icon_url=user.avatar_url,text=user.joined_at)
     await bot.send_message(discord.Object(id='556971586230550549'),embed=embed)
-	
-@bot.command(pass_context=True, no_pm=False)
-async def aboutme(ctx, user):
-    author = ctx.message.author
-    embed = discord.Embed(description="Here's what i can find about you!", color=0xFFFF)
-    embed.add_field(name='<:member:556962083426795526> Member',value=user.name)
-    embed.add_field(name='<:member:556962083426795526> Member ID',value=user.id)
-    embed.add_field(name='<:member:556962083426795526> Nickname',value=None)
-    embed.add_field(name='<:member:556962083426795526> Avatar URL',value=user.avatar_url)
-    embed.add_field(name='<:cog:553328079272017932> Top Role',value=user.top_role)
-    embed.set_footer(text="Requested by: " + author.name)
-    await bot.send_message(author, embed=embed)
 
 @bot.event
 async def on_member_join(user):
