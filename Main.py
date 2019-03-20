@@ -1098,5 +1098,6 @@ async def updates(ctx):
     await bot.edit_message(m1,new_content='<a:Graphiqloading:551796596350910475> Checking new commands...')
     await asyncio.sleep(5)
     await bot.edit_message(m1,new_content='No New Commands are available at the moment. Check again another time.')
-    await bot.delete_message(m2)
+
+
 bot.run(os.environ['BOT_TOKEN'])
