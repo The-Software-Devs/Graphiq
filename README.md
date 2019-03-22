@@ -6,5 +6,4 @@
 Welcome to iCode 
 
 `Commands:`
-`dd`
-`mm`
+`Commands Updating as soon as possible!`
