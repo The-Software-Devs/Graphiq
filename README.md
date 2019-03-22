@@ -5,6 +5,6 @@
 
 Welcome to iCode 
 
-`Commands:
-hh
-`
+`Commands:`
+`dd`
+`mm`
