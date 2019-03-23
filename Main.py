@@ -124,6 +124,35 @@ async def userinfo(ctx, member: discord.Member = None):
     await bot.send_message(ctx.message.channel,embed=embed)
 
 
+@bot.event
+async def on_member_remove(user):
+    embed=discord.Embed(description=f'<a:alert:557215953839194123>{user.name} has left a server!')
+    embed.add_field(name='<:member:556962083426795526> Member',value=user.name)
+    embed.add_field(name='<:member:556962083426795526> Member ID',value=user.id)
+    embed.add_field(name=':robot: Bot Account',value=user.bot)
+    embed.add_field(name='<:member:556962083426795526> Nickname',value=None)
+    embed.add_field(name='<:member:556962083426795526> Avatar URL',value=user.avatar_url)
+    embed.add_field(name='<:cog:553328079272017932> Top Role',value=user.top_role)
+    embed.add_field(name='<:cog:553328079272017932> Server Name ',value=user.server.name)
+    embed.set_footer(icon_url=user.avatar_url,text=user.joined_at)
+    await bot.send_message(discord.Object(id='556971586230550549'),embed=embed)
+
+@bot.event
+async def on_member_join(user):
+channel = discord.utils.get(bot.get_all_channels(), server__name='Yuno', name='server-logs')
+    embed=discord.Embed(description=f'<a:warning:557215838294507520> {user.name} has joined a server!')
+    embed.add_field(name='<:member:556962083426795526> Member',value=user.name)
+    embed.add_field(name='<:member:556962083426795526> Member ID',value=user.id)
+    embed.add_field(name=':robot: Bot Account',value=user.bot)
+    embed.add_field(name='<:member:556962083426795526> Nickname',value=None)
+    embed.add_field(name='<:member:556962083426795526> Avatar URL',value=user.avatar_url)
+    embed.add_field(name='<:cog:553328079272017932> Top Role',value=user.top_role)
+    embed.add_field(name='<:cog:553328079272017932> Server Name ',value=user.server.name)
+    embed.set_footer(icon_url=user.avatar_url,text=user.joined_at)
+    await bot.send_message(discord.Object(id='556971586230550549'),embed=embed)
+
+	
+
 @bot.command(pass_context=True, no_pm=True)
 async def helpcommands_test(ctx):
     author = ctx.message.author
