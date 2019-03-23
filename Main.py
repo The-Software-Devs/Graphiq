@@ -149,7 +149,7 @@ async def on_member_join(user):
     embed.add_field(name='<:cog:553328079272017932> Top Role',value=user.top_role)
     embed.add_field(name='<:cog:553328079272017932> Server Name ',value=user.server.name)
     embed.set_footer(icon_url=user.avatar_url,text=user.joined_at)
-    await bot.send_message(discord.Object(id='556904666714079237'),embed=embed)
+    await bot.send_message(discord.Object(id='556971586230550549'),embed=embed)
 
 	
 
