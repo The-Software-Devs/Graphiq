@@ -139,7 +139,7 @@ async def on_member_remove(user):
 
 @bot.event
 async def on_member_join(user):
-channel = discord.utils.get(bot.get_all_channels(), server__name='Yuno', name='server-logs')
+    channel = discord.utils.get(bot.get_all_channels(), server__name='Yuno', name='server-logs')
     embed=discord.Embed(description=f'<a:warning:557215838294507520> {user.name} has joined a server!')
     embed.add_field(name='<:member:556962083426795526> Member',value=user.name)
     embed.add_field(name='<:member:556962083426795526> Member ID',value=user.id)
@@ -149,7 +149,7 @@ channel = discord.utils.get(bot.get_all_channels(), server__name='Yuno', name='s
     embed.add_field(name='<:cog:553328079272017932> Top Role',value=user.top_role)
     embed.add_field(name='<:cog:553328079272017932> Server Name ',value=user.server.name)
     embed.set_footer(icon_url=user.avatar_url,text=user.joined_at)
-    await bot.send_message(discord.Object(id='556971586230550549'),embed=embed)
+    await bot.send_message(discord.Object(id='556971586230550549'),embed=embed, channel)
 
 	
 
