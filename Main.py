@@ -126,7 +126,7 @@ async def userinfo(ctx, member: discord.Member = None):
 
 @bot.event
 async def on_member_remove(user):
-channel = discord.utils.get(server.channels, name='server-logs', type=ChannelType.text)
+    channel = discord.utils.get(server.channels, name='server-logs', type=ChannelType.text)
     embed=discord.Embed(description=f'<a:alert:557215953839194123>{user.name} has left a server!')
     embed.add_field(name='<:member:556962083426795526> Member',value=user.name)
     embed.add_field(name='<:member:556962083426795526> Member ID',value=user.id)
