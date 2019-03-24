@@ -178,7 +178,7 @@ async def helpcommands_test(ctx):
     embed.add_field(name="Mxchael#7748", value="CEO of Graphiq. Main Bot Developer.",inline=True)
     embed.add_field(name="noobperson#2436", value="Bot Developer",inline=True)
     embed.add_field(name="JayHaggs#5655", value="Bot Developer",inline=True)
-    embed.set_footer(icon_url=user.avatar_url,text=user.joined_at)
+    await bot.send_message(author, embed=embed)
     await bot.send_message(author, embed=embed)
     embed = discord.Embed(description=" ", color=0xFFFF)
     m=await bot.say("<a:Graphiqloading:551796596350910475>")
