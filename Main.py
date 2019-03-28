@@ -130,7 +130,6 @@ async def setup(ctx):
     await bot.create_channel(server, 'Music Commands',user)
     await bot.create_channel(server, 'Chill Zone', type=discord.ChannelType.voice)
     await bot.say("Successfully created channels and roles in your server. Thank you for using b.setup")
-print(f"{ctx.message.author.name} from {ctx.message.server} used d!setup command")
 	
 	
 @bot.command(pass_context=True)
