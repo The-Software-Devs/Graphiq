@@ -98,6 +98,41 @@ async def urban(ctx):
     rq_json = json.loads(rq_link)
     await bot.say("Word: {}\nVotes: {}\nDefinitioin: {}\nExample: {}".format(rq_json['list'][0]['word'], rq_json['list'][0]['thumbs_up'], rq_json['list'][0]['definition'], rq_json['list'][0]['example']))
 
+@bot.command(pass_context = True)
+@commands.has_permissions(administrator=True)
+async def setup(ctx):
+    author = ctx.message.author
+    server = ctx.message.server
+    mod_perms = discord.Permissions(manage_messages=True, kick_members=True, manage_nicknames =True, mute_members=True)
+    admin_perms = discord.Permissions(ADMINISTRATOR=True)
+    
+    await bot.create_role(author.server, name="Owner", permissions=admin_perms)
+    await bot.create_role(author.server, name="Admin", permissions=admin_perms)
+    await bot.create_role(author.server, name="Senior Moderator", permissions=mod_perms)
+    await bot.create_role(author.server, name="G.O.H")
+    await bot.create_role(author.server, name="Moderator", permissions=mod_perms)
+    await bot.create_role(author.server, name="Muted")
+    
+    await bot.create_role(author.server, name="Friend of Owner")
+    await bot.create_role(author.server, name="Verified")
+    everyone_perms = discord.PermissionOverwrite(send_messages=False, read_messages=True)
+    everyone = discord.ChannelPermissions(target=server.default_role, overwrite=everyone_perms)
+    user_perms = discord.PermissionOverwrite(read_messages=True)
+    user = discord.ChannelPermissions(target=server.default_role, overwrite=user_perms)
+    private_perms = discord.PermissionOverwrite(read_messages=False)
+    await bot.create_channel(server, 'Welcome',everyone)
+    await bot.create_channel(server, 'Rules',everyone)
+    await bot.create_channel(server, 'Annoncements',everyone)
+    await bot.create_channel(server, 'General',user)
+    await bot.create_channel(server, 'Bot commands',user)
+    await bot.create_channel(server, 'Giveaways',user)
+    await bot.create_channel(server, 'Music Zone', type=discord.ChannelType.voice)
+    await bot.create_channel(server, 'Music Commands',user)
+    await bot.create_channel(server, 'Chill Zone', type=discord.ChannelType.voice)
+    await bot.say("Successfully created channels and roles in your server. Thank you for using b.setup")
+print(f"{ctx.message.author.name} from {ctx.message.server} used d!setup command")
+	
+	
 @bot.command(pass_context=True)
 async def info(ctx, *, member: discord.Member):
     """Tells you some info about the member."""
