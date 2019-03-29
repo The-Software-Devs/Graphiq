@@ -87,7 +87,9 @@ async def on_ready():
     bot.loop.create_task(picker())
     print("{} has successfully booted and running!".format(bot.user.name))
 	
-
+@bot.command(pass_context=True)
+async def currentversion(ctx):
+	await bot.say ("Version v1.7")
 	
 @bot.command(pass_context=True)
 async def urban(ctx):
